@@ -9,7 +9,7 @@
       if (target.length) {
         $('html, body').animate({
           scrollTop: (target.offset().top)
-        }, 1000, "easeInOutExpo");
+        }, 200 , "easeInOutExpo");
         return false;
       }
     }
@@ -21,8 +21,12 @@
   });
 
   // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#sideNav'
-  });
+  const sideNav = document.body.querySelector('#sideNav');
+    if (sideNav) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#sideNav',
+            offset: 72,
+        });
+    };
 
 })(jQuery); // End of use strict
