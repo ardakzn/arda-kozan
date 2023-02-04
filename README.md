@@ -1,4 +1,3 @@
-# [Start Bootstrap - Resume](https://startbootstrap.com/template-overviews/resume/)
 
 Link: https://ardakzn.github.io/arda-kozan/
 
