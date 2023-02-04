@@ -1,5 +1,8 @@
 
 Link: https://ardakzn.github.io/arda-kozan/
+This is my personal website which one includes my cv and portfolio.
+
+I used this [Bootstrap template](https://startbootstrap.com/template-overviews/resume/) for creating this website.
 
 ## Status
 
