@@ -1,5 +1,6 @@
 # [Start Bootstrap - Resume](https://startbootstrap.com/template-overviews/resume/)
-Website link: https://ardakzn.github.io/arda-kozan/
+
+Link: https://ardakzn.github.io/arda-kozan/
 
 ## Status
 
