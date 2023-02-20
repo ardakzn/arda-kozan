@@ -11,7 +11,7 @@ Bu proje aslında benim üniversitede bitirme projem olmakla birlikte ve aynı z
 Bu proje, oyuncuların birbirleriyle sosyalleşmesini sağlayan çok oyunculu bir sanal gerçeklik oyunudur. Oyunda sosyalleşmeyi sağlamak için, VR teknolojisi kullanılarak bir sanal ortam oluşturulmuştur. Bu sanal ortamda oyuncuların birbirleriyle etkileşime geçebilecekleri bazı ögeler bulunmaktadır.
 Karakterini seç
 Oyunda birden fazla karakter bulunmakta. Sanal ortama girmek istediğin karakteri seç.
-Arkadaşlarınla takıl
+Arkadaşlarınla vakit geçir
 Oyun içinde bulunan mini oyunlarla (kule dizme, poligon, top oyunu) veya televizyonlardaki video içeriklerini kullanarak arkadaşlarınızla vakit geçirin.
 Projedeki Sorumluluklarım
 Unreal Engine 4 kullanarak, karakterler için VR destekli bir Animasyon geçişlerini oluşturmak.
