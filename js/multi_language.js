@@ -1,6 +1,7 @@
 
 //define language reload anchors
 var lang_selectors = document.querySelectorAll("[language]");
+const fs = require('fs');
 
 var language={
   en:{
@@ -72,7 +73,7 @@ var language={
     "Oyuncu evin içindeyken bazı koşulları yerine getirmezse akıl sağlığını kaybetmeye başlar ve farklı şeyler görmeye başlar.",
     "Işığını yenile ve akıl sağlığını koru","Meşaleni, şamdanlara giderek tazele ve parayı bulana kadar evi araştırmaya devam et.",
     "Projedeki Sorumluluklarım",
-    "Oyun için bazı temel Oynanış Mekaniklerini geliştirmek.","Bazı harici kaynakları projeye Entegre etmek.","Haritadaki bazı Oyun içi ögeleri düzenlemek."],
+    "Oyun içi bazı temel Oynanış Mekaniklerini geliştirmek.","Bazı harici kaynakları projeye Entegre etmek.","Haritadaki bazı Oyun içi ögeleri düzenlemek."],
     p_modal4:["L.P.F, okulumuzda düzenlenen Global Game Jam etkinliğinde (GGJ 2021), Unity Engine ile geliştirilen bir video oyunu projesidir.","Game Jam Teması: “Kaybolmak ve Bulunmak”",
     "Proje Açıklaması",
     "L.P.F üçüncü şahıs bir parkur oyunudur. Oyunun ana karakteri, kayıp eşya bürosunun bir çalışanı olmak üzere bu eşyaları bulmakla sorumludur. Oyuncu, eşyaları bulmak için kullanabileceği çeşitli materyallere (metal dedektörü, dron) sahiptir.",
@@ -110,62 +111,15 @@ if(window.location.hash){
 }
 
 if(localStorage.getItem('language')==='turkish'){
-  /*Navbar Section*/
-  var elements = document.getElementById('navbarSupportedContent').getElementsByTagName('a');//Geting navbar elements that just has "a" tags to translate.
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.navbar[i]; //Change text content in navbar elements
-  }
   
-  /*About Section*/
-  document.getElementById('job').childNodes[0].textContent=language.tr.about[0]//change job text in the about section
-  document.getElementById('about').getElementsByTagName('p')[0].textContent=language.tr.about[1]//change header of contact section,
-
-  /*Portfolio Section*/
-  document.getElementById('portfolio').getElementsByTagName('h2')[0].textContent=language.tr.portfolio[0]//change header of portfolio section
-  document.getElementById('portfolio').getElementsByTagName('p')[0].innerHTML=language.tr.portfolio[1]
-  /*Portfolio Modal 1*/
-  elements=document.getElementById('portfolioModal1').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal1[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal 2*/
-  elements=document.getElementById('portfolioModal2').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal2[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal 3*/
-  elements=document.getElementById('portfolioModal3').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal3[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal 4*/
-  elements=document.getElementById('portfolioModal4').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal4[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal 5*/
-  elements=document.getElementById('portfolioModal5').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal5[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal 6*/
-  elements=document.getElementById('portfolioModal6').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].textContent=language.tr.p_modal6[i]; //Change text content in navbar elements
-  }
-  /*Portfolio Modal Close Buttons*/
-  elements=document.body.getElementsByTagName('button')
-  for (let i = 0; i < elements.length; i++) {
-    if(elements[i].classList.contains("modal-close"))
-    elements[i].innerHTML="<i class='fas fa-xmark fa-fw'></i>Pencereyi Kapat"; //Change text content in navbar elements
-  }
-
-  /*Contact Section*/
-  document.getElementById('contact').getElementsByTagName('h2')[0].textContent=language.tr.contact[0]//change header of contact section
-  elements = document.getElementById('contact').getElementsByTagName('p')
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].childNodes[0].textContent=language.tr.contact[i+1]; //Change text content in navbar elements
-  }
+  var text = fs.readFileSync('../assets/data/multi_lang_text/turkish.txt','utf8');
+  var textByLine = text.split("\n");
+  
+  var elements = document.getElementsByTagName('t');
+  
+  for (let i=0; i < elements.length; i++){
+    elements[i].textContent=textByLine[i];
+  };
 
   //Change active language navbar element's class
   for (let i = 0; i < lang_selectors.length; i++) {
