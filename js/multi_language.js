@@ -11,7 +11,7 @@ var language={
     ],
     "ml-about":[
       "Game Developer",
-      "I have 3 years of experience for video game development. I took my first step into this job with Unity engine. And now, I maintain all my work with Unreal Engine.",
+      "I have 4 years of experience for video game development. I took my first step into this job with Unity engine. And now, I maintain all my work with Unreal Engine.",
     ],
     "ml-portfolio":[
       "Portfolio",
@@ -121,7 +121,7 @@ var language={
     ],
     "ml-about":[
       "Oyun Geliştirici",
-      "Video oyun geliştirme konusunda 3 yıllık tecrübem var. Bu işe ilk adımımı Unity engine ile attım. Ve artık tüm işlerimi Unreal Engine ile devam ettiriyorum.",
+      "Video oyun geliştirme konusunda 4 yıllık tecrübem var. Bu işe ilk adımımı Unity engine ile attım. Ve artık tüm işlerimi Unreal Engine ile devam ettiriyorum.",
     ],
     "ml-portfolio":[
       "Portfolyo",
