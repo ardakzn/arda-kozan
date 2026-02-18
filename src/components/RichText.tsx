@@ -8,7 +8,8 @@ type RichTextSize = 'normal' | 'small';
 type Block =
   | { type: 'heading'; level: 2 | 3; text: string; tocHidden?: boolean }
   | { type: 'image'; alt: string; src: string }
-  | { type: 'carousel'; images: { alt: string; src: string }[] }
+  | { type: 'video'; alt: string; src: string }
+  | { type: 'carousel'; items: { kind: 'image' | 'video'; alt: string; src: string }[] }
   | { type: 'snippet'; id: string; caption?: string }
   | { type: 'youtube'; embedUrl: string }
   | { type: 'list'; items: string[] }
@@ -27,6 +28,10 @@ function isSafeUrl(url: string): boolean {
 
 function normalizeInputText(input: string): string {
   return normalizeMarkdownText(input);
+}
+
+function isVideoUrl(url: string): boolean {
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url.trim());
 }
 
 function toYouTubeEmbedUrl(inputUrl: string): string | null {
@@ -103,13 +108,15 @@ function parseBlocks(input: string): Block[] {
 
     const img = line.trim().match(/^!\[([^\]]*)]\(([^)]+)\)\s*$/);
     if (img) {
-      const images: { alt: string; src: string }[] = [];
+      const items: { kind: 'image' | 'video'; alt: string; src: string }[] = [];
 
-      const pushImg = (m: RegExpMatchArray) => {
-        images.push({ alt: (m[1] || '').trim(), src: (m[2] || '').trim() });
+      const pushItem = (m: RegExpMatchArray) => {
+        const alt = (m[1] || '').trim();
+        const src = (m[2] || '').trim();
+        items.push({ kind: isVideoUrl(src) ? 'video' : 'image', alt, src });
       };
 
-      pushImg(img);
+      pushItem(img);
       i += 1;
 
       // If multiple images appear back-to-back (optionally separated by blank lines),
@@ -129,14 +136,16 @@ function parseBlocks(input: string): Block[] {
         const next = lines[i].trim();
         const m = next.match(/^!\[([^\]]*)]\(([^)]+)\)\s*$/);
         if (!m) break;
-        pushImg(m);
+        pushItem(m);
         i += 1;
       }
 
-      if (images.length <= 1) {
-        blocks.push({ type: 'image', alt: images[0].alt, src: images[0].src });
+      if (items.length <= 1) {
+        const item = items[0];
+        if (item.kind === 'video') blocks.push({ type: 'video', alt: item.alt, src: item.src });
+        else blocks.push({ type: 'image', alt: item.alt, src: item.src });
       } else {
-        blocks.push({ type: 'carousel', images });
+        blocks.push({ type: 'carousel', items });
       }
       continue;
     }
@@ -220,11 +229,17 @@ function renderInline(text: string, size: RichTextSize) {
 }
 
 function Carousel({
-  images,
+  items,
 }: {
-  images: { alt: string; src: string }[];
+  items: { kind: 'image' | 'video'; alt: string; src: string }[];
 }) {
-  const safeImages = useMemo(() => images.filter((img) => isSafeUrl(img.src)).map((img) => ({ ...img, src: withBaseUrl(img.src) })), [images]);
+  const safeItems = useMemo(
+    () =>
+      items
+        .filter((item) => isSafeUrl(item.src))
+        .map((item) => ({ ...item, src: withBaseUrl(item.src) })),
+    [items],
+  );
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
   const [dragX, setDragX] = useState(0);
@@ -232,6 +247,7 @@ function Carousel({
   const [animateTrack, setAnimateTrack] = useState(true);
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const viewportWidthRef = useRef(0);
+  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
   const swipeRef = useRef<{
     pointerId: number | null;
     startX: number;
@@ -241,29 +257,29 @@ function Carousel({
     moved: boolean;
   }>({ pointerId: null, startX: 0, startY: 0, lastX: 0, lastY: 0, moved: false });
 
-  const prevIndex = (i: number) => (i - 1 + safeImages.length) % safeImages.length;
-  const nextIndex = (i: number) => (i + 1) % safeImages.length;
+  const prevIndex = (i: number) => (i - 1 + safeItems.length) % safeItems.length;
+  const nextIndex = (i: number) => (i + 1) % safeItems.length;
 
   const prev = () => {
-    if (safeImages.length <= 1) return;
+    if (safeItems.length <= 1) return;
     setAnimateTrack(true);
     setIndex((i) => prevIndex(i));
   };
 
   const next = () => {
-    if (safeImages.length <= 1) return;
+    if (safeItems.length <= 1) return;
     setAnimateTrack(true);
     setIndex((i) => nextIndex(i));
   };
 
   useEffect(() => {
-    if (safeImages.length <= 1) return;
+    if (safeItems.length <= 1) return;
     if (hovered || dragging) return;
     const t = window.setInterval(() => {
-      setIndex((i) => (i + 1) % safeImages.length);
+      setIndex((i) => (i + 1) % safeItems.length);
     }, 4500);
     return () => window.clearInterval(t);
-  }, [dragging, hovered, safeImages.length]);
+  }, [dragging, hovered, safeItems.length]);
 
   useEffect(() => {
     const updateWidth = () => {
@@ -277,8 +293,20 @@ function Carousel({
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  if (safeImages.length === 0) return null;
-  const current = safeImages[Math.max(0, Math.min(index, safeImages.length - 1))];
+  useEffect(() => {
+    for (const [idxRaw, el] of Object.entries(videoRefs.current)) {
+      const idx = Number(idxRaw);
+      if (!el) continue;
+      if (idx === index) {
+        void el.play().catch(() => {});
+      } else {
+        el.pause();
+      }
+    }
+  }, [index, safeItems.length]);
+
+  if (safeItems.length === 0) return null;
+  const current = safeItems[Math.max(0, Math.min(index, safeItems.length - 1))];
 
   const shouldIgnoreSwipeStart = (target: EventTarget | null) => {
     if (!(target instanceof Element)) return false;
@@ -286,7 +314,7 @@ function Carousel({
   };
 
   const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
-    if (safeImages.length <= 1) return;
+    if (safeItems.length <= 1) return;
     if (shouldIgnoreSwipeStart(e.target)) return;
     if (e.button !== 0) return;
 
@@ -395,13 +423,30 @@ function Carousel({
           <div
             className={`absolute inset-0 flex ${animateTrack ? 'transition-transform duration-200 ease-out' : ''}`}
             style={{
-              transform: `translateX(calc(-${(index * 100) / Math.max(1, safeImages.length)}% + ${dragX}px))`,
-              width: `${safeImages.length * 100}%`,
+              transform: `translateX(calc(-${index * 100}% + ${dragX}px))`,
             }}
           >
-            {safeImages.map((img, i) => (
-              <div key={`${img.src}-${i}`} className="relative h-full flex-shrink-0" style={{ width: `${100 / safeImages.length}%` }}>
-                <img src={img.src} alt={img.alt || 'image'} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            {safeItems.map((item, i) => (
+              <div key={`${item.src}-${i}`} className="relative h-full w-full flex-none">
+                {item.kind === 'video' ? (
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[i] = el;
+                    }}
+                    src={item.src}
+                    muted
+                    playsInline
+                    loop
+                    autoPlay={i === index}
+                    preload={i === index ? 'metadata' : 'none'}
+                    className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLVideoElement).style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <img src={item.src} alt={item.alt || 'image'} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                )}
               </div>
             ))}
           </div>
@@ -420,7 +465,7 @@ function Carousel({
           </div>
         )}
 
-        {safeImages.length > 1 && (
+        {safeItems.length > 1 && (
           <div
             className={`pointer-events-none absolute inset-0 transition-opacity ${hovered ? 'opacity-100' : 'opacity-0'} sm:pointer-events-auto`}
           >
@@ -451,9 +496,9 @@ function Carousel({
           </div>
         )}
 
-        {safeImages.length > 1 && (
+        {safeItems.length > 1 && (
           <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
-            {safeImages.map((_, dotIdx) => (
+            {safeItems.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 type="button"
@@ -542,7 +587,20 @@ export default function RichText({
         }
 
         if (b.type === 'carousel') {
-          return <Carousel key={idx} images={b.images} />;
+          return <Carousel key={idx} items={b.items} />;
+        }
+
+        if (b.type === 'video') {
+          const safe = isSafeUrl(b.src);
+          if (!safe) return null;
+          const src = withBaseUrl(b.src);
+          return (
+            <div key={idx} className="my-4">
+              <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 pt-[56.25%]">
+                <video src={src} muted playsInline loop autoPlay preload="metadata" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+            </div>
+          );
         }
 
         if (b.type === 'snippet') {
