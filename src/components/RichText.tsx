@@ -1,15 +1,19 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { normalizeMarkdownText, slugifyHeading as slugifyHeadingStable } from '../lib/markdown';
 import { withBaseUrl } from '../lib/paths';
 
 type RichTextSize = 'normal' | 'small';
+type MediaOptions = {
+  startPaused?: boolean;
+  intervalMs?: number;
+};
 
 type Block =
   | { type: 'heading'; level: 2 | 3; text: string; tocHidden?: boolean }
   | { type: 'image'; alt: string; src: string }
-  | { type: 'video'; alt: string; src: string }
-  | { type: 'carousel'; items: { kind: 'image' | 'video'; alt: string; src: string }[] }
+  | { type: 'video'; alt: string; src: string; media?: MediaOptions }
+  | { type: 'carousel'; items: { kind: 'image' | 'video'; alt: string; src: string }[]; media?: MediaOptions }
   | { type: 'snippet'; id: string; caption?: string }
   | { type: 'youtube'; embedUrl: string }
   | { type: 'list'; items: string[] }
@@ -32,6 +36,35 @@ function normalizeInputText(input: string): string {
 
 function isVideoUrl(url: string): boolean {
   return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url.trim());
+}
+
+function parseMediaOptions(raw: string): MediaOptions | null {
+  const inside = (raw || '').trim();
+  if (!inside) return {};
+
+  const pairs = inside.split(',').map((s) => s.trim()).filter(Boolean);
+  const next: MediaOptions = {};
+
+  for (const pair of pairs) {
+    const eq = pair.indexOf('=');
+    if (eq <= 0) continue;
+    const key = pair.slice(0, eq).trim().toLowerCase();
+    const value = pair.slice(eq + 1).trim().toLowerCase();
+
+    if (key === 'start') {
+      if (value === 'paused') next.startPaused = true;
+      if (value === 'playing') next.startPaused = false;
+      continue;
+    }
+
+    if (key === 'interval') {
+      const parsed = Number(value);
+      if (Number.isFinite(parsed) && parsed >= 500) next.intervalMs = Math.round(parsed);
+      continue;
+    }
+  }
+
+  return next;
 }
 
 function toYouTubeEmbedUrl(inputUrl: string): string | null {
@@ -61,6 +94,7 @@ function toYouTubeEmbedUrl(inputUrl: string): string | null {
 function parseBlocks(input: string): Block[] {
   const lines = normalizeInputText(input).split('\n');
   const blocks: Block[] = [];
+  let pendingMedia: MediaOptions | null = null;
 
   let i = 0;
   const consumeParagraph = () => {
@@ -142,11 +176,12 @@ function parseBlocks(input: string): Block[] {
 
       if (items.length <= 1) {
         const item = items[0];
-        if (item.kind === 'video') blocks.push({ type: 'video', alt: item.alt, src: item.src });
+        if (item.kind === 'video') blocks.push({ type: 'video', alt: item.alt, src: item.src, media: pendingMedia || undefined });
         else blocks.push({ type: 'image', alt: item.alt, src: item.src });
       } else {
-        blocks.push({ type: 'carousel', items });
+        blocks.push({ type: 'carousel', items, media: pendingMedia || undefined });
       }
+      pendingMedia = null;
       continue;
     }
 
@@ -159,6 +194,13 @@ function parseBlocks(input: string): Block[] {
       } else {
         blocks.push({ type: 'paragraph', text: line });
       }
+      i += 1;
+      continue;
+    }
+
+    const media = line.trim().match(/^@media\(([^)]*)\)\s*$/i);
+    if (media) {
+      pendingMedia = parseMediaOptions(media[1]);
       i += 1;
       continue;
     }
@@ -230,9 +272,12 @@ function renderInline(text: string, size: RichTextSize) {
 
 function Carousel({
   items,
+  media,
 }: {
   items: { kind: 'image' | 'video'; alt: string; src: string }[];
+  media?: MediaOptions;
 }) {
+  const IMAGE_SLIDE_MS = media?.intervalMs && media.intervalMs >= 500 ? media.intervalMs : 4500;
   const safeItems = useMemo(
     () =>
       items
@@ -241,6 +286,8 @@ function Carousel({
     [items],
   );
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(!!media?.startPaused);
+  const [togglePop, setTogglePop] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -256,6 +303,27 @@ function Carousel({
     lastY: number;
     moved: boolean;
   }>({ pointerId: null, startX: 0, startY: 0, lastX: 0, lastY: 0, moved: false });
+  const suppressToggleClickRef = useRef(false);
+  const togglePopTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (togglePopTimerRef.current) window.clearTimeout(togglePopTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    setIsPaused(!!media?.startPaused);
+  }, [media?.startPaused]);
+
+  const triggerTogglePop = () => {
+    if (togglePopTimerRef.current) window.clearTimeout(togglePopTimerRef.current);
+    setTogglePop(true);
+    togglePopTimerRef.current = window.setTimeout(() => {
+      setTogglePop(false);
+      togglePopTimerRef.current = null;
+    }, 180);
+  };
 
   const prevIndex = (i: number) => (i - 1 + safeItems.length) % safeItems.length;
   const nextIndex = (i: number) => (i + 1) % safeItems.length;
@@ -274,12 +342,17 @@ function Carousel({
 
   useEffect(() => {
     if (safeItems.length <= 1) return;
+    if (isPaused) return;
     if (hovered || dragging) return;
-    const t = window.setInterval(() => {
+    const currentItem = safeItems[index];
+    if (currentItem?.kind === 'video') return;
+
+    const t = window.setTimeout(() => {
       setIndex((i) => (i + 1) % safeItems.length);
-    }, 4500);
-    return () => window.clearInterval(t);
-  }, [dragging, hovered, safeItems.length]);
+    }, IMAGE_SLIDE_MS);
+
+    return () => window.clearTimeout(t);
+  }, [dragging, hovered, index, isPaused, safeItems]);
 
   useEffect(() => {
     const updateWidth = () => {
@@ -297,13 +370,13 @@ function Carousel({
     for (const [idxRaw, el] of Object.entries(videoRefs.current)) {
       const idx = Number(idxRaw);
       if (!el) continue;
-      if (idx === index) {
+      if (idx === index && !isPaused) {
         void el.play().catch(() => {});
       } else {
         el.pause();
       }
     }
-  }, [index, safeItems.length]);
+  }, [index, isPaused, safeItems.length]);
 
   if (safeItems.length === 0) return null;
   const current = safeItems[Math.max(0, Math.min(index, safeItems.length - 1))];
@@ -350,6 +423,10 @@ function Carousel({
       if (absX < 10) return;
       if (absX <= absY) return;
       s.moved = true;
+      suppressToggleClickRef.current = true;
+      window.setTimeout(() => {
+        suppressToggleClickRef.current = false;
+      }, 250);
     }
 
     if (s.moved) {
@@ -413,11 +490,18 @@ function Carousel({
     >
       <div
         ref={viewportRef}
-        className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 touch-pan-y select-none"
+      className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 touch-pan-y select-none"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
+        onClick={(e) => {
+          const target = e.target as Element | null;
+          if (target?.closest('button, a, input, textarea, select, summary')) return;
+          if (suppressToggleClickRef.current) return;
+          setIsPaused((v) => !v);
+          triggerTogglePop();
+        }}
       >
         <div className="relative w-full pt-[56.25%]">
           <div
@@ -436,10 +520,17 @@ function Carousel({
                     src={item.src}
                     muted
                     playsInline
-                    loop
-                    autoPlay={i === index}
+                    loop={hovered || dragging}
+                    autoPlay={i === index && !isPaused}
                     preload={i === index ? 'metadata' : 'none'}
                     className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+                    onEnded={() => {
+                      if (i !== index) return;
+                      if (safeItems.length <= 1) return;
+                      if (isPaused) return;
+                      if (hovered || dragging) return;
+                      setIndex((cur) => (cur + 1) % safeItems.length);
+                    }}
                     onError={(e) => {
                       (e.currentTarget as HTMLVideoElement).style.display = 'none';
                     }}
@@ -460,6 +551,20 @@ function Carousel({
                 <div className="text-sm sm:text-base text-slate-100/90 font-normal italic leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
                   {current.alt}
                 </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {isPaused && (
+          <div className="absolute inset-0 z-20 grid place-items-center pointer-events-none">
+            <div className="animate-play-idle motion-reduce:animate-none">
+              <div
+                className={`inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-[#3be3ff] bg-[#081325] shadow-[0_0_0_10px_rgba(59,227,255,0.3),0_26px_64px_rgba(0,0,0,0.68)] transition-transform duration-200 ${
+                  togglePop ? 'scale-110' : 'scale-100'
+                }`}
+              >
+                <Play className="h-11 w-11 text-[#3be3ff] ml-1" />
               </div>
             </div>
           </div>
@@ -587,20 +692,14 @@ export default function RichText({
         }
 
         if (b.type === 'carousel') {
-          return <Carousel key={idx} items={b.items} />;
+          return <Carousel key={idx} items={b.items} media={b.media} />;
         }
 
         if (b.type === 'video') {
           const safe = isSafeUrl(b.src);
           if (!safe) return null;
           const src = withBaseUrl(b.src);
-          return (
-            <div key={idx} className="my-4">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 pt-[56.25%]">
-                <video src={src} muted playsInline loop autoPlay preload="metadata" className="absolute inset-0 h-full w-full object-cover" />
-              </div>
-            </div>
-          );
+          return <InlineVideo key={idx} src={src} media={b.media} />;
         }
 
         if (b.type === 'snippet') {
@@ -661,6 +760,57 @@ export default function RichText({
           </p>
         );
       })}
+    </div>
+  );
+}
+
+function InlineVideo({
+  src,
+  media,
+}: {
+  src: string;
+  media?: MediaOptions;
+}) {
+  const [isPaused, setIsPaused] = useState(!!media?.startPaused);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    setIsPaused(!!media?.startPaused);
+  }, [media?.startPaused]);
+
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (isPaused) el.pause();
+    else void el.play().catch(() => {});
+  }, [isPaused]);
+
+  return (
+    <div className="my-4">
+      <div
+        className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 pt-[56.25%] cursor-pointer"
+        onClick={() => setIsPaused((v) => !v)}
+      >
+        <video
+          ref={videoRef}
+          src={src}
+          muted
+          playsInline
+          loop
+          autoPlay={!isPaused}
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        {isPaused && (
+          <div className="absolute inset-0 z-10 grid place-items-center pointer-events-none">
+            <div className="animate-play-idle-sm motion-reduce:animate-none">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-[#3be3ff] bg-[#081325] shadow-[0_0_0_8px_rgba(59,227,255,0.28),0_20px_48px_rgba(0,0,0,0.68)]">
+                <Play className="h-10 w-10 text-[#3be3ff] ml-1" />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

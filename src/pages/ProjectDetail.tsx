@@ -23,7 +23,7 @@ const uiScrollTop: LocalizedString = { en: 'Scroll to top', tr: 'Yukarı çık' 
 const uiClose: LocalizedString = { en: 'Close', tr: 'Kapat' };
 
 export default function ProjectDetail() {
-  const { t, language } = useSiteRuntime();
+  const { t } = useSiteRuntime();
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<ProjectWithDetails | null>(null);
   const [snippets, setSnippets] = useState<CodeSnippetWithAnnotations[]>([]);

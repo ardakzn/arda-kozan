@@ -7,3 +7,37 @@ body {
   background: #060b16;
   color-scheme: dark;
 }
+
+@layer utilities {
+  @keyframes play-idle-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.96;
+    }
+    50% {
+      transform: scale(1.045);
+      opacity: 1;
+    }
+  }
+
+  @keyframes play-idle-pulse-sm {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.96;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  .animate-play-idle {
+    animation: play-idle-pulse 3.2s ease-in-out infinite;
+  }
+
+  .animate-play-idle-sm {
+    animation: play-idle-pulse-sm 3.2s ease-in-out infinite;
+  }
+}
