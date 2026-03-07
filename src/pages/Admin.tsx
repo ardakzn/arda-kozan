@@ -1671,6 +1671,18 @@ export default function Admin() {
                         className="w-full px-4 py-3 rounded-2xl bg-[#0b1221]/60 border border-white/10 text-slate-100 outline-none focus:border-[#3be3ff]/50"
                       />
                     </label>
+                    <label className="space-y-2 md:col-span-2">
+                      <div className="text-xs uppercase tracking-[0.2em] text-slate-400">GoatCounter site code</div>
+                      <input
+                        value={siteData.links.goatcounter_code || ''}
+                        onChange={(e) => setSiteData((prev) => (prev ? { ...prev, links: { ...prev.links, goatcounter_code: e.target.value } } : prev))}
+                        className="w-full px-4 py-3 rounded-2xl bg-[#0b1221]/60 border border-white/10 text-slate-100 outline-none focus:border-[#3be3ff]/50"
+                        placeholder="your-site-code (or full goatcounter URL)"
+                      />
+                      <p className="text-xs text-slate-500">
+                        Empty = disabled. Example: <code>your-site-code</code> {'->'} tracks with GoatCounter.
+                      </p>
+                    </label>
                   </div>
                 </section>
 

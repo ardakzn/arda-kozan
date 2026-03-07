@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code2 } from 'lucide-react';
+import { ArrowRight, Code2, Star } from 'lucide-react';
 import type { ProjectWithDetails } from '../types/portfolio';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -106,18 +106,35 @@ export default function Projects() {
               const summary = (t(project.summary) || '').trim();
               const tech = project.tech_stack || [];
               const title = t(project.title) || '';
+              const isFeatured = !!project.featured;
 
               return (
                 <Link
                   key={project.id}
                   to={`/project/${project.slug}`}
                   className={[
-                    'group relative rounded-3xl overflow-hidden border border-white/5 bg-[#101a2f]/80 shadow-lg shadow-black/30',
+                    'group relative rounded-3xl overflow-hidden border bg-[#101a2f]/80 shadow-lg shadow-black/30',
                     'hover:-translate-y-1 hover:-rotate-[0.25deg] transition-all flex flex-col',
+                    isFeatured
+                      ? 'border-[#f9b234]/55 shadow-[0_18px_42px_rgba(0,0,0,0.45),0_0_0_1px_rgba(249,178,52,0.24)]'
+                      : 'border-white/5',
                     hasMedia ? 'md:h-[360px]' : '',
                   ].join(' ')}
                   style={{ backgroundImage: 'linear-gradient(135deg, rgba(59, 227, 255, 0.05), rgba(249, 178, 52, 0.05))' }}
                 >
+                  {isFeatured && (
+                    <div className="absolute left-3 top-3 z-30">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-[#f9b234]/45 bg-[#1b1607]/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#f9b234] shadow-[0_8px_24px_rgba(0,0,0,0.35)]">
+                        <Star className="h-3.5 w-3.5 fill-[#f9b234] text-[#f9b234]" />
+                        Featured
+                      </span>
+                    </div>
+                  )}
+
+                  {isFeatured && (
+                    <div className="pointer-events-none absolute inset-0 z-[1] rounded-3xl ring-1 ring-inset ring-[#f9b234]/25" />
+                  )}
+
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-[#3be3ff]/10 to-[#f9b234]/10"></div>
 
                     <div className="relative z-10 flex flex-col flex-1 transition duration-200 group-hover:blur-[1px] group-hover:brightness-90">

@@ -20,6 +20,7 @@ export function getDefaultSite(): SiteData {
       github_url: 'https://github.com',
       linkedin_url: 'https://linkedin.com',
       cv_pdf_url: '/assets/CV.pdf',
+      goatcounter_code: '',
     },
     home: {
       badge: { en: 'Case Studies', tr: 'Öne Çıkan Çalışmalar' },

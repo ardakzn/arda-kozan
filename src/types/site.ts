@@ -18,6 +18,7 @@ export type SiteData = {
     github_url: string;
     linkedin_url: string;
     cv_pdf_url: string;
+    goatcounter_code?: string;
   };
   home: {
     badge: LocalizedString;
