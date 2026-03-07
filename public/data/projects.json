@@ -1,143 +1,346 @@
 [
   {
-    "id": "proj_demo_hero",
-    "title": { "en": "Cinematic Hero Showcase", "tr": "Sinematik Hero Vitrini" },
-    "slug": "cinematic-hero-showcase",
+    "id": "proj_1768826938363",
+    "title": {
+      "en": "Forks and Daggers",
+      "tr": "Forks and Daggers"
+    },
+    "slug": "forks-and-daggers",
     "summary": {
-      "en": "Example hero section with video + date + minimal tags.",
-      "tr": "Video + tarih + minimal etiketlerle hero bölümü örneği."
+      "tr": "Forks and Daggers, Steam'de yayınlanmış çok oyunculu hain bulma oyunudur."
     },
     "description": {
-      "en": "This project exists to showcase the **hero video** layout. Below, RichText markdown also works.\n\n##! Note: Hidden heading (not in TOC)\nThis heading is visible on the page but hidden from the Contents list.\n\n## Link\n[Back to projects](/projects)\n",
-      "tr": "Bu proje özellikle **hero video** tasarımını göstermek için var. Aşağıda RichText markdown da çalışıyor.\n\n##! Not: Gizli başlık (TOC'a girmez)\nBu başlık sayfada görünür ama Contents listesine eklenmez.\n\n## Link\n[Projeler listesine dön](/projects)\n"
+      "tr": "Forks and Daggers, orta çağ temalı, arkadaşlarla oynanılabilecek, vampir-köylü oyunu türünde bir oyundur. Oyundaki köylülerin kral için yapması gereken görevi vardır ve bu görevleri sabote etmeye çalışan bir hain vardır. İki taraf da oyundaki çeşitli içerikleri kullanarak oyunu kazanmaya çalışır.\n\nBu projede, Forks & Daggers’ın geliştirme sürecinde baştan sona aktif olarak yer aldım ve genel olarak oyunun temel gameplay sistemlerinin mimarisinin tasarlanması ve programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (Görev sistemi, eşya craftlama ve bazı oyuncu abilityleri için GAS kullanımı)\n- Lobi ve oturum sisteminin geliştirilmesi (Advanced session kullanarak şifreli, private lobi kurma ve oyuncu kickleme banlama gibi özellikler)\n- Projede kullanılan bazı pluginlerin entegrasyonu ve özelleştirilmesi\n- UI ve gameplay sistemleri arasındaki bağlantıların kurulması (UI Tasarımlarının entegrasyonu ve ekranda gösterilmek istenen oyun içi değişkenlerin bağlantısı.)\n\n@media(start=paused)\n![Oyuncunun girebileceği sessionlar listeniyor ve lobiye giriş yapıyor.](/assets/video/fd/join_session.mp4)\n![Oyuncu görev için gerekli eşya craftlıyor](/assets/video/fd/crafting.mp4)\n![Oyuncuya tanımlanmış görev tamamlanıyor ve Quest state değişiyor. Bunu dinleyerek UI güncelleniyor](/assets/video/fd/quest.mp4)\n![Oyundaki yangın sabotajı yapılıyor ve ardından söndürme abilityi kullanılıyor](/assets/video/fd/ability.mp4)"
     },
-    "tech_stack": ["Vite", "React", "TypeScript", "Tailwind CSS"],
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "en": "Steam Page",
+          "tr": "Steam Sayfası"
+        },
+        "url": "https://store.steampowered.com/app/3513030/Forks_and_Daggers/"
+      }
+    ],
+    "period_start": {
+      "tr": "Şubat 2025",
+      "en": "Feb 2025"
+    },
+    "period_end": {
+      "en": "Dec 2025",
+      "tr": "Aralık 2025"
+    },
+    "tech_stack": [
+      "Steam",
+      "Multiplayer",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
     "featured": true,
     "order_index": 0,
-    "created_at": "2026-01-10T00:00:00.000Z",
-    "updated_at": "2026-01-10T00:00:00.000Z",
-    "thumbnail_video_url": "/assets/video/test.mp4",
-    "thumbnail_image_url": "/assets/image/sample-component.svg"
+    "created_at": "2026-01-19T12:48:58.363Z",
+    "updated_at": "2026-03-07T12:03:11.750Z",
+    "thumbnail_video_url": "/assets/video/thumb.mp4"
   },
   {
-    "id": "proj_demo_markdown",
-    "title": { "en": "Media-Rich Markdown Playground", "tr": "Medya Zengin Markdown Playground" },
-    "slug": "media-rich-markdown-playground",
+    "id": "proj_1771248857364",
+    "title": {
+      "tr": "Altarium"
+    },
+    "slug": "altarium",
     "summary": {
-      "en": "Carousel, caption, GIF, link and YouTube embed via RichText.",
-      "tr": "Carousel, caption, GIF, link ve YouTube embed gibi RichText özellikleri."
+      "tr": "Altarium, Steam'de yayınlanmış, çok oyunculu korku oyunudur."
     },
     "description": {
-      "en": "## Overview\nThis page exercises the RichText/Markdown capabilities.\n\n## Carousel (multiple images)\n![Arch diagram](/assets/image/sample-arch.svg)\n![Component diagram](/assets/image/sample-component.svg)\n![Sample GIF](/assets/gif/sample2.gif)\n\n## Single image + caption\n![UI state flow](/assets/image/sample-component-2.svg)\n\n## Link\n[YouTube home](https://youtube.com)\n\n## Video\n@youtube(https://www.youtube.com/watch?v=dQw4w9WgXcQ)\n",
-      "tr": "## Genel\nBu sayfa RichText/Markdown kapasitesini test eder.\n\n## Carousel (birden fazla görsel)\n![Arch diagram](/assets/image/sample-arch.svg)\n![Component diagram](/assets/image/sample-component.svg)\n![Sample GIF](/assets/gif/sample2.gif)\n\n## Tek görsel + caption\n![UI state flow](/assets/image/sample-component-2.svg)\n\n## Link\n[YouTube ana sayfa](https://youtube.com)\n\n## Video\n@youtube(https://www.youtube.com/watch?v=dQw4w9WgXcQ)\n"
+      "tr": "Altarium, vahşi batı temalı, Oyuncuların kötü karakter rolleri ve bunlardan kaçmaya çalışan kurban rollerini seçebileceği bir korku oyunudur. Oyun Dead by Deadlight gibi rekabetçi bir oyundur aynı zamanda AI karakterlerle birlikte Co-Op da oynanabilmektedir.\n\nBu projede, yaklaşık 1 yıl kadar  geliştirme sürecinde yer aldım ve genel olarak oyunun bazı temel gameplay programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (Karakterlerin bazı oyun içi yetenekleri)\n- Oyundaki düşman AI karakterlerinin davranışlarının yönetilmesi (BehaviourTree, NavFilter gibi sistemlerin yönetilmesi)\n\n@media(start=paused)\n![Playerı perception ile farkeden AI karakter onu kovalamaya başlıyor.](/assets/video/alt/alt-commonai.mp4)\n![AI karakter, playera yaklaştıktan sonra, EQS sistemi yardımıyla etrafında tekrar konumlanıyor.](/assets/video/alt/alt-eqs.mp4)\n![Player, düşman AI'dan gizlenmek için ability kullanıyor.](/assets/video/alt/alt-ability.mp4)"
     },
-    "content_blocks": [
+    "content_blocks": [],
+    "links": [
       {
-        "id": "blk_markdown_1",
-        "title": { "en": "Embeds", "tr": "Embed'ler" },
-        "content": {
-          "en": "## @snippet\nEmbed global snippets inside markdown by writing `@snippet(id, caption)`.\n\n@snippet(snip_markdown_embed, Embed parsing logic)\n\n##! Hidden heading (not in TOC)\nThis heading is visible on the page but hidden from the Contents list.",
-          "tr": "## @snippet\nMarkdown içine `@snippet(id, caption)` yazarak global snippet embed edebilirsin.\n\n@snippet(snip_markdown_embed, Embed parsing mantığı)\n\n##! Gizli bölüm başlığı (TOC'a girmez)\nBu başlık sayfada görünür ama Contents listesinde görünmez."
+        "label": {
+          "tr": "Steam Page"
         },
-        "order_index": 0,
-        "created_at": "2026-01-10T00:00:00.000Z",
-        "updated_at": "2026-01-10T00:00:00.000Z"
+        "url": "https://store.steampowered.com/app/2524700/Altarium/"
       }
     ],
-    "tech_stack": ["Markdown", "RichText", "Embeds"],
+    "period_start": {
+      "tr": "Ekim 2023"
+    },
+    "period_end": {
+      "tr": "Eylül 2024"
+    },
+    "tech_stack": [
+      "Steam",
+      "Multiplayer",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
     "featured": true,
     "order_index": 1,
-    "created_at": "2026-01-10T00:00:00.000Z",
-    "updated_at": "2026-01-10T00:00:00.000Z",
-    "thumbnail_video_url": "/assets/video/test.mp4",
-    "thumbnail_image_url": "/assets/image/sample-arch.svg"
+    "created_at": "2026-02-16T13:34:17.364Z",
+    "updated_at": "2026-02-28T13:31:20.189Z",
+    "thumbnail_video_url": "/assets/video/alt/alt-ability.mp4"
   },
   {
-    "id": "proj_demo_snippets",
-    "title": { "en": "Annotated Code Walkthrough", "tr": "Anotasyonlu Kod İncelemesi" },
-    "slug": "annotated-code-walkthrough",
+    "id": "proj_1772294528543",
+    "title": {
+      "tr": "Flexible Recoil System",
+      "en": "Flexible Recoil System - Plugin"
+    },
+    "slug": "flexible-recoil-system",
     "summary": {
-      "en": "Snippet embed + annotations (tooltip + detail) demo.",
-      "tr": "Snippet embed + annotation sistemi (tooltip + detail) için örnek proje."
+      "tr": "Bu proje Unreal Engine motoru için geliştirdiğim ve Unreal Engine Marketplace üzerinden satışa sunduğum bir eklentidir.",
+      "en": "This project is a engine plugin that I developed for the Unreal Engine and offered for sale on the Unreal Engine Marketplace."
     },
     "description": {
-      "en": "## Overview\nThis project demonstrates the **interactive code viewer** and **annotation** system.\n\n## Frontend snippet\n@snippet(snip_fancy_button, FancyButton: small, readable example)\n",
-      "tr": "## Genel\nBu proje, **interactive code viewer** ve **annotation** özelliklerini göstermek için var.\n\n## Frontend snippet\n@snippet(snip_fancy_button, FancyButton: küçük, okunaklı bir örnek)\n"
+      "tr": "Bu motor eklentisi, genelde shooter oyunlarda kullanılan geri tepme sistemini daha esnek ve kolay bir şekilde unreal projesine eklemenize imkan sağlar. Bu eklentinin amacı, unreal projesine bu sistemi dahil etmek isteyenlere, onların düzenleyebileceği çeşitli özelliklere sahip ve esnek bir yapıya sahip geri tepme sistemi sağlamaktır. Bu özellikler sayesinde birbirinden farklı ayarlar üreterek projenin esnekliği ve çeşitliliği arttırılabilir.\n\n###! Recoil Ayarlarını Özelleştir\n\nBu geri tepme sistemi, içerisinde özelleştirebileceğiniz tepme hızı, dağılma oranı, dağılma şekli gibi bir çok ayar barındırır. Kendi geri tepme stilini oluştur ve düzenle.\n\n###! Kendi geri tepme stilini oluştur\n\nBütün geri tepme ayarlarını düzenleyebileceğiniz ve ayrıca silahın hangi şekilde sekeceğini nokta koyarak çizim yapabileceğiniz bir editor aracı bulunmaktadır. Kendi geri tepme stilini oluştur ve düzenle.\n\n##! Sorumluluklarım\n- Bütün Geri tepme sistemini blueprint kullanarak, bir kısmını da C++ kullanarak geliştirmek.\n\n- Unreal Engine'de bulunan Editor Scripting araçları ile çalışmak.\n\n- Eklentiyi Çok Oyunculu Kullanıma Hazır hale getirmek için Ağ Replikasyonları ile çalışmak.\n\n- Plugini yayınlamak için dokümantasyon, video, demo gibi gerekli unsurları hazırlamak.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)",
+      "en": "This engine plugin, allows the recoil system which is generally used in shooter games to be added to the Unreal projects in a more flexible and easy way. The purpose of this plugin is to provide a flexible recoil system with various features that can be customized by those who want to include this system in their Unreal project. Thanks to these features, the flexibility and variety of the project can be increased by producing different settings.\n\n###! Customize your recoil\nThis recoil system includes many settings that you can customize such as recoil speed, spread rate, recoil pattern etc. Create and edit your own recoil.\n\n###! Create own recoil pattern\nThere is an editor tool where you can adjust all the recoil settings and also draw recoil pattern by placing dots. Create and edit your own throwback style.\n\n##! Responsibilities\n- Developing the entire Recoil system using Blueprint and some of it using C++.\n- Working with Editor Scripting tools available in Unreal Engine.\n- Working with Network Replications to make the plugin Multiplayer Ready.\n- Preparing the necessary elements such as documentation, video, demo for publishing the plugin.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)"
     },
-    "content_blocks": [
+    "content_blocks": [],
+    "links": [
       {
-        "id": "blk_snip_1",
-        "title": { "en": "Embed Parsing", "tr": "Embed Parsing" },
-        "content": {
-          "en": "## @snippet embed parsing\nThis block shows the `@snippet(id, caption)` parsing logic used by RichText.\n\n@snippet(snip_markdown_embed, Parsing `@snippet(...)` lines)\n",
-          "tr": "## @snippet embed parsing\nBu blok, RichText içinde kullanılan `@snippet(id, caption)` parsing mantığını gösterir.\n\n@snippet(snip_markdown_embed, `@snippet(...)` satırlarını parse etme)\n"
+        "label": {
+          "tr": "Plugin Link"
         },
-        "order_index": 0,
-        "created_at": "2026-01-10T00:00:00.000Z",
-        "updated_at": "2026-01-10T00:00:00.000Z"
+        "url": "https://www.fab.com/listings/85a18b78-443c-4288-a387-0d77af42e2a3"
       },
       {
-        "id": "blk_snip_2",
-        "title": { "en": "Microservices (TypeScript)", "tr": "Microservices (TypeScript)" },
-        "content": {
-          "en": "## Contract & versioning\nA quick look at versioned event contracts and validation.\n\n@snippet(snip_microservice_contract, Contract + schema example)\n",
-          "tr": "## Contract & versioning\nVersion'lı event contract ve validation yaklaşımı.\n\n@snippet(snip_microservice_contract, Contract + schema örneği)\n"
+        "label": {
+          "tr": "Showcase"
         },
-        "order_index": 1,
-        "created_at": "2026-01-10T00:00:00.000Z",
-        "updated_at": "2026-01-10T00:00:00.000Z"
+        "url": "https://www.youtube.com/watch?v=kftHOeTRPPM"
       }
     ],
-    "tech_stack": ["Snippets", "Annotations", "Docs-style"],
-    "featured": false,
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Plugin",
+      "Unreal Engine",
+      "Multiplayer",
+      "Tool"
+    ],
+    "featured": true,
     "order_index": 2,
-    "created_at": "2026-01-10T00:00:00.000Z",
-    "updated_at": "2026-01-10T00:00:00.000Z",
-    "thumbnail_video_url": "/assets/video/test.mp4",
-    "thumbnail_image_url": "/assets/image/sample-component.svg"
+    "created_at": "2026-02-28T16:02:08.543Z",
+    "updated_at": "2026-03-07T11:57:51.543Z",
+    "thumbnail_image_url": "/assets/image/frs/1.png"
   },
   {
-    "id": "proj_demo_case_study",
-    "title": { "en": "Docs-Style Case Study (TOC + Blocks)", "tr": "Docs-Style Case Study (TOC + Bloklar)" },
-    "slug": "docs-style-case-study",
+    "id": "proj_1772877185884",
+    "title": {
+      "tr": "Graduation Project",
+      "en": "Graduation Project"
+    },
+    "slug": "graduation-project",
     "summary": {
-      "en": "Content blocks + docs-like Contents/TOC navigation demo.",
-      "tr": "Content block sistemi + docs benzeri Contents/TOC deneyimi için örnek."
+      "tr": "Üniversite bitirme projem için geliştirdiğim VR destekli çok oyunculu bir prototip.",
+      "en": "This project is actually my graduation project at the university, and it is also a finalist video game Project that developed with Unreal Engine 4."
     },
     "description": {
-      "en": "## Problem\nThis project shows how **hero + content blocks** can feel like a docs page.\n\n### Goals\n- Quick navigation via TOC\n- Auto TOC from `##/###`\n- Hide headings from TOC via `##!`\n\n##! Side note (hidden)\nThis section is visible on the page but not listed.\n",
-      "tr": "## Problem\nBu proje, **hero + content blocks** yapısının docs gibi çalışmasını göstermek için var.\n\n### Hedef\n- Sol TOC ile hızlı gezinme\n- `##/###` başlıklardan otomatik TOC üretimi\n- `##!` ile başlığı TOC'tan gizleme\n\n##! Özel not (TOC'ta görünmez)\nBu bölüm yalnızca sayfada görünür.\n"
+      "tr": "Bu proje aslında benim üniversitede bitirme projem olmakla birlikte ve aynı zamanda da Teknofest 2022 yarışmasında finalist olan, Unreal Engine 4 ile geliştirilen bir video oyunu projesidir.\n\nBu proje, oyuncuların birbirleriyle sosyalleşmesini sağlayan çok oyunculu bir sanal gerçeklik oyunudur. Oyunda sosyalleşmeyi sağlamak için, VR teknolojisi kullanılarak bir sanal ortam oluşturulmuştur. Bu sanal ortamda oyuncuların birbirleriyle etkileşime geçebilecekleri bazı ögeler bulunmaktadır.\n\n###! Karakterini seç\nOyunda birden fazla karakter bulunmakta. Sanal ortama girmek istediğin karakteri seç.\n\n###! Arkadaşlarınla eğlen\nOyun içinde bulunan mini oyunlarla (kule dizme, poligon, top oyunu) veya televizyonlardaki video içeriklerini kullanarak arkadaşlarınızla vakit geçirin.\n\n##!  Sorumluluklarım\n- Unreal Engine 4 kullanarak, karakterler için VR destekli bir Animasyon geçişlerini oluşturmak.\n\n- Çok oyunculu sistem için Ağ Replikasyonlarını geliştirmek.\n\n- Bazı kullanıcı Arayüzü elementlerini dizayn etmek.\n\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)",
+      "en": "This is a multiplayer virtual reality game that allows players socialize them each other. In order to provide socialization in the game, a virtual environment has been created using VR technology. There are some game elements in this virtual environment where players can interact with each other.\n\n###! Choose your character\nThere are multiple characters in the game. Select the character you want to enter the virtual environment.\n\n###! Hangout with your friends!\nSpend time with your friends with in-game mini-games (block tower, shooting range, ball game) or using video content on TVs.\n\n##!  Responsibilities\n- Building an Animation blueprint that integrated with VR for the characters by Using Unreal Engine 4.\n- Developing Networking replications for Multiplayer system.\n- Designing some UI elements.\n\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)"
     },
-    "content_blocks": [
-      {
-        "id": "blk_case_1",
-        "title": { "en": "Architecture", "tr": "Mimari" },
-        "content": {
-          "en": "## Overview\n![Architecture](/assets/image/sample-arch.svg)\n\n### Data flow\nA small nested heading example.\n\n## Components\n![Component diagram](/assets/image/sample-component.svg)",
-          "tr": "## Overview\n![Architecture](/assets/image/sample-arch.svg)\n\n### Data flow\nAlt başlık hiyerarşisi örneği.\n\n## Components\n![Component diagram](/assets/image/sample-component.svg)"
-        },
-        "order_index": 0,
-        "created_at": "2026-01-10T00:00:00.000Z",
-        "updated_at": "2026-01-10T00:00:00.000Z"
-      },
-      {
-        "id": "blk_case_2",
-        "title": { "en": "Implementation", "tr": "Uygulama" },
-        "content": {
-          "en": "## API contract\n@snippet(snip_microservice_contract, Simple contract + validation)\n\n##! Notes (hidden)\nThis heading is hidden from the TOC.\n\n## Video\n@youtube(https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
-          "tr": "## API contract\n@snippet(snip_microservice_contract, Basit contract + validation)\n\n##! Notlar (TOC'a girmez)\nBu başlık Contents listesinde görünmez.\n\n## Video\n@youtube(https://www.youtube.com/watch?v=dQw4w9WgXcQ)"
-        },
-        "order_index": 1,
-        "created_at": "2026-01-10T00:00:00.000Z",
-        "updated_at": "2026-01-10T00:00:00.000Z"
-      }
+    "content_blocks": [],
+    "links": [],
+    "period_start": {
+      "tr": "Mart 2022"
+    },
+    "period_end": {
+      "tr": "Ocak 2023"
+    },
+    "tech_stack": [
+      "VR",
+      "Unreal Engine",
+      "Multiplayer",
+      "C++",
+      "Blueprint"
     ],
-    "tech_stack": ["Content blocks", "TOC", "RichText"],
     "featured": false,
     "order_index": 3,
-    "created_at": "2026-01-10T00:00:00.000Z",
-    "updated_at": "2026-01-10T00:00:00.000Z",
-    "thumbnail_video_url": "/assets/video/test.mp4",
-    "thumbnail_image_url": "/assets/image/sample-arch.svg"
+    "created_at": "2026-03-07T09:53:05.884Z",
+    "updated_at": "2026-03-07T12:05:48.292Z",
+    "thumbnail_image_url": "/assets/image/gp/thumbnail.jpg"
+  },
+  {
+    "id": "proj_1772878480354",
+    "title": {
+      "en": "BOTC - Freelance Project",
+      "tr": "BOTC - Freelance Project"
+    },
+    "slug": "botc-freelance-project",
+    "summary": {
+      "tr": "BOTC, Fiverr üzerinden gelen istek üzerine Unreal Engine 4 ile geliştirilen bir demo video oyun projesidir.",
+      "en": "Blood On The Cotton (BOTC) is a demo video game project developed with Unreal Engine 4 upon request from Fiverr."
+    },
+    "description": {
+      "tr": "BOTC hikaye tabanlı, üçüncü şahıs, gizlilik oyunudur. Oyun Amerikan tarihinin Savaş Öncesi Dönemi’nde yaşanan kölelik konusunu ele alır. Oyuncu (Ana karakter), Pendleton çiftliğinde zorla çalıştırılan, Kuzey'e ulaşmaya çalışan, özgürlüğünü arayan bir köle rolünü üstlenir.\n\n###! Bilgi topla, gizli kalmaya çalış ve çiftlikten kaçmanın bir yolunu bul!\nOyundaki talimatları izleyerek yapılması gereken görevleri yap. Çiftliği araştır ve çevrede bulunan karakterlerle konuşarak bilgi topla. Topladığın bilgiler doğrultusunda gizlilik özelliğini de kullanarak çiftlikten kaçmaya çalış.\n\n##! Sorumluluklarım\n- Hareket, gizlilik ve dövüş sistemi gibi oyun mekaniklerini geliştirmek.\n- Unreal Engine 4 oyun motorunu kullanarak bazı sinematik sahneler oluşturmak.\n- Bir harita oluşturmak ve çevredeki bazı öğeleri düzenlemek.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)",
+      "en": "BOTC is a story-based, third-person, stealth game. The game deals with the subject of slavery in the Pre-War Period of American history. The player (the main character) takes on the role of a slave who is forced to work in Pendleton Plantation, trying to reach the North, seeking his freedom.\n\n###! Go gather information, try to stay hidden and find a way to escape plantation!\nDo the missions that need to be done by following the instructions in the game. Explore the farm and gather information by talking to the characters in the surrounding area. Try to escape from the farm by using the privacy feature according to the information you collect.\n\n##! Responsibilities\n- Developing game mechanics such as locomotion, stealth and combat system.\n- Creating some cinematic sequences by using Unreal Engine 4.\n- Constructing an landscape and arranging some elements in a environment.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "en": "Gameplay Video",
+          "tr": "Gameplay Video"
+        },
+        "url": "https://www.youtube.com/watch?v=PrrdRvqSfHE"
+      }
+    ],
+    "period_start": {
+      "tr": "Ocak 2022"
+    },
+    "period_end": {
+      "tr": "Nisan 2022"
+    },
+    "tech_stack": [
+      "Prototype",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
+    "featured": false,
+    "order_index": 4,
+    "created_at": "2026-03-07T10:14:40.354Z",
+    "updated_at": "2026-03-07T12:04:52.532Z",
+    "thumbnail_image_url": "/assets/image/botc/thumbnail.jpeg"
+  },
+  {
+    "id": "proj_1772883369098",
+    "title": {
+      "en": "Teknofest 2020 Project",
+      "tr": "Teknofest 2020"
+    },
+    "slug": "teknofest-2020-project",
+    "summary": {
+      "tr": "Bu proje, Teknofest 2020 yarışmasında birinci olan, Unity engine ile geliştirilen bir video oyunu projesidir.",
+      "en": "This project is a video game project developed with Unity engine, which won the Teknofest 2020 event."
+    },
+    "description": {
+      "tr": "Bu proje, çok oyunculu bir sanal gerçeklik oyunudur. Bu projede kanser tedavisi gören çocuklar için 3B bir sanal park ortamı tasarladık. Bu ortamda çocuklar arkadaşları ile eğlenceli vakit geçirebilecekleri materyaller (kaykay, salıncak, tahterevalli) bulunmaktadır.\n\n###! Sorumluluklarım\n- Animasyon durumlarını yönetmek ve oyun içindeki Haritayı tasarlamak.\n- Çok oyunculu sistemdeki bazı hataları düzeltmek.\n- Oyun içindeki bazı Oyun Mekaniklerini geliştirmek.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)",
+      "en": "This project is a multiplayer virtual reality game. In this project, we designed a 3D virtual park environment for children undergoing cancer treatment. In this environment, there are materials (slides, swings, see-saws) where children can have fun with their friends.\n\n###! Responsibilities\n- Managing some Animation states and Level designing.\n- Fixing some bugs in Networking for multiplayer system.\n- Developing several Gameplay Mechanic in basics.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)"
+    },
+    "content_blocks": [],
+    "thumbnail_image_url": "/assets/image/tekno20/thumbnail.jpg",
+    "links": [
+      {
+        "label": {
+          "tr": "Featured In"
+        },
+        "url": "https://www.gaziantepgapgazetesi.com/haber-teknofestte-insanlik-yararina-teknoloji-kategorisinde-hku-1-oldu-14891.html"
+      }
+    ],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "VR",
+      "Unity Engine",
+      "Multiplayer",
+      "C#"
+    ],
+    "featured": false,
+    "order_index": 5,
+    "created_at": "2026-03-07T11:36:09.098Z",
+    "updated_at": "2026-03-07T11:49:31.166Z"
+  },
+  {
+    "id": "proj_1772880894272",
+    "title": {
+      "en": "Rise of Darkness",
+      "tr": "Rise of Darkness"
+    },
+    "slug": "rise-of-darkness",
+    "summary": {
+      "tr": "Rise of Darkness, okulumuzda düzenlenen Game Jam etkinliğinde (HKU Game Jam 2021), Unreal Engine 4 ile geliştirilen bir video oyunu projesidir.",
+      "en": "Rise of Darkness is a video game project developed with the Unreal Engine 4 at the Game Jam event (HKU Game Jam 2021) held at our school."
+    },
+    "description": {
+      "tr": "###! Game Jam Teması: “Kaybetmek”\n\nRise of Darkness üçüncü şahıs bir korku oyunudur. Oyun yüklü bir miktarda para olduğu söylenilen ve lanetli olduğu söylenilen bir evde geçiyor. Oyunun ana karakteri, gece saatinde bu söylentileri duyduktan sonra parayı aramak için bu lanetli eve giriyor.\n\nOyuncu evin içindeyken bazı koşulları yerine getirmezse akıl sağlığını kaybetmeye başlar ve farklı şeyler görmeye başlar.\n\n###! Işığını yenile ve akıl sağlığını koru\n\nMeşaleni, şamdanlara giderek tazele ve parayı bulana kadar evi araştırmaya devam et.\n\n##! Sorumluluklarım\n- Oyun içi bazı temel Oynanış Mekaniklerini geliştirmek.\n- Bazı harici kaynakları projeye Entegre etmek.\n- Haritadaki bazı Oyun içi ögeleri düzenlemek.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)",
+      "en": "###! Game Jam Theme: “Losing”\n\nRise of Darkness is a third-person horror game. The game takes place in a house that is said to have a large amount of money and is said to be cursed. The main character of the game enters this cursed house in search of money after hearing these rumors at night time.\n\nIf the player doesn't meet certain conditions while inside the house, they start to lose their sanity and see different things.\n\n###! Keep your light on and keep your sanity\nRenew your torch by going to the candlesticks and keep searching the house until you find the money.\n\n##! Responsibilities\n- Developing several Gameplay Mechanic in basics.\n- Integrating several external assets to the Project.\n- Arranging some gameplay elements in a Level.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "tr": "Gameplay Preview"
+        },
+        "url": "https://www.youtube.com/watch?v=E97d-tk73d8"
+      }
+    ],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unreal Engine",
+      "Horror",
+      "Blueprint"
+    ],
+    "featured": false,
+    "order_index": 6,
+    "created_at": "2026-03-07T10:54:54.272Z",
+    "updated_at": "2026-03-07T11:50:59.878Z",
+    "thumbnail_image_url": "/assets/image/rod/thumbnail.jpg"
+  },
+  {
+    "id": "proj_1772883081719",
+    "title": {
+      "en": "L.P.F - GGJ 2021 Project",
+      "tr": "L.P.F - GGJ 2021 Project"
+    },
+    "slug": "l-p-f-ggj-2021-project",
+    "summary": {
+      "tr": "L.P.F, okulumuzda düzenlenen Global Game Jam etkinliğinde (GGJ 2021), Unity engine ile geliştirilen bir video oyunu projesidir.",
+      "en": "L.P.F is a video game project developed with Unity engine at the Global Game Jam event (GGJ 2021) held at our school."
+    },
+    "description": {
+      "tr": "###! Game Jam Teması: “Kaybolmak ve Bulunmak”\n\nL.P.F üçüncü şahıs bir parkur oyunudur. Oyunun ana karakteri, kayıp eşya bürosunun bir çalışanı olmak üzere bu eşyaları bulmakla sorumludur. Oyuncu, eşyaları bulmak için kullanabileceği çeşitli materyallere (metal dedektörü, dron) sahiptir.\n\n###! İpucu bulmaya çalış\nOyunun başında eşyasını kaybeden insanlara karşı tavrına bağlı olarak daha fazla ipucu alabilirsin. Bunu lehine kullan.\n\n###! Materyallerini kullan ve o eşyayı bul!\nEşyayı bulmak için tüm haritayı gezmene gerek yok, işe yarar materyallerin var bunları kullan. Erişemediğin yerler olabilir bunun için dronunu kullanabilirsin.\n\n##! Sorumluluklarım\n- Unity engine'de harita tasarımında yer almak.\n\n- Drone hareketi gibi bazı oyun mekaniklerinin geliştirilmesi.\n\n![](/assets/image/lpf/1.png)\n![](/assets/image/lpf/2.png)\n![](/assets/image/lpf/3.png)\n![](/assets/image/lpf/4.png)\n![](/assets/image/lpf/5.png)",
+      "en": "###! Game Jam Theme: “Lost & Found”\nL.P.F is a third-person parkour game. The main character of the game is responsible for finding these items, being an employee of the lost and found office. The player has various materials (metal detector, drone) that he can use to find items.\n\n###! Try to find clue\nDepending on your attitude towards people who lost their item at the beginning of the game, you can get more hints. Use it in your favor.\n\n###! Use your materials and find that item!\nYou don't need to go around the whole map to find the item, you have useful materials, use them. There may be places you cannot reach, you can use your drone for this.\n\n##! Responsibilities\n- Taking part in Level design in Unity engine.\n- Developing some Gameplay Mechanics such as drone movement.\n\n![](/assets/image/lpf/1.png)\n![](/assets/image/lpf/2.png)\n![](/assets/image/lpf/3.png)\n![](/assets/image/lpf/4.png)\n![](/assets/image/lpf/5.png)"
+    },
+    "content_blocks": [],
+    "thumbnail_image_url": "/assets/image/lpf/thumbnail.png",
+    "links": [],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unity Engine",
+      "C#"
+    ],
+    "featured": false,
+    "order_index": 7,
+    "created_at": "2026-03-07T11:31:21.719Z",
+    "updated_at": "2026-03-07T11:49:40.470Z"
+  },
+  {
+    "id": "proj_1772883759369",
+    "title": {
+      "en": "Hay Aksi!",
+      "tr": "Hay Aksi!"
+    },
+    "slug": "hay-aksi",
+    "summary": {
+      "tr": "Hay Aksi, okulumuzda düzenlenen Global Game Jam etkinliğinde (GGJ 2020), Unity engine ile geliştirilen bir video oyunu projesidir. Aynı zamanda bu proje benim ilk tecrübemdir.",
+      "en": "Hay Aksi is a video game project developed with Unity engine at the Global Game Jam event (GGJ 2020) held at our school. At the same time, this project is my first experience."
+    },
+    "description": {
+      "tr": "###! Game Jam Teması: “Tamir etmek”\n\nHay Aksi, üçüncü şahıs bir bulmaca oyunudur. Oyun, yolda arabayla seyahat ederken bir anda aracı arızalan ve aracını tamir etmeye çalışan bir karakterin konusunu ele alır.\n\nBu tamir işini yapması için de önce tamir eşyalarını toplaması ve sonra da ufak bir bulmacayı çözmesi gerekir.\n\n##! Sorumluluklarım\n- Unity engine üzerinden Harita tasarlamak.\n\n- Bazı hataların düzeltilmesine yardımcı olmak.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)",
+      "en": "###! Game Jam Theme: “Repair”\n\nHay Aksi is a third-person puzzle game. The game deals with the subject of a character who suddenly breaks down and tries to repair his vehicle while he is traveling by car on the road.\n\nIn order to do this repair job, he must first collect the repair items and then solve a small puzzle.\n\n##! Responsibilities\n- I was responsible with Level Design in Unity engine.\n\n- Helping to several fixing bugs.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)"
+    },
+    "content_blocks": [],
+    "links": [],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unity Engine",
+      "C#",
+      "First Experience"
+    ],
+    "featured": false,
+    "order_index": 8,
+    "created_at": "2026-03-07T11:42:39.369Z",
+    "updated_at": "2026-03-07T12:02:50.274Z",
+    "thumbnail_image_url": "/assets/image/hayaksi/thumbnail.png"
   }
 ]
