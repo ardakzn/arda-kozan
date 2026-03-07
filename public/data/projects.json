@@ -7,10 +7,12 @@
     },
     "slug": "forks-and-daggers",
     "summary": {
-      "tr": "Forks and Daggers, Steam'de yayınlanmış çok oyunculu hain bulma oyunudur."
+      "tr": "Forks and Daggers, Steam'de yayınlanmış çok oyunculu hain bulma oyunudur.",
+      "en": "Forks and Daggers is a multiplayer social deduction game released on Steam."
     },
     "description": {
-      "tr": "Forks and Daggers, orta çağ temalı, arkadaşlarla oynanılabilecek, vampir-köylü oyunu türünde bir oyundur. Oyundaki köylülerin kral için yapması gereken görevi vardır ve bu görevleri sabote etmeye çalışan bir hain vardır. İki taraf da oyundaki çeşitli içerikleri kullanarak oyunu kazanmaya çalışır.\n\nBu projede, Forks & Daggers’ın geliştirme sürecinde baştan sona aktif olarak yer aldım ve genel olarak oyunun temel gameplay sistemlerinin mimarisinin tasarlanması ve programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (Görev sistemi, eşya craftlama ve bazı oyuncu abilityleri için GAS kullanımı)\n- Lobi ve oturum sisteminin geliştirilmesi (Advanced session kullanarak şifreli, private lobi kurma ve oyuncu kickleme banlama gibi özellikler)\n- Projede kullanılan bazı pluginlerin entegrasyonu ve özelleştirilmesi\n- UI ve gameplay sistemleri arasındaki bağlantıların kurulması (UI Tasarımlarının entegrasyonu ve ekranda gösterilmek istenen oyun içi değişkenlerin bağlantısı.)\n\n@media(start=paused)\n![Oyuncunun girebileceği sessionlar listeniyor ve lobiye giriş yapıyor.](/assets/video/fd/join_session.mp4)\n![Oyuncu görev için gerekli eşya craftlıyor](/assets/video/fd/crafting.mp4)\n![Oyuncuya tanımlanmış görev tamamlanıyor ve Quest state değişiyor. Bunu dinleyerek UI güncelleniyor](/assets/video/fd/quest.mp4)\n![Oyundaki yangın sabotajı yapılıyor ve ardından söndürme abilityi kullanılıyor](/assets/video/fd/ability.mp4)"
+      "tr": "Forks and Daggers, orta çağ temalı, arkadaşlarla oynanılabilecek, vampir-köylü oyunu türünde bir oyundur. Oyundaki köylülerin kral için yapması gereken görevi vardır ve bu görevleri sabote etmeye çalışan bir hain vardır. İki taraf da oyundaki çeşitli içerikleri kullanarak oyunu kazanmaya çalışır.\n\nBu projede, Forks & Daggers'ın geliştirme sürecinde baştan sona aktif olarak yer aldım ve genel olarak oyunun temel gameplay sistemlerinin mimarisinin tasarlanması ve programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (Görev sistemi, eşya craftlama ve bazı oyuncu abilityleri için GAS kullanımı)\n- Lobi ve oturum sisteminin geliştirilmesi (Advanced session kullanarak şifreli, private lobi kurma ve oyuncu kickleme banlama gibi özellikler)\n- Projede kullanılan bazı pluginlerin entegrasyonu ve özelleştirilmesi\n- UI ve gameplay sistemleri arasındaki bağlantıların kurulması (UI tasarımlarının entegrasyonu ve ekranda gösterilmek istenen oyun içi değişkenlerin bağlantısı.)\n\n@media(start=paused)\n![Oyuncunun girebileceği sessionlar listeleniyor ve lobiye giriş yapıyor.](/assets/video/fd/join_session.mp4)\n![Oyuncu görev için gerekli eşya craftlıyor](/assets/video/fd/crafting.mp4)\n![Oyuncuya tanımlanmış görev tamamlanıyor ve Quest state değişiyor. Bunu dinleyerek UI güncelleniyor](/assets/video/fd/quest.mp4)\n![Oyundaki yangın sabotajı yapılıyor ve ardından söndürme abilityi kullanılıyor](/assets/video/fd/ability.mp4)",
+      "en": "Forks and Daggers is a medieval-themed social deduction game designed to be played with friends, built around a vampire-villager style setup. Villagers must complete objectives for the king, while a traitor tries to sabotage them. Both sides use the game's various systems and mechanics to secure victory.\n\nIn this project, I was actively involved throughout the entire development process of Forks & Daggers, and I was mainly responsible for designing and programming the architecture of the core gameplay systems.\n\n### Responsibilities\nI was fully responsible for the design and development of the following systems:\n\n- Developing core gameplay mechanics such as the quest system, item crafting, and GAS-based implementations for certain player abilities\n- Developing the lobby and session flow, including password-protected private lobbies and player kick / ban features using Advanced Sessions\n- Integrating and customizing some of the plugins used in the project\n- Building the connections between UI and gameplay systems, including UI implementation and binding in-game variables to the interface\n\n@media(start=paused)\n![Available sessions are listed and the player joins a lobby.](/assets/video/fd/join_session.mp4)\n![The player crafts the required item for a quest.](/assets/video/fd/crafting.mp4)\n![An assigned quest is completed and the quest state changes. The UI updates by listening to that state.](/assets/video/fd/quest.mp4)\n![A fire sabotage is triggered in the game and then an extinguishing ability is used.](/assets/video/fd/ability.mp4)"
     },
     "content_blocks": [],
     "links": [
@@ -46,29 +48,35 @@
   {
     "id": "proj_1771248857364",
     "title": {
-      "tr": "Altarium"
+      "tr": "Altarium",
+      "en": "Altarium"
     },
     "slug": "altarium",
     "summary": {
-      "tr": "Altarium, Steam'de yayınlanmış, çok oyunculu korku oyunudur."
+      "tr": "Altarium, Steam'de yayınlanmış, çok oyunculu korku oyunudur.",
+      "en": "Altarium is a multiplayer horror game released on Steam."
     },
     "description": {
-      "tr": "Altarium, vahşi batı temalı, Oyuncuların kötü karakter rolleri ve bunlardan kaçmaya çalışan kurban rollerini seçebileceği bir korku oyunudur. Oyun Dead by Deadlight gibi rekabetçi bir oyundur aynı zamanda AI karakterlerle birlikte Co-Op da oynanabilmektedir.\n\nBu projede, yaklaşık 1 yıl kadar  geliştirme sürecinde yer aldım ve genel olarak oyunun bazı temel gameplay programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (Karakterlerin bazı oyun içi yetenekleri)\n- Oyundaki düşman AI karakterlerinin davranışlarının yönetilmesi (BehaviourTree, NavFilter gibi sistemlerin yönetilmesi)\n\n@media(start=paused)\n![Playerı perception ile farkeden AI karakter onu kovalamaya başlıyor.](/assets/video/alt/alt-commonai.mp4)\n![AI karakter, playera yaklaştıktan sonra, EQS sistemi yardımıyla etrafında tekrar konumlanıyor.](/assets/video/alt/alt-eqs.mp4)\n![Player, düşman AI'dan gizlenmek için ability kullanıyor.](/assets/video/alt/alt-ability.mp4)"
+      "tr": "Altarium, vahşi batı temalı, oyuncuların kötü karakter rolleri ve bunlardan kaçmaya çalışan kurban rollerini seçebileceği bir korku oyunudur. Oyun Dead by Daylight gibi rekabetçi bir oyundur, aynı zamanda AI karakterlerle birlikte co-op da oynanabilmektedir.\n\nBu projede, yaklaşık 1 yıl kadar geliştirme sürecinde yer aldım ve genel olarak oyunun bazı temel gameplay programlanmasında sorumluluk aldım.\n\n### Sorumluluklarım\nAşağıda belirttiğim sistemlerin tasarımı ve geliştirilmesi tamamen benim sorumluluğumdaydı:\n\n- Temel gameplay mekaniklerinin geliştirilmesi (karakterlerin bazı oyun içi yetenekleri)\n- Oyundaki düşman AI karakterlerinin davranışlarının yönetilmesi (Behavior Tree, Nav Filter gibi sistemlerin yönetilmesi)\n\n@media(start=paused)\n![Player'ı perception ile fark eden AI karakter onu kovalamaya başlıyor.](/assets/video/alt/alt-commonai.mp4)\n![AI karakter, player'a yaklaştıktan sonra, EQS sistemi yardımıyla etrafında tekrar konumlanıyor.](/assets/video/alt/alt-eqs.mp4)\n![Player, düşman AI'dan gizlenmek için ability kullanıyor.](/assets/video/alt/alt-ability.mp4)",
+      "en": "Altarium is a Wild West-themed horror game where players can choose between evil character roles and victim roles trying to escape from them. The game is competitive in a Dead by Daylight-like structure, but it can also be played cooperatively alongside AI-controlled characters.\n\nI worked on this project for about a year during development and was mainly responsible for programming several core gameplay systems.\n\n### Responsibilities\nI was fully responsible for the design and development of the following systems:\n\n- Developing core gameplay mechanics, including some of the characters' in-game abilities\n- Managing the behaviors of enemy AI characters, including systems such as Behavior Trees and Nav Filters\n\n@media(start=paused)\n![An AI character detects the player through perception and starts chasing them.](/assets/video/alt/alt-commonai.mp4)\n![After getting close to the player, the AI character repositions itself using the EQS system.](/assets/video/alt/alt-eqs.mp4)\n![The player uses an ability to hide from the enemy AI.](/assets/video/alt/alt-ability.mp4)"
     },
     "content_blocks": [],
     "links": [
       {
         "label": {
-          "tr": "Steam Page"
+          "tr": "Steam Page",
+          "en": "Steam Page"
         },
         "url": "https://store.steampowered.com/app/2524700/Altarium/"
       }
     ],
     "period_start": {
-      "tr": "Ekim 2023"
+      "tr": "Ekim 2023",
+      "en": "Oct 2023"
     },
     "period_end": {
-      "tr": "Eylül 2024"
+      "tr": "Eylül 2024",
+      "en": "Sep 2024"
     },
     "tech_stack": [
       "Steam",
@@ -95,20 +103,22 @@
       "en": "This project is a engine plugin that I developed for the Unreal Engine and offered for sale on the Unreal Engine Marketplace."
     },
     "description": {
-      "tr": "Bu motor eklentisi, genelde shooter oyunlarda kullanılan geri tepme sistemini daha esnek ve kolay bir şekilde unreal projesine eklemenize imkan sağlar. Bu eklentinin amacı, unreal projesine bu sistemi dahil etmek isteyenlere, onların düzenleyebileceği çeşitli özelliklere sahip ve esnek bir yapıya sahip geri tepme sistemi sağlamaktır. Bu özellikler sayesinde birbirinden farklı ayarlar üreterek projenin esnekliği ve çeşitliliği arttırılabilir.\n\n###! Recoil Ayarlarını Özelleştir\n\nBu geri tepme sistemi, içerisinde özelleştirebileceğiniz tepme hızı, dağılma oranı, dağılma şekli gibi bir çok ayar barındırır. Kendi geri tepme stilini oluştur ve düzenle.\n\n###! Kendi geri tepme stilini oluştur\n\nBütün geri tepme ayarlarını düzenleyebileceğiniz ve ayrıca silahın hangi şekilde sekeceğini nokta koyarak çizim yapabileceğiniz bir editor aracı bulunmaktadır. Kendi geri tepme stilini oluştur ve düzenle.\n\n##! Sorumluluklarım\n- Bütün Geri tepme sistemini blueprint kullanarak, bir kısmını da C++ kullanarak geliştirmek.\n\n- Unreal Engine'de bulunan Editor Scripting araçları ile çalışmak.\n\n- Eklentiyi Çok Oyunculu Kullanıma Hazır hale getirmek için Ağ Replikasyonları ile çalışmak.\n\n- Plugini yayınlamak için dokümantasyon, video, demo gibi gerekli unsurları hazırlamak.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)",
+      "tr": "Bu motor eklentisi, genelde shooter oyunlarda kullanılan geri tepme sistemini daha esnek ve kolay bir şekilde Unreal projelerine eklemenize imkan sağlar. Bu eklentinin amacı, Unreal projesine bu sistemi dahil etmek isteyenlere, onların düzenleyebileceği çeşitli özelliklere sahip ve esnek bir yapıya sahip geri tepme sistemi sağlamaktır. Bu özellikler sayesinde birbirinden farklı ayarlar üreterek projenin esnekliği ve çeşitliliği arttırılabilir.\n\n###! Recoil ayarlarını özelleştir\n\nBu geri tepme sistemi, içerisinde özelleştirebileceğiniz tepme hızı, dağılma oranı, dağılma şekli gibi birçok ayar barındırır. Kendi geri tepme stilini oluştur ve düzenle.\n\n###! Kendi geri tepme stilini oluştur\n\nBütün geri tepme ayarlarını düzenleyebileceğiniz ve ayrıca silahın hangi şekilde sekeceğini nokta koyarak çizim yapabileceğiniz bir editor aracı bulunmaktadır. Kendi geri tepme stilini oluştur ve düzenle.\n\n##! Sorumluluklarım\n- Bütün geri tepme sistemini Blueprint kullanarak, bir kısmını da C++ kullanarak geliştirmek.\n\n- Unreal Engine'de bulunan Editor Scripting araçları ile çalışmak.\n\n- Eklentiyi çok oyunculu kullanıma hazır hale getirmek için ağ replikasyonları ile çalışmak.\n\n- Plugini yayınlamak için dokümantasyon, video, demo gibi gerekli unsurları hazırlamak.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)",
       "en": "This engine plugin, allows the recoil system which is generally used in shooter games to be added to the Unreal projects in a more flexible and easy way. The purpose of this plugin is to provide a flexible recoil system with various features that can be customized by those who want to include this system in their Unreal project. Thanks to these features, the flexibility and variety of the project can be increased by producing different settings.\n\n###! Customize your recoil\nThis recoil system includes many settings that you can customize such as recoil speed, spread rate, recoil pattern etc. Create and edit your own recoil.\n\n###! Create own recoil pattern\nThere is an editor tool where you can adjust all the recoil settings and also draw recoil pattern by placing dots. Create and edit your own throwback style.\n\n##! Responsibilities\n- Developing the entire Recoil system using Blueprint and some of it using C++.\n- Working with Editor Scripting tools available in Unreal Engine.\n- Working with Network Replications to make the plugin Multiplayer Ready.\n- Preparing the necessary elements such as documentation, video, demo for publishing the plugin.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)"
     },
     "content_blocks": [],
     "links": [
       {
         "label": {
-          "tr": "Plugin Link"
+          "tr": "Plugin Link",
+          "en": "Plugin Link"
         },
         "url": "https://www.fab.com/listings/85a18b78-443c-4288-a387-0d77af42e2a3"
       },
       {
         "label": {
-          "tr": "Showcase"
+          "tr": "Showcase",
+          "en": "Showcase"
         },
         "url": "https://www.youtube.com/watch?v=kftHOeTRPPM"
       }
@@ -139,16 +149,18 @@
       "en": "This project is actually my graduation project at the university, and it is also a finalist video game Project that developed with Unreal Engine 4."
     },
     "description": {
-      "tr": "Bu proje aslında benim üniversitede bitirme projem olmakla birlikte ve aynı zamanda da Teknofest 2022 yarışmasında finalist olan, Unreal Engine 4 ile geliştirilen bir video oyunu projesidir.\n\nBu proje, oyuncuların birbirleriyle sosyalleşmesini sağlayan çok oyunculu bir sanal gerçeklik oyunudur. Oyunda sosyalleşmeyi sağlamak için, VR teknolojisi kullanılarak bir sanal ortam oluşturulmuştur. Bu sanal ortamda oyuncuların birbirleriyle etkileşime geçebilecekleri bazı ögeler bulunmaktadır.\n\n###! Karakterini seç\nOyunda birden fazla karakter bulunmakta. Sanal ortama girmek istediğin karakteri seç.\n\n###! Arkadaşlarınla eğlen\nOyun içinde bulunan mini oyunlarla (kule dizme, poligon, top oyunu) veya televizyonlardaki video içeriklerini kullanarak arkadaşlarınızla vakit geçirin.\n\n##!  Sorumluluklarım\n- Unreal Engine 4 kullanarak, karakterler için VR destekli bir Animasyon geçişlerini oluşturmak.\n\n- Çok oyunculu sistem için Ağ Replikasyonlarını geliştirmek.\n\n- Bazı kullanıcı Arayüzü elementlerini dizayn etmek.\n\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)",
-      "en": "This is a multiplayer virtual reality game that allows players socialize them each other. In order to provide socialization in the game, a virtual environment has been created using VR technology. There are some game elements in this virtual environment where players can interact with each other.\n\n###! Choose your character\nThere are multiple characters in the game. Select the character you want to enter the virtual environment.\n\n###! Hangout with your friends!\nSpend time with your friends with in-game mini-games (block tower, shooting range, ball game) or using video content on TVs.\n\n##!  Responsibilities\n- Building an Animation blueprint that integrated with VR for the characters by Using Unreal Engine 4.\n- Developing Networking replications for Multiplayer system.\n- Designing some UI elements.\n\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)"
+      "tr": "Bu proje aslında benim üniversitede bitirme projem olmakla birlikte ve aynı zamanda da Teknofest 2022 yarışmasında finalist olan, Unreal Engine 4 ile geliştirilen bir video oyunu projesidir.\n\nBu proje, oyuncuların birbirleriyle sosyalleşmesini sağlayan çok oyunculu bir sanal gerçeklik oyunudur. Oyunda sosyalleşmeyi sağlamak için, VR teknolojisi kullanılarak bir sanal ortam oluşturulmuştur. Bu sanal ortamda oyuncuların birbirleriyle etkileşime geçebilecekleri bazı ögeler bulunmaktadır.\n\n###! Karakterini seç\nOyunda birden fazla karakter bulunmakta. Sanal ortama girmek istediğin karakteri seç.\n\n###! Arkadaşlarınla eğlen\nOyun içinde bulunan mini oyunlarla (kule dizme, poligon, top oyunu) veya televizyonlardaki video içeriklerini kullanarak arkadaşlarınızla vakit geçirin.\n\n##! Sorumluluklarım\n- Unreal Engine 4 kullanarak, karakterler için VR destekli bir animasyon geçişlerini oluşturmak.\n\n- Çok oyunculu sistem için ağ replikasyonlarını geliştirmek.\n\n- Bazı kullanıcı arayüzü elementlerini dizayn etmek.\n\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)",
+      "en": "This is a multiplayer virtual reality game that allows players socialize them each other. In order to provide socialization in the game, a virtual environment has been created using VR technology. There are some game elements in this virtual environment where players can interact with each other.\n\n###! Choose your character\nThere are multiple characters in the game. Select the character you want to enter the virtual environment.\n\n###! Hangout with your friends!\nSpend time with your friends with in-game mini-games (block tower, shooting range, ball game) or using video content on TVs.\n\n##!  Responsibilities\n- Building an Animation blueprint that integrated with VR for the characters by Using Unreal Engine 4.\n- Developing Networking replications for Multiplayer system.\n- Designing some UI elements.\n\n\n![Alandaki iki oyuncu birbirini selamlÄ±yor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)"
     },
     "content_blocks": [],
     "links": [],
     "period_start": {
-      "tr": "Mart 2022"
+      "tr": "Mart 2022",
+      "en": "Mar 2022"
     },
     "period_end": {
-      "tr": "Ocak 2023"
+      "tr": "Ocak 2023",
+      "en": "Jan 2023"
     },
     "tech_stack": [
       "VR",
@@ -175,7 +187,7 @@
       "en": "Blood On The Cotton (BOTC) is a demo video game project developed with Unreal Engine 4 upon request from Fiverr."
     },
     "description": {
-      "tr": "BOTC hikaye tabanlı, üçüncü şahıs, gizlilik oyunudur. Oyun Amerikan tarihinin Savaş Öncesi Dönemi’nde yaşanan kölelik konusunu ele alır. Oyuncu (Ana karakter), Pendleton çiftliğinde zorla çalıştırılan, Kuzey'e ulaşmaya çalışan, özgürlüğünü arayan bir köle rolünü üstlenir.\n\n###! Bilgi topla, gizli kalmaya çalış ve çiftlikten kaçmanın bir yolunu bul!\nOyundaki talimatları izleyerek yapılması gereken görevleri yap. Çiftliği araştır ve çevrede bulunan karakterlerle konuşarak bilgi topla. Topladığın bilgiler doğrultusunda gizlilik özelliğini de kullanarak çiftlikten kaçmaya çalış.\n\n##! Sorumluluklarım\n- Hareket, gizlilik ve dövüş sistemi gibi oyun mekaniklerini geliştirmek.\n- Unreal Engine 4 oyun motorunu kullanarak bazı sinematik sahneler oluşturmak.\n- Bir harita oluşturmak ve çevredeki bazı öğeleri düzenlemek.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)",
+      "tr": "BOTC hikaye tabanlı, üçüncü şahıs, gizlilik oyunudur. Oyun Amerikan tarihinin Savaş Öncesi Dönemi'nde yaşanan kölelik konusunu ele alır. Oyuncu (ana karakter), Pendleton çiftliğinde zorla çalıştırılan, Kuzey'e ulaşmaya çalışan, özgürlüğünü arayan bir köle rolünü üstlenir.\n\n###! Bilgi topla, gizli kalmaya çalış ve çiftlikten kaçmanın bir yolunu bul!\nOyundaki talimatları izleyerek yapılması gereken görevleri yap. Çiftliği araştır ve çevrede bulunan karakterlerle konuşarak bilgi topla. Topladığın bilgiler doğrultusunda gizlilik özelliğini de kullanarak çiftlikten kaçmaya çalış.\n\n##! Sorumluluklarım\n- Hareket, gizlilik ve dövüş sistemi gibi oyun mekaniklerini geliştirmek.\n- Unreal Engine 4 oyun motorunu kullanarak bazı sinematik sahneler oluşturmak.\n- Bir harita oluşturmak ve çevredeki bazı öğeleri düzenlemek.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)",
       "en": "BOTC is a story-based, third-person, stealth game. The game deals with the subject of slavery in the Pre-War Period of American history. The player (the main character) takes on the role of a slave who is forced to work in Pendleton Plantation, trying to reach the North, seeking his freedom.\n\n###! Go gather information, try to stay hidden and find a way to escape plantation!\nDo the missions that need to be done by following the instructions in the game. Explore the farm and gather information by talking to the characters in the surrounding area. Try to escape from the farm by using the privacy feature according to the information you collect.\n\n##! Responsibilities\n- Developing game mechanics such as locomotion, stealth and combat system.\n- Creating some cinematic sequences by using Unreal Engine 4.\n- Constructing an landscape and arranging some elements in a environment.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)"
     },
     "content_blocks": [],
@@ -189,10 +201,12 @@
       }
     ],
     "period_start": {
-      "tr": "Ocak 2022"
+      "tr": "Ocak 2022",
+      "en": "Jan 2022"
     },
     "period_end": {
-      "tr": "Nisan 2022"
+      "tr": "Nisan 2022",
+      "en": "Apr 2022"
     },
     "tech_stack": [
       "Prototype",
@@ -218,7 +232,7 @@
       "en": "This project is a video game project developed with Unity engine, which won the Teknofest 2020 event."
     },
     "description": {
-      "tr": "Bu proje, çok oyunculu bir sanal gerçeklik oyunudur. Bu projede kanser tedavisi gören çocuklar için 3B bir sanal park ortamı tasarladık. Bu ortamda çocuklar arkadaşları ile eğlenceli vakit geçirebilecekleri materyaller (kaykay, salıncak, tahterevalli) bulunmaktadır.\n\n###! Sorumluluklarım\n- Animasyon durumlarını yönetmek ve oyun içindeki Haritayı tasarlamak.\n- Çok oyunculu sistemdeki bazı hataları düzeltmek.\n- Oyun içindeki bazı Oyun Mekaniklerini geliştirmek.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)",
+      "tr": "Bu proje, çok oyunculu bir sanal gerçeklik oyunudur. Bu projede kanser tedavisi gören çocuklar için 3B bir sanal park ortamı tasarladık. Bu ortamda çocuklar arkadaşları ile eğlenceli vakit geçirebilecekleri materyaller (kaykay, salıncak, tahterevalli) bulunmaktadır.\n\n###! Sorumluluklarım\n- Animasyon durumlarını yönetmek ve oyun içindeki haritayı tasarlamak.\n- Çok oyunculu sistemdeki bazı hataları düzeltmek.\n- Oyun içindeki bazı oyun mekaniklerini geliştirmek.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)",
       "en": "This project is a multiplayer virtual reality game. In this project, we designed a 3D virtual park environment for children undergoing cancer treatment. In this environment, there are materials (slides, swings, see-saws) where children can have fun with their friends.\n\n###! Responsibilities\n- Managing some Animation states and Level designing.\n- Fixing some bugs in Networking for multiplayer system.\n- Developing several Gameplay Mechanic in basics.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)"
     },
     "content_blocks": [],
@@ -226,7 +240,8 @@
     "links": [
       {
         "label": {
-          "tr": "Featured In"
+          "tr": "Featured In",
+          "en": "Featured In"
         },
         "url": "https://www.gaziantepgapgazetesi.com/haber-teknofestte-insanlik-yararina-teknoloji-kategorisinde-hku-1-oldu-14891.html"
       }
@@ -256,14 +271,15 @@
       "en": "Rise of Darkness is a video game project developed with the Unreal Engine 4 at the Game Jam event (HKU Game Jam 2021) held at our school."
     },
     "description": {
-      "tr": "###! Game Jam Teması: “Kaybetmek”\n\nRise of Darkness üçüncü şahıs bir korku oyunudur. Oyun yüklü bir miktarda para olduğu söylenilen ve lanetli olduğu söylenilen bir evde geçiyor. Oyunun ana karakteri, gece saatinde bu söylentileri duyduktan sonra parayı aramak için bu lanetli eve giriyor.\n\nOyuncu evin içindeyken bazı koşulları yerine getirmezse akıl sağlığını kaybetmeye başlar ve farklı şeyler görmeye başlar.\n\n###! Işığını yenile ve akıl sağlığını koru\n\nMeşaleni, şamdanlara giderek tazele ve parayı bulana kadar evi araştırmaya devam et.\n\n##! Sorumluluklarım\n- Oyun içi bazı temel Oynanış Mekaniklerini geliştirmek.\n- Bazı harici kaynakları projeye Entegre etmek.\n- Haritadaki bazı Oyun içi ögeleri düzenlemek.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)",
+      "tr": "###! Game Jam Teması: “Kaybetmek”\n\nRise of Darkness üçüncü şahıs bir korku oyunudur. Oyun yüklü bir miktarda para olduğu söylenilen ve lanetli olduğu söylenilen bir evde geçiyor. Oyunun ana karakteri, gece saatinde bu söylentileri duyduktan sonra parayı aramak için bu lanetli eve giriyor.\n\nOyuncu evin içindeyken bazı koşulları yerine getirmezse akıl sağlığını kaybetmeye başlar ve farklı şeyler görmeye başlar.\n\n###! Işığını yenile ve akıl sağlığını koru\n\nMeşaleni, şamdanlara giderek tazele ve parayı bulana kadar evi araştırmaya devam et.\n\n##! Sorumluluklarım\n- Oyun içi bazı temel oynanış mekaniklerini geliştirmek.\n- Bazı harici kaynakları projeye entegre etmek.\n- Haritadaki bazı oyun içi öğeleri düzenlemek.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)",
       "en": "###! Game Jam Theme: “Losing”\n\nRise of Darkness is a third-person horror game. The game takes place in a house that is said to have a large amount of money and is said to be cursed. The main character of the game enters this cursed house in search of money after hearing these rumors at night time.\n\nIf the player doesn't meet certain conditions while inside the house, they start to lose their sanity and see different things.\n\n###! Keep your light on and keep your sanity\nRenew your torch by going to the candlesticks and keep searching the house until you find the money.\n\n##! Responsibilities\n- Developing several Gameplay Mechanic in basics.\n- Integrating several external assets to the Project.\n- Arranging some gameplay elements in a Level.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)"
     },
     "content_blocks": [],
     "links": [
       {
         "label": {
-          "tr": "Gameplay Preview"
+          "tr": "Gameplay Preview",
+          "en": "Gameplay Preview"
         },
         "url": "https://www.youtube.com/watch?v=E97d-tk73d8"
       }
@@ -324,7 +340,7 @@
       "en": "Hay Aksi is a video game project developed with Unity engine at the Global Game Jam event (GGJ 2020) held at our school. At the same time, this project is my first experience."
     },
     "description": {
-      "tr": "###! Game Jam Teması: “Tamir etmek”\n\nHay Aksi, üçüncü şahıs bir bulmaca oyunudur. Oyun, yolda arabayla seyahat ederken bir anda aracı arızalan ve aracını tamir etmeye çalışan bir karakterin konusunu ele alır.\n\nBu tamir işini yapması için de önce tamir eşyalarını toplaması ve sonra da ufak bir bulmacayı çözmesi gerekir.\n\n##! Sorumluluklarım\n- Unity engine üzerinden Harita tasarlamak.\n\n- Bazı hataların düzeltilmesine yardımcı olmak.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)",
+      "tr": "###! Game Jam Teması: “Tamir etmek”\n\nHay Aksi, üçüncü şahıs bir bulmaca oyunudur. Oyun, yolda arabayla seyahat ederken bir anda aracı arızalanan ve aracını tamir etmeye çalışan bir karakterin konusunu ele alır.\n\nBu tamir işini yapması için de önce tamir eşyalarını toplaması ve sonra da ufak bir bulmacayı çözmesi gerekir.\n\n##! Sorumluluklarım\n- Unity engine üzerinden harita tasarlamak.\n\n- Bazı hataların düzeltilmesine yardımcı olmak.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)",
       "en": "###! Game Jam Theme: “Repair”\n\nHay Aksi is a third-person puzzle game. The game deals with the subject of a character who suddenly breaks down and tries to repair his vehicle while he is traveling by car on the road.\n\nIn order to do this repair job, he must first collect the repair items and then solve a small puzzle.\n\n##! Responsibilities\n- I was responsible with Level Design in Unity engine.\n\n- Helping to several fixing bugs.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)"
     },
     "content_blocks": [],
