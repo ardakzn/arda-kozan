@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 import RichText from '../components/RichText';
 import InteractiveCodeViewer from '../components/InteractiveCodeViewer';
 import { clearDraftProjects, loadDraftProjects, saveDraftProjects } from '../lib/projectsDraft';
-import { loadProjectsFromFile, mergeProjects } from '../lib/projects';
+import { getProjectTags, loadProjectsFromFile, mergeProjects } from '../lib/projects';
 import { loadSnippetsFromFile } from '../lib/snippets';
 import { clearDraftSnippets, loadDraftSnippets, saveDraftSnippets } from '../lib/snippetsDraft';
 import { clearDraftSite, loadDraftSite, saveDraftSite } from '../lib/siteDraft';
@@ -255,7 +255,7 @@ function newProjectTemplate(): EditorProject {
     links: [],
     period_start: '',
     period_end: '',
-    tech_stack: [],
+    tags: [],
     featured: false,
     order_index: 0,
     created_at: nowIso(),
@@ -360,7 +360,7 @@ export default function Admin() {
   const [form, setForm] = useState<EditorProject>(() => newProjectTemplate());
   const [pendingBlockDeleteId, setPendingBlockDeleteId] = useState<string | null>(null);
   const [autoSlug, setAutoSlug] = useState(true);
-  const [techInput, setTechInput] = useState('');
+  const [tagsInput, setTagsInput] = useState('');
   const [snippetSelection, setSnippetSelection] = useState<Record<number, SelectionInfo | null>>({});
   const [showPreview, setShowPreview] = useState(true);
   const [reorderMode, setReorderMode] = useState(false);
@@ -590,7 +590,7 @@ export default function Admin() {
         const first = normalized.find((p) => p.id === firstId) || null;
         if (first) {
           setForm(ensureProjectLinks(first));
-          setTechInput((first.tech_stack || []).join(', '));
+          setTagsInput(getProjectTags(first).join(', '));
         }
       }
       const rich = normalized.find((p) => p.id === 'proj_richtext_demo') || null;
@@ -611,7 +611,7 @@ export default function Admin() {
     if (!p) return;
     setForm(ensureProjectLinks(p));
     setPendingBlockDeleteId(null);
-    setTechInput((p.tech_stack || []).join(', '));
+    setTagsInput(getProjectTags(p).join(', '));
     setAutoSlug(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
@@ -666,7 +666,7 @@ export default function Admin() {
     setSelectedId(null);
     const fresh = newProjectTemplate();
     setForm(ensureProjectLinks(fresh));
-    setTechInput('');
+    setTagsInput('');
     setAutoSlug(true);
   };
 
@@ -784,7 +784,7 @@ export default function Admin() {
       return;
     }
 
-    const tech_stack = techInput
+    const tags = tagsInput
       .split(',')
       .map((t) => t.trim())
       .filter(Boolean);
@@ -813,7 +813,8 @@ export default function Admin() {
       links: normalizeProjectLinks(form.links),
       period_start: cleanLocalizedText(form.period_start || ''),
       period_end: cleanLocalizedText(form.period_end || ''),
-      tech_stack,
+      tags,
+      tech_stack: undefined,
       order_index: derivedOrderIndex,
       updated_at: nowIso(),
     };
@@ -2510,13 +2511,16 @@ export default function Admin() {
               </label>
 
               <label className="space-y-1 md:col-span-2">
-                <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Tech stack (comma separated)</div>
+                <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Tags (comma separated)</div>
                 <input
-                  value={techInput}
-                  onChange={(e) => setTechInput(e.target.value)}
+                  value={tagsInput}
+                  onChange={(e) => setTagsInput(e.target.value)}
                   className="w-full px-3 py-2 rounded-xl bg-[#0e1526] border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#3be3ff]/40"
-                  placeholder="React, TypeScript, Node.js"
+                  placeholder="React, TypeScript, Self Study"
                 />
+                <div className="text-xs text-slate-500">
+                  Used as project card labels and filters. Existing tech_stack data is still read as legacy tags.
+                </div>
               </label>
 
               <label className="space-y-1">

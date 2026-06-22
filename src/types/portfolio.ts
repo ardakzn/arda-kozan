@@ -11,7 +11,8 @@ export interface Project {
   links?: ProjectLink[];
   period_start?: LocalizedText;
   period_end?: LocalizedText;
-  tech_stack: string[];
+  tags?: string[];
+  tech_stack?: string[]; // Legacy alias for tags; still supported for existing data.
   featured: boolean;
   order_index: number;
   created_at: string;

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Minus, Plus, X } from 'lucide-react';
 import { normalizeMarkdownText, slugifyHeading as slugifyHeadingStable } from '../lib/markdown';
 import { withBaseUrl } from '../lib/paths';
 
@@ -8,6 +8,8 @@ type MediaOptions = {
   startPaused?: boolean;
   intervalMs?: number;
 };
+
+type MediaItem = { kind: 'image' | 'video'; alt: string; src: string };
 
 type Block =
   | { type: 'heading'; level: 2 | 3; text: string; tocHidden?: boolean }
@@ -270,14 +272,139 @@ function renderInline(text: string, size: RichTextSize) {
   return parts;
 }
 
-function Carousel({
-  items,
-  media,
+function MediaLightbox({
+  item,
+  onClose,
 }: {
-  items: { kind: 'image' | 'video'; alt: string; src: string }[];
-  media?: MediaOptions;
+  item: MediaItem | null;
+  onClose: () => void;
 }) {
-  const IMAGE_SLIDE_MS = media?.intervalMs && media.intervalMs >= 500 ? media.intervalMs : 4500;
+  const [zoom, setZoom] = useState(1);
+
+  useEffect(() => {
+    if (!item) return;
+    setZoom(1);
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+      if (event.key === '+' || event.key === '=') setZoom((value) => Math.min(3, Number((value + 0.25).toFixed(2))));
+      if (event.key === '-') setZoom((value) => Math.max(0.5, Number((value - 0.25).toFixed(2))));
+      if (event.key === '0') setZoom(1);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [item, onClose]);
+
+  if (!item) return null;
+
+  const isVideo = item.kind === 'video';
+
+  return (
+    <div
+      className="fixed inset-0 z-[90] bg-black/95 text-white"
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+    >
+      <div className="absolute right-4 top-4 z-20 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/15"
+          aria-label="Close media viewer"
+        >
+          <X className="h-5 w-5" />
+        </button>
+      </div>
+
+      {!isVideo && (
+        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoom((value) => Math.max(0.5, Number((value - 0.25).toFixed(2))));
+            }}
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/15"
+            aria-label="Zoom out"
+          >
+            <Minus className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoom((value) => Math.min(3, Number((value + 0.25).toFixed(2))));
+            }}
+            className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/15"
+            aria-label="Zoom in"
+          >
+            <Plus className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+
+      <div className="flex h-full w-full items-center justify-center p-4 sm:p-8" onClick={(e) => e.stopPropagation()}>
+        {isVideo ? (
+          <video
+            src={item.src}
+            controls
+            autoPlay
+            loop
+            playsInline
+            className="max-h-full max-w-full rounded-lg bg-black object-contain"
+          />
+        ) : (
+          <div className="h-full w-full overflow-auto">
+            <div className="flex min-h-full min-w-full items-center justify-center">
+              <img
+                src={item.src}
+                alt={item.alt || 'media'}
+                className="max-h-full max-w-full rounded-lg object-contain transition-transform duration-150"
+                style={{ transform: `scale(${zoom})` }}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {item.alt && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-5 pb-5 pt-16 text-center text-sm text-slate-100/90">
+          {item.alt}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function OpenMediaButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onClick();
+      }}
+      className="absolute right-3 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/45 text-white opacity-0 shadow-lg transition hover:bg-black/65 group-hover:opacity-100 focus:opacity-100"
+      aria-label="Open media fullscreen"
+    >
+      <Maximize2 className="h-4 w-4" />
+    </button>
+  );
+}
+
+function Carousel({ items, media }: { items: MediaItem[]; media?: MediaOptions }) {
+  const SLIDE_MS = media?.intervalMs && media.intervalMs >= 500 ? media.intervalMs : 4500;
   const safeItems = useMemo(
     () =>
       items
@@ -286,228 +413,99 @@ function Carousel({
     [items],
   );
   const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(!!media?.startPaused);
-  const [togglePop, setTogglePop] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [dragX, setDragX] = useState(0);
-  const [dragging, setDragging] = useState(false);
-  const [animateTrack, setAnimateTrack] = useState(true);
-  const viewportRef = useRef<HTMLDivElement | null>(null);
-  const viewportWidthRef = useRef(0);
+  const [lightboxItem, setLightboxItem] = useState<MediaItem | null>(null);
   const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
-  const swipeRef = useRef<{
-    pointerId: number | null;
-    startX: number;
-    startY: number;
-    lastX: number;
-    lastY: number;
-    moved: boolean;
-  }>({ pointerId: null, startX: 0, startY: 0, lastX: 0, lastY: 0, moved: false });
-  const suppressToggleClickRef = useRef(false);
-  const togglePopTimerRef = useRef<number | null>(null);
+  const timerRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    return () => {
-      if (togglePopTimerRef.current) window.clearTimeout(togglePopTimerRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    setIsPaused(!!media?.startPaused);
-  }, [media?.startPaused]);
-
-  const triggerTogglePop = () => {
-    if (togglePopTimerRef.current) window.clearTimeout(togglePopTimerRef.current);
-    setTogglePop(true);
-    togglePopTimerRef.current = window.setTimeout(() => {
-      setTogglePop(false);
-      togglePopTimerRef.current = null;
-    }, 180);
+  const clearTimer = () => {
+    if (!timerRef.current) return;
+    window.clearTimeout(timerRef.current);
+    timerRef.current = null;
   };
 
-  const prevIndex = (i: number) => (i - 1 + safeItems.length) % safeItems.length;
-  const nextIndex = (i: number) => (i + 1) % safeItems.length;
-
-  const prev = () => {
+  const goNext = () => {
     if (safeItems.length <= 1) return;
-    setAnimateTrack(true);
-    setIndex((i) => prevIndex(i));
+    setIndex((i) => (i + 1) % safeItems.length);
   };
 
-  const next = () => {
+  const goPrev = () => {
     if (safeItems.length <= 1) return;
-    setAnimateTrack(true);
-    setIndex((i) => nextIndex(i));
+    setIndex((i) => (i - 1 + safeItems.length) % safeItems.length);
   };
 
   useEffect(() => {
-    if (safeItems.length <= 1) return;
-    if (isPaused) return;
-    if (hovered || dragging) return;
+    clearTimer();
+    if (safeItems.length <= 1 || lightboxItem) return;
+
     const currentItem = safeItems[index];
-    if (currentItem?.kind === 'video') return;
+    if (!currentItem) return;
 
-    const t = window.setTimeout(() => {
-      setIndex((i) => (i + 1) % safeItems.length);
-    }, IMAGE_SLIDE_MS);
+    if (currentItem.kind !== 'video') {
+      timerRef.current = window.setTimeout(goNext, SLIDE_MS);
+      return clearTimer;
+    }
 
-    return () => window.clearTimeout(t);
-  }, [dragging, hovered, index, isPaused, safeItems]);
+    const video = videoRefs.current[index];
+    if (!video) return;
 
-  useEffect(() => {
-    const updateWidth = () => {
-      const el = viewportRef.current;
-      if (!el) return;
-      viewportWidthRef.current = el.getBoundingClientRect().width;
+    const scheduleVideoAdvance = () => {
+      clearTimer();
+      const durationMs = Number.isFinite(video.duration) && video.duration > 0 ? video.duration * 1000 : 0;
+      const waitMs = durationMs > 0 ? Math.max(SLIDE_MS, durationMs) : SLIDE_MS;
+      video.loop = waitMs > durationMs && safeItems.length > 1;
+      timerRef.current = window.setTimeout(goNext, waitMs);
     };
 
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
-  }, []);
+    const onEnded = () => {
+      if (safeItems.length > 1) goNext();
+    };
+
+    video.pause();
+    try {
+      video.currentTime = 0;
+    } catch {
+      // ignore
+    }
+    video.muted = true;
+    void video.play().catch(() => {});
+
+    if (Number.isFinite(video.duration) && video.duration > 0) scheduleVideoAdvance();
+    else video.addEventListener('loadedmetadata', scheduleVideoAdvance, { once: true });
+
+    video.addEventListener('ended', onEnded);
+
+    return () => {
+      clearTimer();
+      video.removeEventListener('ended', onEnded);
+    };
+  }, [index, lightboxItem, safeItems, SLIDE_MS]);
 
   useEffect(() => {
     for (const [idxRaw, el] of Object.entries(videoRefs.current)) {
       const idx = Number(idxRaw);
       if (!el) continue;
-      if (idx === index && !isPaused) {
-        void el.play().catch(() => {});
-      } else {
+      if (idx !== index || lightboxItem) {
         el.pause();
       }
     }
-  }, [index, isPaused, safeItems.length]);
+  }, [index, lightboxItem]);
+
+  useEffect(() => clearTimer, []);
 
   if (safeItems.length === 0) return null;
   const current = safeItems[Math.max(0, Math.min(index, safeItems.length - 1))];
 
-  const shouldIgnoreSwipeStart = (target: EventTarget | null) => {
-    if (!(target instanceof Element)) return false;
-    return !!target.closest('button, a, input, textarea, select, summary');
-  };
-
-  const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
-    if (safeItems.length <= 1) return;
-    if (shouldIgnoreSwipeStart(e.target)) return;
-    if (e.button !== 0) return;
-
-    const el = viewportRef.current;
-    if (el) viewportWidthRef.current = el.getBoundingClientRect().width;
-
-    setAnimateTrack(false);
-    setDragging(true);
-    swipeRef.current = {
-      pointerId: e.pointerId,
-      startX: e.clientX,
-      startY: e.clientY,
-      lastX: e.clientX,
-      lastY: e.clientY,
-      moved: false,
-    };
-
-    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-  };
-
-  const onPointerMove: React.PointerEventHandler<HTMLDivElement> = (e) => {
-    const s = swipeRef.current;
-    if (s.pointerId !== e.pointerId) return;
-    s.lastX = e.clientX;
-    s.lastY = e.clientY;
-
-    const dx = s.lastX - s.startX;
-    const dy = s.lastY - s.startY;
-    const absX = Math.abs(dx);
-    const absY = Math.abs(dy);
-
-    if (!s.moved) {
-      if (absX < 10) return;
-      if (absX <= absY) return;
-      s.moved = true;
-      suppressToggleClickRef.current = true;
-      window.setTimeout(() => {
-        suppressToggleClickRef.current = false;
-      }, 250);
-    }
-
-    if (s.moved) {
-      e.preventDefault();
-      const w = viewportWidthRef.current || 1;
-      const clamped = Math.max(-w, Math.min(w, dx));
-      setDragX(clamped);
-    }
-  };
-
-  const onPointerUp: React.PointerEventHandler<HTMLDivElement> = (e) => {
-    const s = swipeRef.current;
-    if (s.pointerId !== e.pointerId) return;
-
-    const dx = s.lastX - s.startX;
-    const dy = s.lastY - s.startY;
-
-    swipeRef.current.pointerId = null;
-
-    const absX = Math.abs(dx);
-    const absY = Math.abs(dy);
-    const w = viewportWidthRef.current || 1;
-    setAnimateTrack(true);
-
-    if (absX < 50 || absX <= absY) {
-      setDragX(0);
-      window.setTimeout(() => {
-        setDragging(false);
-        setAnimateTrack(true);
-      }, 200);
-      return;
-    }
-
-    if (dx > 0) {
-      setDragX(w);
-      window.setTimeout(() => {
-        setIndex((i) => prevIndex(i));
-        setAnimateTrack(false);
-        setDragX(0);
-        setDragging(false);
-        window.setTimeout(() => setAnimateTrack(true), 0);
-      }, 200);
-      return;
-    }
-
-    setDragX(-w);
-    window.setTimeout(() => {
-      setIndex((i) => nextIndex(i));
-      setAnimateTrack(false);
-      setDragX(0);
-      setDragging(false);
-      window.setTimeout(() => setAnimateTrack(true), 0);
-    }, 200);
-  };
-
   return (
-    <div
-      className="my-4"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="my-4">
       <div
-        ref={viewportRef}
-      className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 touch-pan-y select-none"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        onClick={(e) => {
-          const target = e.target as Element | null;
-          if (target?.closest('button, a, input, textarea, select, summary')) return;
-          if (suppressToggleClickRef.current) return;
-          setIsPaused((v) => !v);
-          triggerTogglePop();
-        }}
+        className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/20 select-none"
+        onClick={() => setLightboxItem(current)}
       >
         <div className="relative w-full pt-[56.25%]">
           <div
-            className={`absolute inset-0 flex ${animateTrack ? 'transition-transform duration-200 ease-out' : ''}`}
+            className="absolute inset-0 flex transition-transform duration-500 ease-out"
             style={{
-              transform: `translateX(calc(-${index * 100}% + ${dragX}px))`,
+              transform: `translateX(-${index * 100}%)`,
             }}
           >
             {safeItems.map((item, i) => (
@@ -520,17 +518,10 @@ function Carousel({
                     src={item.src}
                     muted
                     playsInline
-                    loop={hovered || dragging}
-                    autoPlay={i === index && !isPaused}
+                    loop={safeItems.length <= 1}
+                    autoPlay={i === index && !lightboxItem}
                     preload={i === index ? 'metadata' : 'none'}
                     className="absolute inset-0 h-full w-full object-cover pointer-events-none"
-                    onEnded={() => {
-                      if (i !== index) return;
-                      if (safeItems.length <= 1) return;
-                      if (isPaused) return;
-                      if (hovered || dragging) return;
-                      setIndex((cur) => (cur + 1) % safeItems.length);
-                    }}
                     onError={(e) => {
                       (e.currentTarget as HTMLVideoElement).style.display = 'none';
                     }}
@@ -542,6 +533,37 @@ function Carousel({
             ))}
           </div>
         </div>
+
+        <OpenMediaButton onClick={() => setLightboxItem(current)} />
+
+        {safeItems.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                goPrev();
+              }}
+              className="absolute left-3 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-black/45 text-white opacity-0 shadow-lg transition hover:bg-black/65 active:scale-95 group-hover:opacity-100 focus:opacity-100"
+              aria-label="Previous media"
+            >
+              <ChevronLeft className="h-4 w-4 text-[#f9b234]" />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                goNext();
+              }}
+              className="absolute right-3 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-black/45 text-white opacity-0 shadow-lg transition hover:bg-black/65 active:scale-95 group-hover:opacity-100 focus:opacity-100"
+              aria-label="Next media"
+            >
+              <ChevronRight className="h-4 w-4 text-[#f9b234]" />
+            </button>
+          </>
+        )}
 
         {current.alt && (
           <div className="absolute inset-x-0 bottom-0">
@@ -556,67 +578,20 @@ function Carousel({
           </div>
         )}
 
-        {isPaused && (
-          <div className="absolute inset-0 z-20 grid place-items-center pointer-events-none">
-            <div className="animate-play-idle motion-reduce:animate-none">
-              <div
-                className={`inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-[#3be3ff] bg-[#081325] shadow-[0_0_0_10px_rgba(59,227,255,0.3),0_26px_64px_rgba(0,0,0,0.68)] transition-transform duration-200 ${
-                  togglePop ? 'scale-110' : 'scale-100'
-                }`}
-              >
-                <Play className="h-11 w-11 text-[#3be3ff] ml-1" />
-              </div>
-            </div>
-          </div>
-        )}
-
         {safeItems.length > 1 && (
-          <div
-            className={`pointer-events-none absolute inset-0 transition-opacity ${hovered ? 'opacity-100' : 'opacity-0'} sm:pointer-events-auto`}
-          >
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                prev();
-              }}
-              className="hidden sm:block pointer-events-auto absolute left-3 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-[#0e1526]/75 p-3 text-white shadow-lg transition hover:bg-[#0e1526] hover:-translate-x-0.5 active:scale-95 active:bg-[#0e1526] active:shadow-none"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-4 w-4 text-[#f9b234]" />
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                next();
-              }}
-              className="hidden sm:block pointer-events-auto absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-[#0e1526]/75 p-3 text-white shadow-lg transition hover:bg-[#0e1526] hover:translate-x-0.5 active:scale-95 active:bg-[#0e1526] active:shadow-none"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-4 w-4 text-[#f9b234]" />
-            </button>
-          </div>
-        )}
-
-        {safeItems.length > 1 && (
-          <div className="absolute inset-x-0 bottom-3 flex justify-center gap-2">
+          <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-center gap-2">
             {safeItems.map((_, dotIdx) => (
-              <button
+              <span
                 key={dotIdx}
-                type="button"
-                onClick={() => setIndex(dotIdx)}
                 className={`h-2.5 w-2.5 rounded-full border transition ${
-                  dotIdx === index ? 'bg-[#3be3ff] border-[#3be3ff]/60' : 'bg-white/20 border-white/20 hover:bg-white/30'
+                  dotIdx === index ? 'bg-[#3be3ff] border-[#3be3ff]/60' : 'bg-white/20 border-white/20'
                 }`}
-                aria-label={`Go to image ${dotIdx + 1}`}
               />
             ))}
           </div>
         )}
       </div>
+      <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
     </div>
   );
 }
@@ -670,25 +645,7 @@ export default function RichText({
           const safe = isSafeUrl(b.src);
           if (!safe) return null;
           const src = withBaseUrl(b.src);
-          return (
-            <figure key={idx} className="my-4">
-              <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20">
-                <img src={src} alt={b.alt || 'image'} className="w-full" loading="lazy" />
-                {b.alt && (
-                  <figcaption className="absolute inset-x-0 bottom-0">
-                    <div className="h-20 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 px-5 py-4">
-                      <div className="max-w-full">
-                        <div className="text-sm sm:text-base text-slate-100/90 font-normal italic leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
-                          {b.alt}
-                        </div>
-                      </div>
-                    </div>
-                  </figcaption>
-                )}
-              </div>
-            </figure>
-          );
+          return <InlineImage key={idx} src={src} alt={b.alt || 'image'} />;
         }
 
         if (b.type === 'carousel') {
@@ -699,7 +656,7 @@ export default function RichText({
           const safe = isSafeUrl(b.src);
           if (!safe) return null;
           const src = withBaseUrl(b.src);
-          return <InlineVideo key={idx} src={src} media={b.media} />;
+          return <InlineVideo key={idx} src={src} alt={b.alt || 'video'} media={b.media} />;
         }
 
         if (b.type === 'snippet') {
@@ -766,51 +723,63 @@ export default function RichText({
 
 function InlineVideo({
   src,
-  media,
+  alt,
 }: {
   src: string;
+  alt: string;
   media?: MediaOptions;
 }) {
-  const [isPaused, setIsPaused] = useState(!!media?.startPaused);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-
-  useEffect(() => {
-    setIsPaused(!!media?.startPaused);
-  }, [media?.startPaused]);
-
-  useEffect(() => {
-    const el = videoRef.current;
-    if (!el) return;
-    if (isPaused) el.pause();
-    else void el.play().catch(() => {});
-  }, [isPaused]);
+  const [lightboxItem, setLightboxItem] = useState<MediaItem | null>(null);
+  const item: MediaItem = { kind: 'video', src, alt };
 
   return (
     <div className="my-4">
       <div
-        className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 pt-[56.25%] cursor-pointer"
-        onClick={() => setIsPaused((v) => !v)}
+        className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/20 pt-[56.25%]"
+        onClick={() => setLightboxItem(item)}
       >
         <video
-          ref={videoRef}
           src={src}
           muted
           playsInline
           loop
-          autoPlay={!isPaused}
+          autoPlay
           preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover pointer-events-none"
         />
-        {isPaused && (
-          <div className="absolute inset-0 z-10 grid place-items-center pointer-events-none">
-            <div className="animate-play-idle-sm motion-reduce:animate-none">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full border-2 border-[#3be3ff] bg-[#081325] shadow-[0_0_0_8px_rgba(59,227,255,0.28),0_20px_48px_rgba(0,0,0,0.68)]">
-                <Play className="h-10 w-10 text-[#3be3ff] ml-1" />
+        <OpenMediaButton onClick={() => setLightboxItem(item)} />
+      </div>
+      <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
+    </div>
+  );
+}
+
+function InlineImage({ src, alt }: { src: string; alt: string }) {
+  const [lightboxItem, setLightboxItem] = useState<MediaItem | null>(null);
+  const item: MediaItem = { kind: 'image', src, alt };
+
+  return (
+    <figure className="my-4">
+      <div
+        className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-black/20"
+        onClick={() => setLightboxItem(item)}
+      >
+        <img src={src} alt={alt} className="w-full" loading="lazy" />
+        <OpenMediaButton onClick={() => setLightboxItem(item)} />
+        {alt && (
+          <figcaption className="absolute inset-x-0 bottom-0">
+            <div className="h-20 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 px-5 py-4">
+              <div className="max-w-full">
+                <div className="text-sm sm:text-base text-slate-100/90 font-normal italic leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+                  {alt}
+                </div>
               </div>
             </div>
-          </div>
+          </figcaption>
         )}
       </div>
-    </div>
+      <MediaLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
+    </figure>
   );
 }

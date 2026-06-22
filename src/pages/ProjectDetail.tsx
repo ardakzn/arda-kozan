@@ -5,7 +5,7 @@ import type { ProjectWithDetails } from '../types/portfolio';
 import InteractiveCodeViewer from '../components/InteractiveCodeViewer';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { loadProjectsList } from '../lib/projects';
+import { getProjectTags, loadProjectsList } from '../lib/projects';
 import { loadSnippetsFromFile, type CodeSnippetWithAnnotations } from '../lib/snippets';
 import RichText from '../components/RichText';
 import { useSiteRuntime } from '../lib/siteRuntime';
@@ -60,6 +60,7 @@ export default function ProjectDetail() {
     () => (project?.links || []).filter((link) => (link?.url || '').trim().length > 0),
     [project?.links],
   );
+  const projectTags = useMemo(() => (project ? getProjectTags(project) : []), [project]);
   const periodStart = (t(project?.period_start) || '').trim();
   const periodEnd = (t(project?.period_end) || '').trim();
   const periodLabel = periodStart && periodEnd ? `${periodStart} - ${periodEnd}` : periodStart || periodEnd;
@@ -324,34 +325,32 @@ export default function ProjectDetail() {
           'radial-gradient(circle at 15% 20%, rgba(59, 227, 255, 0.08), transparent 25%), radial-gradient(circle at 80% 10%, rgba(249, 178, 52, 0.08), transparent 25%), linear-gradient(135deg, #060b16 0%, #0e1526 100%)',
       }}
     >
-      <div className="sticky top-0 z-50">
-        <Navbar />
+      <Navbar />
 
-        {hasExtraContent && (
-          <div id="project-toc-bar" className="min-[1700px]:hidden border-b border-white/5 bg-[#0c1324]/55 backdrop-blur">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-              <button
-                type="button"
-                onClick={() =>
-                  setMobileTocOpen((v) => {
-                    const next = !v;
-                    window.dispatchEvent(new CustomEvent('codefolio:overlay', { detail: { source: 'toc', open: next } }));
-                    return next;
-                  })
-                }
-                className="w-full inline-flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#101a2f]/35 px-4 py-3 text-sm text-white hover:bg-[#101a2f]/50 transition active:scale-[0.99]"
-                aria-expanded={mobileTocOpen}
-                aria-controls="mobile-toc-panel"
-              >
-                <span className="font-semibold">{t(uiTocTitle)}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-slate-200 transition-transform ${mobileTocOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-            </div>
+      {hasExtraContent && (
+        <div id="project-toc-bar" className="sticky top-[57px] sm:top-[65px] z-40 min-[1700px]:hidden border-b border-white/5 bg-[#0c1324]/55 backdrop-blur">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <button
+              type="button"
+              onClick={() =>
+                setMobileTocOpen((v) => {
+                  const next = !v;
+                  window.dispatchEvent(new CustomEvent('codefolio:overlay', { detail: { source: 'toc', open: next } }));
+                  return next;
+                })
+              }
+              className="w-full inline-flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#101a2f]/35 px-4 py-3 text-sm text-white hover:bg-[#101a2f]/50 transition active:scale-[0.99]"
+              aria-expanded={mobileTocOpen}
+              aria-controls="mobile-toc-panel"
+            >
+              <span className="font-semibold">{t(uiTocTitle)}</span>
+              <ChevronDown
+                className={`w-5 h-5 text-slate-200 transition-transform ${mobileTocOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {hasExtraContent && mobileTocOpen && (
         <>
@@ -737,9 +736,9 @@ export default function ProjectDetail() {
                   </div>
                 )}
 
-                {(project.tech_stack || []).length > 0 && (
+                {projectTags.length > 0 && (
                   <div className="flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto sm:overflow-visible max-w-full pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-                    {(project.tech_stack || []).slice(0, 6).map((tech, idx) => (
+                    {projectTags.slice(0, 6).map((tech, idx) => (
                       <span
                         key={`${tech}-${idx}`}
                         className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] sm:text-xs font-semibold rounded-full border border-white/10 bg-white/5 text-slate-100"

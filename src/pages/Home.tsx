@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, ArrowRight, Code2, Sparkles, X, FileDown, ChevronRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { loadProjectsList } from '../lib/projects';
+import { getProjectTags, loadProjectsList } from '../lib/projects';
 import { useSiteRuntime } from '../lib/siteRuntime';
 import type { ProjectWithDetails } from '../types/portfolio';
 import { withBaseUrl } from '../lib/paths';
@@ -63,7 +63,7 @@ export default function Home() {
           image: ((p.thumbnail_image_url || '').trim() && withBaseUrl((p.thumbnail_image_url || '').trim())) || undefined,
           video: ((p.thumbnail_video_url || '').trim() && withBaseUrl((p.thumbnail_video_url || '').trim())) || undefined,
           slug: p.slug,
-          tags: (p.tech_stack || []).slice(0, 3),
+          tags: getProjectTags(p).slice(0, 3),
         }));
 
         setFeatured(mapped);

@@ -27,6 +27,11 @@ function sortProjects(list: ProjectWithDetails[]): ProjectWithDetails[] {
   });
 }
 
+export function getProjectTags(project: Pick<ProjectWithDetails, 'tags' | 'tech_stack'>): string[] {
+  const preferred = Array.isArray(project.tags) && project.tags.length > 0 ? project.tags : project.tech_stack;
+  return (preferred || []).map((tag) => tag.trim()).filter(Boolean);
+}
+
 export async function loadProjectsFromFile(): Promise<ProjectWithDetails[]> {
   const res = await fetch(withBaseUrl('/data/projects.json'), { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to load projects.json');
