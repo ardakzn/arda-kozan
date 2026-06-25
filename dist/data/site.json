@@ -33,12 +33,12 @@
   },
   "home": {
     "badge": {
-      "en": "Unreal Engine Developer",
-      "tr": "Unreal Engine Developer"
+      "en": "Computer Engineer",
+      "tr": "Bilgisayar Mühendisi"
     },
     "headline": {
-      "en": "Game Developer Portfolio",
-      "tr": "Oyun Geliştirici Portfolyosu"
+      "en": "Arda Kozan",
+      "tr": "Arda Kozan"
     },
     "headline_accent": {
       "en": "minimal",
@@ -49,8 +49,8 @@
       "tr": "minimal portfolyo"
     },
     "lead": {
-      "en": "I have been working as a game developer in Unreal Engine for 5 years. This portfolio showcases what I built in the studios I worked at, as well as the work I did on my own personal projects.",
-      "tr": "5 yıldır unreal engine üzerinde oyun geliştiricisi olarak çalışıyorum. \nBurada çalıştığım yerlerde ürettiklerimi ve ayrıca kendi uğraştığım projelerde neler yaptıklarımı gösteren bir portfolyo bulunuyor."
+      "en": "I am a computer engineer who has been working on game development for 5 years. I have built projects and tools with Unreal Engine and Unity/C#, focusing on gameplay systems, multiplayer flows, AI behavior, VR prototypes, UI integration, and reusable engine tools.",
+      "tr": "5 yıldır game development ile ilgilenen bir bilgisayar mühendisiyim. Unreal Engine ve Unity/C# ile projeler ve araçlar geliştirdim; gameplay sistemleri, multiplayer akışları, AI davranışları, VR prototipleri, UI entegrasyonu ve yeniden kullanılabilir engine araçları üzerine çalışıyorum."
     },
     "cta_projects": {
       "en": "Browse Projects",
@@ -65,12 +65,12 @@
       "tr": "E-posta"
     },
     "about_card_title": {
-      "en": "About Me",
-      "tr": "Hakkımda Kısa"
+      "en": "Quick Summary",
+      "tr": "Kısa Özet"
     },
     "about_card_lines": {
-      "en": "I worked on 2 game projects released on Steam.\nI also have 1 published Unreal Engine plugin.\nMy main focus has been gameplay mechanics programming, and I also have experience in UI programming and behavior trees.",
-      "tr": "Steam'de yayınlanmış olan 2  oyun projesinde çalıştım.\nUnreal'da ürettiğim ve yayınlanmış 1 pluginim mevcut.\nGenelde oyun içi mekanikleri kodlamayla ilgilendim ayrıca UI programlama, behaviour-tree deneyimim de var."
+      "en": "I have been working on game development for 5 years across Unreal Engine and Unity/C# projects.\nWorked on 2 Steam-released multiplayer games and published tools for both Unreal Engine and Unity.\nFocused on gameplay architecture, multiplayer, AI behavior, VR, UI-state integration, and reusable engine tooling.",
+      "tr": "5 yıldır Unreal Engine ve Unity/C# projeleri üzerinden game development ile ilgileniyorum.\nSteam'de yayınlanmış 2 multiplayer oyunda çalıştım; Unreal Engine ve Unity için yayınlanmış araçlar geliştirdim.\nOdak alanlarım: gameplay architecture, multiplayer, AI behavior, VR, UI-state integration ve reusable engine tooling."
     },
     "cv_modal_kicker": {
       "en": "CV Preview",
@@ -107,24 +107,24 @@
   },
   "projects_page": {
     "kicker": {
-      "en": "Showcase",
-      "tr": "Vitrin"
+      "en": "Case Studies",
+      "tr": "Case Studies"
     },
     "title": {
-      "en": "Projects and Work",
-      "tr": "Projeler ve Çalışmalar"
+      "en": "Projects and Technical Work",
+      "tr": "Projeler ve Teknik Çalışmalar"
     },
     "lead": {
-      "en": "Below you can find the work I contributed to in released projects, along with the work I created in my own personal projects. Click on a project to see the details.",
-      "tr": "Aşağıda yayınlanmış projelerdeki yaptığım ve kendi projelerimde yaptığım çalışmalarım bulunuyor. Detaylar için projenin üzerine tıklayın."
+      "en": "Selected work across Unreal Engine, Unity, multiplayer gameplay, AI behavior, VR prototypes, and reusable engine tools. Each project explains the problem, my solution, and the technical details behind the work.",
+      "tr": "Unreal Engine, Unity, multiplayer gameplay, AI behavior, VR prototipleri ve yeniden kullanılabilir engine araçları üzerine seçilmiş çalışmalar. Her projede problem, çözümüm ve teknik detaylar yer alıyor."
     },
     "empty_title": {
       "en": "No projects yet",
       "tr": "Henüz proje eklenmemiş"
     },
     "empty_lead": {
-      "en": "Data lives under `public/data`. Update `projects.json` or use the admin panel to generate a new file.",
-      "tr": "Veriler `public/data` altında. `projects.json` dosyasını güncelle veya admin panelden yeni dosya üret."
+      "en": "Data lives under public/data. Update projects.json or use the admin panel to generate a new file.",
+      "tr": "Veriler public/data altında. projects.json dosyasını güncelle veya admin panelden yeni dosya üret."
     },
     "view_details": {
       "en": "View Details",
@@ -133,8 +133,8 @@
   },
   "footer": {
     "text": {
-      "en": "© 2026 Arda Kozan. Game development and technical design.",
-      "tr": "© 2026 Arda Kozan. Oyun geliştirme ve teknik tasarım."
+      "en": "© 2026 Arda Kozan. Gameplay systems, Unity/Unreal tooling, and technical development.",
+      "tr": "© 2026 Arda Kozan. Gameplay sistemleri, Unity/Unreal tooling ve teknik geliştirme."
     }
   }
 }
