@@ -119,7 +119,7 @@ export default function Projects() {
       active
         ? 'border-[#3be3ff]/60 bg-[#3be3ff]/15 text-[#9cefff]'
         : 'border-white/10 bg-white/5 text-slate-300 hover:border-white/20 hover:bg-white/10 hover:text-white',
-      layout === 'sidebar' ? 'max-w-full' : '',
+      layout === 'sidebar' ? 'max-w-full min-[2200px]:px-3.5 min-[2200px]:py-2 min-[2200px]:text-sm' : '',
     ].join(' ');
 
   const filterControls = (layout: 'sidebar' | 'bar') => (
@@ -127,7 +127,7 @@ export default function Projects() {
       {layout === 'sidebar' && (
         <div className="px-1">
           <div className="flex items-center gap-3 mb-3">
-            <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Filters</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-slate-400 min-[2200px]:text-sm">Filters</div>
             <span className="h-px flex-1 bg-white/10"></span>
             {hasActiveFilters && (
               <button
@@ -140,13 +140,13 @@ export default function Projects() {
               </button>
             )}
           </div>
-          <div className="text-xs text-slate-500">{filteredProjects.length} / {projects.length} projects</div>
+          <div className="text-xs text-slate-500 min-[2200px]:text-sm">{filteredProjects.length} / {projects.length} projects</div>
         </div>
       )}
 
       <div className={layout === 'sidebar' ? 'space-y-4' : 'space-y-4'}>
         <div className="space-y-2">
-          <div className="px-1 text-xs uppercase tracking-[0.18em] text-slate-500">Scope</div>
+          <div className="px-1 text-xs uppercase tracking-[0.18em] text-slate-500 min-[2200px]:text-sm">Scope</div>
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={() => setScopeFilter('all')} className={filterButtonClass(scopeFilter === 'all', layout)}>
               All
@@ -158,8 +158,8 @@ export default function Projects() {
         </div>
 
         <div className="space-y-2">
-        <div className="px-1 text-xs uppercase tracking-[0.18em] text-slate-500">Tags</div>
-        <div className="flex flex-wrap gap-2">
+        <div className="px-1 text-xs uppercase tracking-[0.18em] text-slate-500 min-[2200px]:text-sm">Tags</div>
+        <div className="flex flex-wrap gap-2 min-[2200px]:gap-2.5">
         {tagFilters.map((tag) => {
           const active = selectedTagSet.has(tagKey(tag));
           return (
@@ -185,15 +185,15 @@ export default function Projects() {
       <Navbar />
 
       {!loading && projects.length > 0 && (
-        <aside className="hidden min-[1500px]:block fixed left-0 top-20 z-30 w-72 px-4">
+        <aside className="hidden min-[1700px]:block fixed left-0 top-20 z-30 w-80 px-4 min-[2200px]:w-96 min-[2200px]:px-6">
           <div className="max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden">
             {filterControls('sidebar')}
           </div>
         </aside>
       )}
 
-      <div className="min-[1500px]:pl-72">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
+      <div className="min-[1700px]:pl-80 min-[1700px]:pr-80 min-[2200px]:pl-96 min-[2200px]:pr-96">
+        <div className="max-w-[84rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
           <header className="mb-10">
             <p className="text-xs uppercase tracking-[0.2em] text-[#f9b234]">{t(site.projects_page?.kicker) || 'Case Studies'}</p>
             <h1 className="text-4xl font-semibold text-white mt-2">{t(site.projects_page?.title) || 'Projects'}</h1>
@@ -212,7 +212,7 @@ export default function Projects() {
             </div>
           ) : (
             <>
-              <div className="mb-7 min-[1500px]:hidden">
+              <div className="mb-7 min-[1700px]:hidden">
                 <div className="rounded-2xl border border-white/10 bg-[#101a2f]/35 overflow-hidden">
                   <button
                     type="button"
@@ -250,7 +250,7 @@ export default function Projects() {
                   </button>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 gap-6 items-start">
+                <div className="grid md:grid-cols-2 gap-6 xl:gap-8 items-start">
                   {filteredProjects.map((project) => {
                     const video = (project.thumbnail_video_url || '').trim();
                     const image = (project.thumbnail_image_url || '').trim();
@@ -272,7 +272,7 @@ export default function Projects() {
                           isFeatured
                             ? 'border-[#f9b234]/55 shadow-[0_18px_42px_rgba(0,0,0,0.45),0_0_0_1px_rgba(249,178,52,0.24)]'
                             : 'border-white/5',
-                          hasMedia ? 'md:h-[360px]' : '',
+                          hasMedia ? 'md:h-[390px] 2xl:h-[420px]' : '',
                         ].join(' ')}
                         style={{ backgroundImage: 'linear-gradient(135deg, rgba(59, 227, 255, 0.05), rgba(249, 178, 52, 0.05))' }}
                       >
@@ -291,7 +291,7 @@ export default function Projects() {
 
                         <div className="relative z-10 flex flex-col flex-1 transition duration-200 group-hover:blur-[1px] group-hover:brightness-90">
                           {hasMedia && (
-                            <div className="relative w-full pt-[56.25%] md:pt-0 md:h-[58%] overflow-hidden">
+                            <div className="relative w-full pt-[56.25%] md:pt-0 md:h-[60%] overflow-hidden">
                               <div className="absolute inset-0" style={{ backgroundImage: mediaFallbackGradient }} />
 
                               {!videoSrc && imageSrc && (
@@ -407,8 +407,8 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="min-[1500px]:pl-72">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-[1700px]:pl-80 min-[1700px]:pr-80 min-[2200px]:pl-96 min-[2200px]:pr-96">
+        <div className="max-w-[84rem] mx-auto px-4 sm:px-6 lg:px-8">
           <Footer />
         </div>
       </div>
