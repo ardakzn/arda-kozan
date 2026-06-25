@@ -1,64 +1,140 @@
 {
   "languages": [
-    { "code": "en", "label": "EN" },
-    { "code": "tr", "label": "TR" }
+    {
+      "code": "en",
+      "label": "EN"
+    },
+    {
+      "code": "tr",
+      "label": "TR"
+    }
   ],
   "default_language": "en",
   "navbar": {
-    "brand": { "en": "Codefolio", "tr": "Codefolio" },
-    "nav_home": { "en": "Home", "tr": "Ana Sayfa" },
-    "nav_projects": { "en": "Projects", "tr": "Projeler" }
+    "brand": {
+      "en": "Arda Kozan",
+      "tr": "Arda Kozan"
+    },
+    "nav_home": {
+      "en": "Home",
+      "tr": "Ana Sayfa"
+    },
+    "nav_projects": {
+      "en": "Projects",
+      "tr": "Projeler"
+    }
   },
   "links": {
-    "email": "hello@yourdomain.com",
-    "github_url": "https://github.com",
-    "linkedin_url": "https://linkedin.com",
-    "cv_pdf_url": "/assets/CV.pdf"
+    "email": "arda.kzn@gmail.com",
+    "github_url": "https://github.com/ardakzn",
+    "linkedin_url": "https://www.linkedin.com/in/arda-kozan-b638141a6/",
+    "cv_pdf_url": "/assets/CV.pdf",
+    "goatcounter_code": "https://ardakozan.goatcounter.com/count"
   },
   "home": {
-    "badge": { "en": "Case Studies", "tr": "Öne Çıkan Çalışmalar" },
-    "headline": { "en": "Developer-focused,", "tr": "Geliştirici odaklı," },
-    "headline_accent": { "en": "minimal", "tr": "az renkli" },
-    "headline_tail": { "en": "portfolio", "tr": "minimal portfolyo" },
+    "badge": {
+      "en": "Unreal Engine Developer",
+      "tr": "Unreal Engine Developer"
+    },
+    "headline": {
+      "en": "Game Developer Portfolio",
+      "tr": "Oyun Geliştirici Portfolyosu"
+    },
+    "headline_accent": {
+      "en": "minimal",
+      "tr": "az renkli"
+    },
+    "headline_tail": {
+      "en": "portfolio",
+      "tr": "minimal portfolyo"
+    },
     "lead": {
-      "en": "A portfolio focused on system design and interactive code walkthroughs. Clean visuals, high readability, and strong DX.",
-      "tr": "Sistem tasarımı ve interaktif kod anlatımları odaklı bir portfolyo. Temiz görsel dil, yüksek okunabilirlik ve iyi DX."
+      "en": "I have been working as a game developer in Unreal Engine for 5 years. This portfolio showcases what I built in the studios I worked at, as well as the work I did on my own personal projects.",
+      "tr": "5 yıldır unreal engine üzerinde oyun geliştiricisi olarak çalışıyorum. \nBurada çalıştığım yerlerde ürettiklerimi ve ayrıca kendi uğraştığım projelerde neler yaptıklarımı gösteren bir portfolyo bulunuyor."
     },
-    "cta_projects": { "en": "Browse projects", "tr": "Projeleri incele" },
-    "cta_cv": { "en": "View CV", "tr": "CV'yi incele" },
-    "cta_email": { "en": "Email", "tr": "E-posta" },
-    "about_card_title": { "en": "Quick summary", "tr": "Kısa özet" },
+    "cta_projects": {
+      "en": "Browse Projects",
+      "tr": "Projeleri incele"
+    },
+    "cta_cv": {
+      "en": "View CV",
+      "tr": "CV'yi incele"
+    },
+    "cta_email": {
+      "en": "Email",
+      "tr": "E-posta"
+    },
+    "about_card_title": {
+      "en": "About Me",
+      "tr": "Hakkımda Kısa"
+    },
     "about_card_lines": {
-      "en": "Backend + frontend bridge: API design, data modeling, interactive UI.\nDocumentation-minded and observability-driven workflow.\nFocus: TypeScript/React, Node.js, system design, performance, DX.",
-      "tr": "Backend + frontend köprüsü: API tasarımı, veri modelleme, etkileşimli UI.\nDokümantasyon ve gözlemlenebilirlik odaklı çalışma.\nOdak: TypeScript/React, Node.js, sistem tasarımı, performans, DX."
+      "en": "I worked on 2 game projects released on Steam.\nI also have 1 published Unreal Engine plugin.\nMy main focus has been gameplay mechanics programming, and I also have experience in UI programming and behavior trees.",
+      "tr": "Steam'de yayınlanmış olan 2  oyun projesinde çalıştım.\nUnreal'da ürettiğim ve yayınlanmış 1 pluginim mevcut.\nGenelde oyun içi mekanikleri kodlamayla ilgilendim ayrıca UI programlama, behaviour-tree deneyimim de var."
     },
-    "cv_modal_kicker": { "en": "CV Preview", "tr": "CV Önizleme" },
-    "cv_modal_title": { "en": "View and download the PDF", "tr": "PDF'i buradan inceleyebilir ve indirebilirsin" },
-    "cv_modal_download": { "en": "Download PDF", "tr": "PDF'i indir" },
-    "cv_modal_or": { "en": "or", "tr": "veya" },
-    "cv_modal_open_new_tab": { "en": "Open in new tab", "tr": "Yeni sekmede aç" },
-    "cv_modal_loading": { "en": "Loading PDF…", "tr": "PDF yükleniyor…" },
-    "cv_modal_pdf_fallback": { "en": "Your browser cannot preview PDFs.", "tr": "Tarayıcın PDF önizlemeyi desteklemiyor." },
+    "cv_modal_kicker": {
+      "en": "CV Preview",
+      "tr": "CV Önizleme"
+    },
+    "cv_modal_title": {
+      "en": "You can preview and download the PDF here",
+      "tr": "PDF'i buradan inceleyebilir ve indirebilirsin"
+    },
+    "cv_modal_download": {
+      "en": "Download PDF",
+      "tr": "PDF'i indir"
+    },
+    "cv_modal_or": {
+      "en": "or",
+      "tr": "veya"
+    },
+    "cv_modal_open_new_tab": {
+      "en": "Open in New Tab",
+      "tr": "Yeni sekmede aç"
+    },
+    "cv_modal_loading": {
+      "en": "Loading PDF...",
+      "tr": "PDF yükleniyor..."
+    },
+    "cv_modal_pdf_fallback": {
+      "en": "Your browser does not support PDF preview.",
+      "tr": "Tarayıcın PDF önizlemeyi desteklemiyor."
+    },
     "cv_modal_unavailable": {
-      "en": "Preview is unavailable right now, but you can download the PDF above.",
+      "en": "Preview is currently unavailable, but you can still download the PDF above.",
       "tr": "PDF şu anda önizlenemiyor, ancak yukarıdan indirebilirsin."
     }
   },
   "projects_page": {
-    "kicker": { "en": "Case Studies", "tr": "Vaka Çalışmaları" },
-    "title": { "en": "Projects & Technical Notes", "tr": "Projeler ve Teknik Yazılar" },
-    "lead": {
-      "en": "Selected work with code snippets, annotations and architecture notes. Each project has a docs-style detail page.",
-      "tr": "Kod parçacıkları, anotasyonlar ve mimari notlarla zenginleştirilmiş seçili çalışmalar. Her projenin docs-style detay sayfası var."
+    "kicker": {
+      "en": "Showcase",
+      "tr": "Vitrin"
     },
-    "empty_title": { "en": "No projects yet", "tr": "Henüz proje eklenmemiş" },
+    "title": {
+      "en": "Projects and Work",
+      "tr": "Projeler ve Çalışmalar"
+    },
+    "lead": {
+      "en": "Below you can find the work I contributed to in released projects, along with the work I created in my own personal projects. Click on a project to see the details.",
+      "tr": "Aşağıda yayınlanmış projelerdeki yaptığım ve kendi projelerimde yaptığım çalışmalarım bulunuyor. Detaylar için projenin üzerine tıklayın."
+    },
+    "empty_title": {
+      "en": "No projects yet",
+      "tr": "Henüz proje eklenmemiş"
+    },
     "empty_lead": {
       "en": "Data lives under `public/data`. Update `projects.json` or use the admin panel to generate a new file.",
       "tr": "Veriler `public/data` altında. `projects.json` dosyasını güncelle veya admin panelden yeni dosya üret."
     },
-    "view_details": { "en": "View details", "tr": "Detayları gör" }
+    "view_details": {
+      "en": "View Details",
+      "tr": "Detayları gör"
+    }
   },
   "footer": {
-    "text": { "en": "© 2026 — Minimal color, high readability.", "tr": "© 2026 — Az renk, yüksek okunabilirlik." }
+    "text": {
+      "en": "© 2026 Arda Kozan. Game development and technical design.",
+      "tr": "© 2026 Arda Kozan. Oyun geliştirme ve teknik tasarım."
+    }
   }
 }
