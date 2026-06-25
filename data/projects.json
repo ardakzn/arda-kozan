@@ -1,0 +1,406 @@
+[
+  {
+    "id": "proj_1768826938363",
+    "title": {
+      "en": "Forks and Daggers",
+      "tr": "Forks and Daggers"
+    },
+    "slug": "forks-and-daggers",
+    "summary": {
+      "tr": "Steam'de yayınlanmış çok oyunculu bir sosyal çıkarım oyununda core gameplay, lobby ve UI entegrasyon sistemleri üzerinde çalıştım.",
+      "en": "I worked on core gameplay, lobby flow, and UI integration systems for a multiplayer social deduction game released on Steam."
+    },
+    "description": {
+      "tr": "Forks and Daggers, orta çağ temalı, arkadaşlarla oynanabilecek, vampir-köylü oyunu türünde Steam'de yayınlanmış çok oyunculu bir oyundur. Oyundaki köylülerin kral için tamamlaması gereken görevler vardır ve bu görevleri sabote etmeye çalışan bir hain bulunur. İki taraf da oyundaki görev, eşya, ability ve sabotaj sistemlerini kullanarak oyunu kazanmaya çalışır.\n\nProjede geliştirme sürecinin başından sonuna kadar aktif rol aldım ve özellikle core gameplay sistemlerinin mimarisi, multiplayer lobby akışı ve UI-gameplay entegrasyonları üzerinde çalıştım.\n\n### Problem\nOyunun vampir-köylü tarzı yapısı, birden fazla sistemin multiplayer ortamda birlikte güvenilir şekilde çalışmasını gerektiriyordu. Görevlerin atanması ve tamamlanması, eşya craftlama, ability kullanımı, sabotaj durumları, lobby/session akışı ve UI güncellemeleri birbirine bağlıydı. Bu sistemlerin hem oyuncu deneyimini açık tutması hem de network/multiplayer akışı içinde tutarlı çalışması gerekiyordu.\n\n### Çözümüm\nUnreal Engine üzerinde görev sistemi, crafting akışı ve bazı oyuncu abilityleri için core gameplay sistemleri geliştirdim. Bazı ability davranışlarını Gameplay Ability System ile kurdum. Multiplayer tarafında Advanced Sessions kullanarak private/password lobby oluşturma, session listeleme, lobby'ye katılma ve oyuncu kick/ban gibi lobby yönetim özelliklerini geliştirdim. Ayrıca UI tasarımlarını gameplay state ile bağlayarak görev durumları, oyun içi değişkenler ve ability/sabotaj geri bildirimlerinin ekranda doğru şekilde güncellenmesini sağladım.\n\n### Teknik Detaylar\n- Unreal Engine\n- C++ / Blueprint\n- Multiplayer session flow\n- Advanced Sessions\n- Gameplay Ability System\n- Quest system\n- Crafting system\n- UI and gameplay state binding\n- Plugin integration and customization\n\nForks and Daggers Steam'de yayınlandı. Bu proje, Unreal Engine üzerinde multiplayer gameplay mimarisi, lobby akışı ve UI-state entegrasyonu geliştirme deneyimimi gösteren en kapsamlı üretim işlerimden biri oldu.\n\n@media(start=paused)\n![Oyuncunun girebileceği sessionlar listeleniyor ve lobiye giriş yapıyor.](/assets/video/fd/join_session.mp4)\n![Oyuncu görev için gerekli eşya craftlıyor](/assets/video/fd/crafting.mp4)\n![Oyuncuya tanımlanmış görev tamamlanıyor ve Quest state değişiyor. Bunu dinleyerek UI güncelleniyor](/assets/video/fd/quest.mp4)\n![Oyundaki yangın sabotajı yapılıyor ve ardından söndürme abilityi kullanılıyor](/assets/video/fd/ability.mp4)",
+      "en": "Forks and Daggers is a medieval-themed multiplayer social deduction game released on Steam. Players take part in a structure where villagers try to complete objectives for the king while a traitor attempts to sabotage them. Both sides use quest, item, ability, and sabotage systems to win the match.\n\nI was actively involved throughout the development process, mainly working on core gameplay architecture, multiplayer lobby flow, and UI-gameplay integration.\n\n### Problem\nThe social deduction structure required multiple gameplay systems to work together reliably in a multiplayer environment. Quest assignment and completion, item crafting, ability usage, sabotage states, lobby/session flow, and UI updates were connected to each other. These systems needed to keep the player experience clear while remaining consistent within the networked multiplayer flow.\n\n### My Solution\nI developed core gameplay systems in Unreal Engine for the quest system, crafting flow, and several player abilities. I used the Gameplay Ability System for some ability behaviors. On the multiplayer side, I built private/password lobby creation, session listing, lobby joining, and player kick/ban features using Advanced Sessions. I also connected UI screens with gameplay state so quest states, in-game variables, and ability/sabotage feedback could update correctly on screen.\n\n### Technical Highlights\n- Unreal Engine\n- C++ / Blueprint\n- Multiplayer session flow\n- Advanced Sessions\n- Gameplay Ability System\n- Quest system\n- Crafting system\n- UI and gameplay state binding\n- Plugin integration and customization\n\nForks and Daggers was released on Steam. This project became one of my most complete production examples for multiplayer gameplay architecture, lobby flow, and UI-state integration in Unreal Engine.\n\n@media(start=paused)\n![Available sessions are listed and the player joins a lobby.](/assets/video/fd/join_session.mp4)\n![The player crafts the required item for a quest.](/assets/video/fd/crafting.mp4)\n![An assigned quest is completed and the quest state changes. The UI updates by listening to that state.](/assets/video/fd/quest.mp4)\n![A fire sabotage is triggered in the game and then an extinguishing ability is used.](/assets/video/fd/ability.mp4)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "en": "Steam Page",
+          "tr": "Steam Sayfası"
+        },
+        "url": "https://store.steampowered.com/app/3513030/Forks_and_Daggers/"
+      }
+    ],
+    "period_start": {
+      "tr": "Şubat 2025",
+      "en": "Feb 2025"
+    },
+    "period_end": {
+      "en": "Dec 2025",
+      "tr": "Aralık 2025"
+    },
+    "tech_stack": [
+      "Steam",
+      "Multiplayer",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
+    "featured": true,
+    "order_index": 0,
+    "created_at": "2026-01-19T12:48:58.363Z",
+    "updated_at": "2026-03-07T12:03:11.750Z",
+    "thumbnail_video_url": "/assets/video/thumb.mp4"
+  },
+  {
+    "id": "proj_1771248857364",
+    "title": {
+      "tr": "Altarium",
+      "en": "Altarium"
+    },
+    "slug": "altarium",
+    "summary": {
+      "tr": "Steam'de yayınlanmış çok oyunculu bir korku oyununda gameplay ve AI sistemleri üzerinde çalıştım.",
+      "en": "I worked on gameplay and AI systems for a multiplayer horror game released on Steam."
+    },
+    "description": {
+      "tr": "Altarium, vahşi batı temalı, Steam'de yayınlanmış çok oyunculu bir korku oyunudur. Oyuncular, avcı/kötü karakter rolleri ile onlardan kaçmaya çalışan kurban rolleri arasında seçim yapabilir. Oyun rekabetçi bir yapıya sahip olmakla birlikte AI kontrollü karakterlerle co-op olarak da oynanabilir.\n\nProjede yaklaşık 1 yıl yer aldım ve özellikle gameplay mekanikleri ile düşman AI davranışları üzerinde çalıştım.\n\n### Problem\nOyunun hem rekabetçi hem de co-op oynanabilmesi için düşman karakterlerin oyuncuyu algılayabilen, takip edebilen, tekrar konumlanabilen ve farklı gameplay durumlarına tepki verebilen bir davranış yapısına ihtiyacı vardı. Aynı zamanda bazı karakter yeteneklerinin mevcut gameplay akışına güvenilir ve anlaşılır şekilde entegre edilmesi gerekiyordu.\n\n### Çözümüm\nUnreal Engine üzerinde karakter yetenekleri ve düşman AI davranışları için gameplay sistemleri geliştirdim. AI tarafında algılama, takip, yeniden konumlanma ve navigasyon davranışlarını Behavior Tree, EQS, AI Perception ve Nav Filter gibi sistemlerle yönettim. Gameplay tarafında ise karakterlerin bazı oyun içi yeteneklerini uygulayarak bu sistemlerin mevcut oyun akışıyla çalışmasını sağladım.\n\n### Teknik Detaylar\n- Unreal Engine\n- Blueprint / gameplay scripting\n- Enemy AI behavior\n- Behavior Tree\n- EQS\n- AI Perception\n- Nav Filter\n- Character abilities\n\nAltarium Steam'de yayınlandı. Bu proje, Unreal Engine üzerinde AI davranışları ve gameplay sistemleri geliştirme deneyimimi gösteren önemli üretim projelerimden biri oldu.\n\n@media(start=paused)\n![Player'ı perception ile fark eden AI karakter onu kovalamaya başlıyor.](/assets/video/alt/alt-commonai.mp4)\n![AI karakter, player'a yaklaştıktan sonra, EQS sistemi yardımıyla etrafında tekrar konumlanıyor.](/assets/video/alt/alt-eqs.mp4)\n![Player, düşman AI'dan gizlenmek için ability kullanıyor.](/assets/video/alt/alt-ability.mp4)",
+      "en": "Altarium is a Wild West-themed multiplayer horror game released on Steam. Players can choose between hunter / hostile character roles and victim roles trying to escape from them. The game has a competitive structure, but it can also be played cooperatively with AI-controlled characters.\n\nI worked on the project for about a year, mainly focusing on gameplay mechanics and enemy AI behavior.\n\n### Problem\nThe game needed enemy characters that could detect players, chase them, reposition around them, and react to different gameplay situations in both competitive and co-op scenarios. Some character abilities also needed to be integrated into the existing gameplay flow in a clear and reliable way.\n\n### My Solution\nI developed gameplay systems for character abilities and enemy AI behavior in Unreal Engine. On the AI side, I managed perception, chasing, repositioning, and navigation behavior using systems such as Behavior Tree, EQS, AI Perception, and Nav Filters. On the gameplay side, I implemented several character abilities and connected them with the existing game flow.\n\n### Technical Highlights\n- Unreal Engine\n- Blueprint / gameplay scripting\n- Enemy AI behavior\n- Behavior Tree\n- EQS\n- AI Perception\n- Nav Filter\n- Character abilities\n\nAltarium was released on Steam. This project became one of my production examples for AI behavior and gameplay systems development in Unreal Engine.\n\n@media(start=paused)\n![An AI character detects the player through perception and starts chasing them.](/assets/video/alt/alt-commonai.mp4)\n![After getting close to the player, the AI character repositions itself using the EQS system.](/assets/video/alt/alt-eqs.mp4)\n![The player uses an ability to hide from the enemy AI.](/assets/video/alt/alt-ability.mp4)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "tr": "Steam Page",
+          "en": "Steam Page"
+        },
+        "url": "https://store.steampowered.com/app/2524700/Altarium/"
+      }
+    ],
+    "period_start": {
+      "tr": "Ekim 2023",
+      "en": "Oct 2023"
+    },
+    "period_end": {
+      "tr": "Eylül 2024",
+      "en": "Sep 2024"
+    },
+    "tech_stack": [
+      "Steam",
+      "Multiplayer",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
+    "featured": true,
+    "order_index": 1,
+    "created_at": "2026-02-16T13:34:17.364Z",
+    "updated_at": "2026-02-28T13:31:20.189Z",
+    "thumbnail_video_url": "/assets/video/alt/alt-ability.mp4"
+  },
+  {
+    "id": "proj_1772294528543",
+    "title": {
+      "tr": "Flexible Recoil System - Unreal Engine Plugin",
+      "en": "Flexible Recoil System - Unreal Engine Plugin"
+    },
+    "slug": "flexible-recoil-system",
+    "summary": {
+      "tr": "Unreal Engine için geliştirdiğim, Fab/Marketplace üzerinde yayınlanmış multiplayer-ready geri tepme sistemi plugini.",
+      "en": "A multiplayer-ready recoil system plugin I developed for Unreal Engine and released on Fab / Unreal Engine Marketplace."
+    },
+    "description": {
+      "tr": "Flexible Recoil System, shooter projelerinde kullanılabilecek geri tepme davranışlarını Unreal Engine projelerine daha esnek ve kolay şekilde eklemek için geliştirdiğim bir engine pluginidir. Plugin, farklı silahlar ve oynanış ihtiyaçları için ayarlanabilir recoil davranışı, recoil pattern düzenleme ve multiplayer-ready kullanım hedefiyle tasarlandı.\n\n### Problem\nUnreal Engine pluginini geliştirirken çözmek istediğim ana problem, recoil davranışını tek bir projeye veya tek bir silah yapısına bağlı kalmadan ayarlanabilir ve yeniden kullanılabilir hale getirmekti. Recoil hızı, yayılım, pattern ve random recoil ayarlarını düzenlenebilir bir yapı altında toplarken sistemi multiplayer kullanıma da uygun tasarlamayı hedefledim.\n\n### Çözümüm\nUnreal Engine için Blueprint ağırlıklı, bazı kısımlarında C++ kullanan yeniden kullanılabilir bir recoil sistemi geliştirdim. Recoil ayarlarının düzenlenebilmesi ve silahın hangi pattern ile tepki vereceğinin nokta tabanlı olarak çizilebilmesi için editor-facing bir araç hazırladım. Sistemi multiplayer kullanıma uygun hale getirmek için network replication akışlarıyla çalıştım. Yayın süreci için demo, video ve dokümantasyon materyallerini de hazırladım.\n\n### Teknik Detaylar\n- Unreal Engine plugin development\n- Blueprint / C++\n- Editor scripting\n- Runtime gameplay system\n- Recoil pattern editor\n- Multiplayer-ready design\n- Network replication\n- Documentation and marketplace publishing\n\nPlugin Fab / Unreal Engine Marketplace üzerinde yayınlandı. Bu proje, Unreal Engine içinde reusable gameplay/tooling sistemi tasarlama, paketleme ve yayınlama deneyimimi gösteren önemli çalışmalarımdan biri oldu.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)",
+      "en": "Flexible Recoil System is an Unreal Engine plugin I developed to add configurable recoil behavior to shooter projects in a flexible and reusable way. The plugin was designed around adjustable recoil behavior, recoil pattern editing, and multiplayer-ready usage for different weapon and gameplay needs.\n\n### Problem\nWhile developing the Unreal Engine plugin, the main problem I wanted to solve was making recoil behavior configurable and reusable without tying it to a single project or weapon setup. I aimed to keep recoil speed, spread, patterns, and random recoil settings editable while also designing the system for multiplayer-ready usage.\n\n### My Solution\nI developed a reusable recoil system for Unreal Engine, mostly with Blueprint and partially with C++. I built an editor-facing workflow where recoil settings can be configured and weapon recoil patterns can be drawn with a point-based editor. I also worked with network replication to make the system multiplayer-ready. For release, I prepared the demo, showcase video, and documentation materials required for publishing.\n\n### Technical Highlights\n- Unreal Engine plugin development\n- Blueprint / C++\n- Editor scripting\n- Runtime gameplay system\n- Recoil pattern editor\n- Multiplayer-ready design\n- Network replication\n- Documentation and marketplace publishing\n\nThe plugin was released on Fab / Unreal Engine Marketplace. This project became one of my key examples of designing, packaging, and publishing reusable gameplay/tooling systems inside Unreal Engine.\n\n![](/assets/image/frs/4.png)\n![](/assets/image/frs/1.png)\n![](/assets/image/frs/2.png)\n![](/assets/image/frs/3.png)\n![](/assets/image/frs/5.png)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "tr": "Plugin Link",
+          "en": "Plugin Link"
+        },
+        "url": "https://www.fab.com/listings/85a18b78-443c-4288-a387-0d77af42e2a3"
+      },
+      {
+        "label": {
+          "tr": "Showcase",
+          "en": "Showcase"
+        },
+        "url": "https://www.youtube.com/watch?v=kftHOeTRPPM"
+      }
+    ],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Plugin",
+      "Unreal Engine",
+      "Multiplayer",
+      "Tool"
+    ],
+    "featured": true,
+    "order_index": 2,
+    "created_at": "2026-02-28T16:02:08.543Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "/assets/image/frs/1.png"
+  },
+  {
+    "id": "proj_1782393600000",
+    "title": {
+      "tr": "Flexible Recoil System - Unity Asset Store Package",
+      "en": "Flexible Recoil System - Unity Asset Store Package"
+    },
+    "slug": "flexible-recoil-system-unity",
+    "summary": {
+      "tr": "Unity için geliştirdiğim ve Unity Asset Store üzerinde yayınladığım ayarlanabilir recoil sistemi paketi.",
+      "en": "A configurable recoil system package I developed for Unity and released on the Unity Asset Store."
+    },
+    "description": {
+      "tr": "Flexible Recoil System - Unity Asset Store Package, Unreal Engine için geliştirdiğim recoil workflow fikrini Unity/C# projelerine taşımak için hazırladığım bir tool paketidir. Paket, shooter projelerinde kullanılabilecek ayarlanabilir recoil davranışlarını daha hızlı entegre edilebilir ve tekrar kullanılabilir hale getirmek için geliştirildi.\n\n### Problem\nUnity versiyonunu geliştirirken çözmek istediğim ana problem, recoil davranışını tek bir projeye özel kalmayacak şekilde ayarlanabilir ve yeniden kullanılabilir bir yapıya taşımaktı. Özellikle recoil pattern ve random recoil ayarlarını kodu sürekli değiştirmeden editor üzerinden düzenlenebilir hale getirmeyi hedefledim.\n\n### Çözümüm\nUnity ve C# kullanarak ayarlanabilir runtime recoil davranışına sahip yeniden kullanılabilir bir paket geliştirdim. Paketin odağını, recoil pattern oluşturma ve random recoil değerlerini editor üzerinden düzenleme workflowu üzerine kurdum. Paketi Unity Asset Store yayın sürecine uygun şekilde hazırladım ve showcase videosuyla kullanımını gösterdim.\n\n### Teknik Detaylar\n- Unity\n- C#\n- Runtime gameplay system\n- Configurable recoil behavior\n- Recoil pattern editing\n- Random recoil tuning\n- Reusable tool package\n- Unity Asset Store publishing\n- Built-in / URP / HDRP compatibility\n\nPaket Unity Asset Store üzerinde yayınlandı. Bu çalışma, aynı gameplay/tooling fikrini Unreal Engine dışına taşıyarak Unity tarafında da paketlenebilir, yayınlanabilir sistem geliştirme deneyimimi gösteriyor.\n\n@youtube(https://www.youtube.com/watch?v=QZkcf-p7Xto)",
+      "en": "Flexible Recoil System - Unity Asset Store Package is a tool package I built to bring the recoil workflow idea from my Unreal Engine plugin into Unity/C# projects. The package was developed to make configurable recoil behavior easier to integrate and reuse in shooter projects.\n\n### Problem\nWhile developing the Unity version, the main problem I wanted to solve was carrying recoil behavior into a configurable and reusable structure instead of keeping it tied to a single project. My main focus was making recoil patterns and random recoil settings editable from the editor without repeatedly changing the core code.\n\n### My Solution\nI developed a reusable Unity/C# package with configurable runtime recoil behavior. I focused the package around an editor workflow for creating recoil patterns and tuning random recoil values. I prepared the package for the Unity Asset Store release process and created a showcase video to demonstrate its usage.\n\n### Technical Highlights\n- Unity\n- C#\n- Runtime gameplay system\n- Configurable recoil behavior\n- Recoil pattern editing\n- Random recoil tuning\n- Reusable tool package\n- Unity Asset Store publishing\n- Built-in / URP / HDRP compatibility\n\nThe package was released on the Unity Asset Store. This project shows that I can carry the same gameplay/tooling idea beyond Unreal Engine and build publishable systems for Unity as well.\n\n@youtube(https://www.youtube.com/watch?v=QZkcf-p7Xto)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "tr": "Unity Asset Store",
+          "en": "Unity Asset Store"
+        },
+        "url": "https://assetstore.unity.com/packages/tools/utilities/flexible-recoil-system-369650"
+      }
+    ],
+    "period_start": {
+      "tr": "Haziran 2026",
+      "en": "Jun 2026"
+    },
+    "period_end": "",
+    "tech_stack": [
+      "Unity",
+      "C#",
+      "Plugin",
+      "Tool",
+      "Asset Store"
+    ],
+    "featured": true,
+    "order_index": 3,
+    "created_at": "2026-06-25T00:00:00.000Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "https://img.youtube.com/vi/QZkcf-p7Xto/maxresdefault.jpg",
+    "thumbnail_video_url": "/assets/video/frs-unity-plugin-thumbvideo.mp4"
+  },
+  {
+    "id": "proj_1772877185884",
+    "title": {
+      "tr": "Graduation Project",
+      "en": "Graduation Project"
+    },
+    "slug": "graduation-project",
+    "summary": {
+      "tr": "Teknofest 2022 finalisti olan VR destekli çok oyunculu sosyal etkileşim prototipinde networking, VR animasyon ve UI sistemleri üzerinde çalıştım.",
+      "en": "I worked on networking, VR animation, and UI systems for a Teknofest 2022 finalist multiplayer VR social interaction prototype."
+    },
+    "description": {
+      "tr": "Bu proje, üniversite bitirme projem olarak geliştirdiğimiz ve Teknofest 2022'de finalist olan Unreal Engine 4 tabanlı çok oyunculu bir VR prototipidir. Oyuncuların sanal bir ortamda avatarlarıyla bir araya gelmesini, mini oyunlar ve ortak etkileşim alanları üzerinden sosyalleşmesini hedefliyordu.\n\nProjede özellikle VR karakter animasyonları, multiplayer replication akışı ve bazı UI elementleri üzerinde çalıştım.\n\n### Problem\nVR destekli çok oyunculu bir sosyal ortamda oyuncu hareketlerinin, avatar animasyonlarının ve etkileşimlerin diğer oyunculara tutarlı şekilde aktarılması gerekiyordu. Aynı zamanda prototipin Teknofest sunumuna uygun, anlaşılır ve deneyimlenebilir bir yapı sunması önemliydi.\n\n### Çözümüm\nUnreal Engine 4 üzerinde VR karakterleri için animasyon geçişleri ve animation blueprint akışları oluşturdum. Multiplayer sistem tarafında replication davranışları üzerinde çalışarak oyuncu hareketleri ve etkileşimlerin ağ üzerinden doğru aktarılmasına katkı sağladım. Ayrıca bazı kullanıcı arayüzü elementlerini tasarlayıp prototip akışına entegre ettim.\n\n### Teknik Detaylar\n- Unreal Engine 4\n- VR interaction\n- Multiplayer replication\n- Animation Blueprint\n- Character animation flow\n- UI design\n- Prototype development\n\nProje Teknofest 2022'de finalist oldu. Bu çalışma, VR, multiplayer ve gerçek zamanlı sosyal etkileşim prototipi geliştirme deneyimimi gösteren erken dönem önemli projelerimden biridir.\n\n![Alandaki iki oyuncu birbirini selamlıyor](/assets/image/gp/1.jpg)\n![Oyuncular poligonda birlikte yarışıyor](/assets/image/gp/2.jpg)\n![Oyuncular ortak alanda vakit geçiriyor](/assets/image/gp/4.jpg)\n![Oyuncular birlikte maç yapıyor](/assets/image/gp/5.jpg)\n![Oyuncu sosyal avatarını seçiyor](/assets/image/gp/6.jpg)\n![Anamenü görünümü](/assets/image/gp/7.jpg)",
+      "en": "This project was my university graduation project and a Teknofest 2022 finalist multiplayer VR prototype built with Unreal Engine 4. It focused on letting players meet in a shared virtual environment, use social avatars, and interact through mini games and shared activity areas.\n\nI mainly worked on VR character animation, multiplayer replication flow, and several UI elements.\n\n### Problem\nIn a multiplayer VR social environment, player movement, avatar animation, and interactions needed to be represented consistently for other players. The prototype also needed to be clear and presentable for the Teknofest evaluation process.\n\n### My Solution\nI built VR character animation transitions and animation blueprint flows in Unreal Engine 4. On the multiplayer side, I worked on replication behavior so player movement and interactions could be synchronized across the network. I also designed and integrated several UI elements into the prototype flow.\n\n### Technical Highlights\n- Unreal Engine 4\n- VR interaction\n- Multiplayer replication\n- Animation Blueprint\n- Character animation flow\n- UI design\n- Prototype development\n\nThe project became a Teknofest 2022 finalist. It is one of my early examples of building VR, multiplayer, and real-time social interaction prototypes.\n\n![Two players greet each other in the shared area](/assets/image/gp/1.jpg)\n![Players compete together in the shooting range](/assets/image/gp/2.jpg)\n![Players spend time in the common area](/assets/image/gp/4.jpg)\n![Players play a match together](/assets/image/gp/5.jpg)\n![The player selects a social avatar](/assets/image/gp/6.jpg)\n![Main menu view](/assets/image/gp/7.jpg)"
+    },
+    "content_blocks": [],
+    "links": [],
+    "period_start": {
+      "tr": "Mart 2022",
+      "en": "Mar 2022"
+    },
+    "period_end": {
+      "tr": "Ocak 2023",
+      "en": "Jan 2023"
+    },
+    "tech_stack": [
+      "VR",
+      "Unreal Engine",
+      "Multiplayer",
+      "C++",
+      "Blueprint"
+    ],
+    "featured": false,
+    "order_index": 4,
+    "created_at": "2026-03-07T09:53:05.884Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "/assets/image/gp/thumbnail.jpg"
+  },
+  {
+    "id": "proj_1772878480354",
+    "title": {
+      "en": "BOTC - Freelance Project",
+      "tr": "BOTC - Freelance Project"
+    },
+    "slug": "botc-freelance-project",
+    "summary": {
+      "tr": "Fiverr üzerinden gelen freelance istek için Unreal Engine 4 ile geliştirilen üçüncü şahıs gizlilik prototipinde gameplay, combat ve cinematic sistemleri üzerinde çalıştım.",
+      "en": "I worked on gameplay, combat, and cinematic systems for a third-person stealth prototype developed in Unreal Engine 4 as a freelance project."
+    },
+    "description": {
+      "tr": "BOTC, Fiverr üzerinden gelen bir istek için Unreal Engine 4 ile geliştirdiğim hikaye tabanlı, üçüncü şahıs gizlilik prototipidir. Proje; hareket, gizlilik, dövüş, görev takibi ve sinematik anlatım gibi temel üçüncü şahıs oyun sistemlerini bir araya getirmeyi hedefliyordu.\n\nBu projede freelance geliştirici olarak prototipin oynanabilirlik tarafında aktif rol aldım.\n\n### Problem\nKısa sürede teslim edilebilir bir demo içinde oyuncunun hareket edebildiği, gizli kalabildiği, çatışmaya girebildiği ve sinematik sahnelerle yönlendirildiği anlaşılır bir üçüncü şahıs prototip akışı kurulması gerekiyordu.\n\n### Çözümüm\nUnreal Engine 4 üzerinde locomotion, stealth ve combat gibi temel gameplay mekaniklerini geliştirdim. Prototipin anlatımını desteklemek için bazı cinematic sequence'ler hazırladım. Ayrıca harita oluşturma, çevre düzenleme ve oyun içi öğelerin yerleşimi üzerinde çalışarak teslim edilebilir bir demo akışı oluşturdum.\n\n### Teknik Detaylar\n- Unreal Engine 4\n- Third-person gameplay\n- Locomotion system\n- Stealth mechanics\n- Combat mechanics\n- Cinematic sequences\n- Level/environment setup\n- Freelance prototype delivery\n\nProje, freelance iş kapsamında oynanabilir bir demo olarak teslim edildi. Bu çalışma, müşteri isteğine göre hızlı prototipleme ve temel üçüncü şahıs sistemleri geliştirme deneyimimi gösteriyor.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)",
+      "en": "BOTC is a story-based third-person stealth prototype I developed in Unreal Engine 4 for a freelance request from Fiverr. The project aimed to combine core third-person systems such as movement, stealth, combat, objective flow, and cinematic presentation.\n\nI worked as the freelance developer responsible for a large part of the playable prototype experience.\n\n### Problem\nThe project needed a deliverable demo where the player could move, stay hidden, enter combat, and be guided through cinematic moments within a short development scope.\n\n### My Solution\nI developed core gameplay mechanics such as locomotion, stealth, and combat in Unreal Engine 4. I created several cinematic sequences to support the narrative flow of the prototype. I also worked on level construction, environment arrangement, and gameplay object placement to shape the demo into a playable delivery.\n\n### Technical Highlights\n- Unreal Engine 4\n- Third-person gameplay\n- Locomotion system\n- Stealth mechanics\n- Combat mechanics\n- Cinematic sequences\n- Level/environment setup\n- Freelance prototype delivery\n\nThe project was delivered as a playable freelance demo. It shows my experience with fast prototyping and core third-person gameplay systems based on client requirements.\n\n![](/assets/image/botc/1.png)\n![](/assets/image/botc/2.png)\n![](/assets/image/botc/3.png)\n![](/assets/image/botc/4.png)\n![](/assets/image/botc/5.png)\n![](/assets/image/botc/6.png)\n![](/assets/image/botc/7.png)\n![](/assets/image/botc/8.png)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "en": "Gameplay Video",
+          "tr": "Gameplay Video"
+        },
+        "url": "https://www.youtube.com/watch?v=PrrdRvqSfHE"
+      }
+    ],
+    "period_start": {
+      "tr": "Ocak 2022",
+      "en": "Jan 2022"
+    },
+    "period_end": {
+      "tr": "Nisan 2022",
+      "en": "Apr 2022"
+    },
+    "tech_stack": [
+      "Prototype",
+      "Unreal Engine",
+      "C++",
+      "Blueprint"
+    ],
+    "featured": false,
+    "order_index": 5,
+    "created_at": "2026-03-07T10:14:40.354Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "/assets/image/botc/thumbnail.jpeg"
+  },
+  {
+    "id": "proj_1772883369098",
+    "title": {
+      "en": "Teknofest 2020 Project",
+      "tr": "Teknofest 2020"
+    },
+    "slug": "teknofest-2020-project",
+    "summary": {
+      "tr": "Teknofest 2020 İnsanlık Yararına Teknoloji kategorisinde birinci olan Unity tabanlı multiplayer VR projede C# gameplay ve networking hataları üzerinde çalıştım.",
+      "en": "I worked on C# gameplay and networking fixes for a Unity-based multiplayer VR project that won Teknofest 2020 in the Technology for Humanity category."
+    },
+    "description": {
+      "tr": "Teknofest 2020 projesi, kanser tedavisi gören çocuklar için Unity ile geliştirdiğimiz çok oyunculu bir VR sanal park deneyimiydi. Amaç, çocukların arkadaşlarıyla sanal ortamda bir araya gelip kaykay, salıncak, tahterevalli gibi etkileşimli materyallerle vakit geçirebilmesini sağlamaktı.\n\nProjede Unity tarafında animasyon durumları, temel gameplay mekanikleri, level düzenleme ve multiplayer hata düzeltmeleri üzerinde çalıştım.\n\n### Problem\nProjenin hem VR ortamında rahat deneyimlenebilir olması hem de multiplayer akışta birden fazla oyuncunun aynı sanal parkta tutarlı şekilde etkileşim kurabilmesi gerekiyordu. Kısa yarışma sürecinde oynanabilir, anlaşılır ve sosyal fayda hedefini gösterebilen bir demo hazırlanması gerekiyordu.\n\n### Çözümüm\nUnity üzerinde animasyon state akışlarını yönettim, harita/level düzenleme çalışmalarına katkı sağladım ve bazı temel gameplay mekaniklerini geliştirdim. Multiplayer tarafta karşılaşılan bazı networking hatalarının çözümünde çalışarak deneyimin daha stabil hale gelmesine yardımcı oldum.\n\n### Teknik Detaylar\n- Unity\n- C#\n- VR prototype\n- Multiplayer\n- Networking bug fixing\n- Animation states\n- Level design\n- Gameplay mechanics\n\nProje Teknofest 2020 İnsanlık Yararına Teknoloji kategorisinde birinci oldu. Bu çalışma, Unity/C# ve multiplayer VR tarafındaki erken ama önemli deneyimlerimden biridir.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)",
+      "en": "This Teknofest 2020 project was a multiplayer VR virtual park experience built with Unity for children undergoing cancer treatment. The goal was to let children meet friends in a shared virtual environment and spend time with interactive objects such as skateboards, swings, and see-saws.\n\nI worked on animation states, basic gameplay mechanics, level arrangement, and multiplayer bug fixes on the Unity side.\n\n### Problem\nThe project needed to be comfortable to experience in VR while also keeping multiple players synchronized in the same virtual park. Within a competition timeline, the team needed a playable demo that clearly communicated the social benefit of the idea.\n\n### My Solution\nI managed animation state flows in Unity, contributed to level arrangement, and developed several basic gameplay mechanics. I also worked on fixing networking issues in the multiplayer flow to help make the experience more stable.\n\n### Technical Highlights\n- Unity\n- C#\n- VR prototype\n- Multiplayer\n- Networking bug fixing\n- Animation states\n- Level design\n- Gameplay mechanics\n\nThe project won Teknofest 2020 in the Technology for Humanity category. It is one of my early but important examples of Unity/C# and multiplayer VR development experience.\n\n![](/assets/image/tekno20/1.jpg)\n![](/assets/image/tekno20/2.jpg)\n![](/assets/image/tekno20/3.jpg)\n![](/assets/image/tekno20/4.jpg)\n![](/assets/image/tekno20/5.jpg)"
+    },
+    "content_blocks": [],
+    "thumbnail_image_url": "/assets/image/tekno20/thumbnail.jpg",
+    "links": [
+      {
+        "label": {
+          "tr": "Featured In",
+          "en": "Featured In"
+        },
+        "url": "https://www.gaziantepgapgazetesi.com/haber-teknofestte-insanlik-yararina-teknoloji-kategorisinde-hku-1-oldu-14891.html"
+      }
+    ],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "VR",
+      "Unity Engine",
+      "Multiplayer",
+      "C#"
+    ],
+    "featured": false,
+    "order_index": 6,
+    "created_at": "2026-03-07T11:36:09.098Z",
+    "updated_at": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "proj_1772880894272",
+    "title": {
+      "en": "Rise of Darkness",
+      "tr": "Rise of Darkness"
+    },
+    "slug": "rise-of-darkness",
+    "summary": {
+      "tr": "HKU Game Jam 2021 kapsamında Unreal Engine 4 ile geliştirdiğimiz üçüncü şahıs korku oyununda gameplay mekanikleri ve level öğeleri üzerinde çalıştım.",
+      "en": "I worked on gameplay mechanics and level elements for a third-person horror game built with Unreal Engine 4 during HKU Game Jam 2021."
+    },
+    "description": {
+      "tr": "Rise of Darkness, HKU Game Jam 2021 kapsamında Unreal Engine 4 ile geliştirdiğimiz üçüncü şahıs korku oyunudur. Game jam teması \"Kaybetmek\" idi; proje de oyuncunun karanlık ve lanetli bir evde akıl sağlığını kaybetmeden ilerlemeye çalışması üzerine kuruldu.\n\nBu projede kısa geliştirme süresi içinde temel oynanış mekanikleri, harita içi öğeler ve asset entegrasyonu üzerinde çalıştım.\n\n### Problem\nGame jam süresi içinde tema ile uyumlu, oynanabilir ve atmosferi anlaşılır bir korku prototipi çıkarmak gerekiyordu. Oyuncunun ışık kaynağı, akıl sağlığı ve keşif davranışı etrafında basit ama okunur bir gameplay loop kurulması gerekiyordu.\n\n### Çözümüm\nUnreal Engine 4 üzerinde temel oynanış mekaniklerinin geliştirilmesine katkı sağladım. Oyuncunun evi keşfetmesi, ışığını yenilemesi ve akıl sağlığı baskısıyla ilerlemesi üzerine kurulu gameplay öğelerini hazırladım. Ayrıca bazı harici assetleri projeye entegre ettim ve haritadaki oyun içi öğelerin düzenlenmesinde çalıştım.\n\n### Teknik Detaylar\n- Unreal Engine 4\n- Blueprint\n- Game jam prototype\n- Third-person horror\n- Gameplay loop\n- Asset integration\n- Level object setup\n\nProje, kısa game jam sürecinde oynanabilir bir korku prototipi olarak tamamlandı. Bu çalışma, Unreal Engine ile hızlı prototipleme ve atmosfer odaklı gameplay üretme deneyimimi gösteriyor.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)",
+      "en": "Rise of Darkness is a third-person horror game we built with Unreal Engine 4 during HKU Game Jam 2021. The game jam theme was \"Losing\", and the project focused on a player trying to explore a dark, cursed house without losing their sanity.\n\nI worked on core gameplay mechanics, in-level gameplay elements, and asset integration within the short jam timeline.\n\n### Problem\nThe team needed to create a playable horror prototype that communicated the theme clearly within the game jam time limit. The game needed a simple but readable gameplay loop around light management, sanity pressure, and exploration.\n\n### My Solution\nI contributed to the development of core gameplay mechanics in Unreal Engine 4. I worked on gameplay elements around exploring the house, refreshing the player's light source, and progressing under sanity pressure. I also integrated external assets and arranged gameplay objects in the level.\n\n### Technical Highlights\n- Unreal Engine 4\n- Blueprint\n- Game jam prototype\n- Third-person horror\n- Gameplay loop\n- Asset integration\n- Level object setup\n\nThe project was completed as a playable horror prototype during the short game jam period. It shows my experience with fast prototyping and atmosphere-driven gameplay in Unreal Engine.\n\n![](/assets/image/rod/1.jpg)\n![](/assets/image/rod/2.jpg)\n![](/assets/image/rod/3.jpg)\n![](/assets/image/rod/4.jpg)\n![](/assets/image/rod/5.jpg)"
+    },
+    "content_blocks": [],
+    "links": [
+      {
+        "label": {
+          "tr": "Gameplay Preview",
+          "en": "Gameplay Preview"
+        },
+        "url": "https://www.youtube.com/watch?v=E97d-tk73d8"
+      }
+    ],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unreal Engine",
+      "Horror",
+      "Blueprint"
+    ],
+    "featured": false,
+    "order_index": 7,
+    "created_at": "2026-03-07T10:54:54.272Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "/assets/image/rod/thumbnail.jpg"
+  },
+  {
+    "id": "proj_1772883081719",
+    "title": {
+      "en": "L.P.F - GGJ 2021 Project",
+      "tr": "L.P.F - GGJ 2021 Project"
+    },
+    "slug": "l-p-f-ggj-2021-project",
+    "summary": {
+      "tr": "Global Game Jam 2021 kapsamında Unity ile geliştirilen üçüncü şahıs parkur oyununda level design ve drone hareket mekaniği üzerinde çalıştım.",
+      "en": "I worked on level design and drone movement mechanics for a third-person parkour game built with Unity during Global Game Jam 2021."
+    },
+    "description": {
+      "tr": "L.P.F, Global Game Jam 2021 kapsamında Unity ile geliştirdiğimiz üçüncü şahıs parkur oyunudur. Tema \"Kaybolmak ve Bulunmak\" idi; oyuncu, kayıp eşyaları bulmaya çalışan bir kayıp eşya bürosu çalışanını kontrol eder.\n\nBu projede Unity tarafında level design ve drone hareketi gibi bazı gameplay mekanikleri üzerinde çalıştım.\n\n### Problem\nGame jam süresi içinde oyuncunun kayıp eşyaları bulmak için çevreyi araştırdığı, ipuçlarını değerlendirdiği ve farklı araçları kullandığı anlaşılır bir parkur/keşif prototipi oluşturmak gerekiyordu.\n\n### Çözümüm\nUnity üzerinde harita tasarımı ve oynanabilir alanın düzenlenmesi çalışmalarına katkı sağladım. Oyuncunun erişemediği alanları keşfedebilmesi için drone hareketi gibi gameplay mekaniklerinin geliştirilmesinde çalıştım.\n\n### Teknik Detaylar\n- Unity\n- C#\n- Game jam prototype\n- Third-person parkour\n- Level design\n- Drone movement mechanic\n- Exploration gameplay\n\nProje, Global Game Jam süresi içinde oynanabilir bir Unity prototipi olarak tamamlandı. Bu çalışma, Unity/C# ile hızlı prototipleme ve basit araç tabanlı gameplay mekanikleri geliştirme deneyimimi gösteriyor.\n\n![](/assets/image/lpf/1.png)\n![](/assets/image/lpf/2.png)\n![](/assets/image/lpf/3.png)\n![](/assets/image/lpf/4.png)\n![](/assets/image/lpf/5.png)",
+      "en": "L.P.F is a third-person parkour game we built with Unity during Global Game Jam 2021. The theme was \"Lost & Found\", and the player controls a lost-and-found office worker searching for missing items.\n\nI worked on level design and several gameplay mechanics such as drone movement on the Unity side.\n\n### Problem\nWithin the game jam timeline, the team needed to build a readable parkour/exploration prototype where the player searches for missing items, follows clues, and uses different tools to reach or inspect areas.\n\n### My Solution\nI contributed to level design and playable area arrangement in Unity. I also worked on gameplay mechanics such as drone movement, allowing the player to explore areas they could not directly reach.\n\n### Technical Highlights\n- Unity\n- C#\n- Game jam prototype\n- Third-person parkour\n- Level design\n- Drone movement mechanic\n- Exploration gameplay\n\nThe project was completed as a playable Unity prototype during Global Game Jam. It shows my experience with fast prototyping and simple tool-based gameplay mechanics in Unity/C#.\n\n![](/assets/image/lpf/1.png)\n![](/assets/image/lpf/2.png)\n![](/assets/image/lpf/3.png)\n![](/assets/image/lpf/4.png)\n![](/assets/image/lpf/5.png)"
+    },
+    "content_blocks": [],
+    "thumbnail_image_url": "/assets/image/lpf/thumbnail.png",
+    "links": [],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unity Engine",
+      "C#"
+    ],
+    "featured": false,
+    "order_index": 8,
+    "created_at": "2026-03-07T11:31:21.719Z",
+    "updated_at": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "proj_1772883759369",
+    "title": {
+      "en": "Hay Aksi!",
+      "tr": "Hay Aksi!"
+    },
+    "slug": "hay-aksi",
+    "summary": {
+      "tr": "Global Game Jam 2020 kapsamında Unity ile geliştirilen ilk oyun projemde level design ve hata düzeltme süreçlerine katkı sağladım.",
+      "en": "I contributed to level design and bug fixing in my first Unity game project, built during Global Game Jam 2020."
+    },
+    "description": {
+      "tr": "Hay Aksi!, Global Game Jam 2020 kapsamında Unity ile geliştirdiğimiz üçüncü şahıs bulmaca oyunudur. Tema \"Tamir etmek\" idi; oyuncu, yolculuk sırasında aracı bozulan ve aracını tamir etmek için gerekli parçaları bulmaya çalışan bir karakteri kontrol eder.\n\nBu proje benim ilk oyun geliştirme deneyimlerimden biriydi. Unity tarafında level design ve hata düzeltme süreçlerine destek verdim.\n\n### Problem\nKısa game jam süresi içinde tema ile uyumlu, oyuncunun eşya topladığı ve küçük bir bulmaca çözerek aracı tamir etmeye çalıştığı basit bir oynanış akışı oluşturmak gerekiyordu.\n\n### Çözümüm\nUnity üzerinde harita/level tasarımı yaptım ve oynanabilir alanın düzenlenmesine katkı sağladım. Ayrıca geliştirme sürecinde karşılaşılan bazı hataların çözülmesine yardımcı oldum.\n\n### Teknik Detaylar\n- Unity\n- C#\n- Game jam prototype\n- Level design\n- Puzzle flow\n- Bug fixing\n- First game development experience\n\nProje, Global Game Jam süresi içinde tamamlanan ilk oyun geliştirme deneyimlerimden biri oldu. Portfolyoda bunu daha çok Unity ile erken dönem pratik deneyimimi göstermek için konumlandırıyorum.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)",
+      "en": "Hay Aksi! is a third-person puzzle game we built with Unity during Global Game Jam 2020. The theme was \"Repair\", and the player controls a character whose car breaks down during a trip and needs to collect parts to repair it.\n\nThis was one of my first game development experiences. I supported level design and bug fixing on the Unity side.\n\n### Problem\nWithin the short game jam period, the team needed to build a simple gameplay flow that matched the theme: collecting repair items and solving a small puzzle to fix the vehicle.\n\n### My Solution\nI worked on map/level design in Unity and contributed to arranging the playable space. I also helped fix several issues that came up during development.\n\n### Technical Highlights\n- Unity\n- C#\n- Game jam prototype\n- Level design\n- Puzzle flow\n- Bug fixing\n- First game development experience\n\nThe project became one of my first completed game development experiences during Global Game Jam. In the portfolio, it mainly shows my early hands-on experience with Unity.\n\n![](/assets/image/hayaksi/1.png)\n![](/assets/image/hayaksi/2.png)\n![](/assets/image/hayaksi/3.png)\n![](/assets/image/hayaksi/4.png)\n![](/assets/image/hayaksi/5.png)"
+    },
+    "content_blocks": [],
+    "links": [],
+    "period_start": "",
+    "period_end": "",
+    "tech_stack": [
+      "Gamejam",
+      "Unity Engine",
+      "C#",
+      "First Experience"
+    ],
+    "featured": false,
+    "order_index": 9,
+    "created_at": "2026-03-07T11:42:39.369Z",
+    "updated_at": "2026-06-25T00:00:00.000Z",
+    "thumbnail_image_url": "/assets/image/hayaksi/thumbnail.png"
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "snip_fancy_button",
+    "project_id": "demo",
+    "title": { "en": "FancyButton.tsx", "tr": "FancyButton.tsx" },
+    "description": {
+      "en": "Accessible button component (Tailwind CSS).",
+      "tr": "Erişilebilir bir buton component'i (Tailwind CSS)."
+    },
+    "code": "",
+    "code_path": "/code/FancyButton.tsx",
+    "language": "tsx",
+    "order_index": 0,
+    "created_at": "2026-01-10T00:00:00.000Z",
+    "annotations": [
+      {
+        "id": "anno_fancy_props",
+        "code_snippet_id": "snip_fancy_button",
+        "line_number": 3,
+        "start_col": 0,
+        "end_col": 120,
+        "tooltip_title": { "en": "Props interface", "tr": "Props arayüzü" },
+        "tooltip_content": {
+          "en": "Defines the props shape expected by the component.",
+          "tr": "Bu bölüm, component'in beklediği props'ları tanımlar."
+        },
+        "detail_type": "note",
+        "detail_content": {
+          "en": "A dedicated TypeScript interface clarifies the component API and catches invalid usage at compile time.",
+          "tr": "TypeScript interface kullanmak, component API'sini netleştirir ve yanlış kullanımı derleme zamanında yakalar."
+        },
+        "created_at": "2026-01-10T00:00:00.000Z"
+      },
+      {
+        "id": "anno_fancy_styles",
+        "code_snippet_id": "snip_fancy_button",
+        "line_number": 10,
+        "start_col": 0,
+        "end_col": 200,
+        "tooltip_title": { "en": "Tailwind className", "tr": "Tailwind className" },
+        "tooltip_content": {
+          "en": "Hover, padding and colors are composed via Tailwind utility classes.",
+          "tr": "Hover, padding ve renkler Tailwind sınıflarıyla yönetiliyor."
+        },
+        "detail_type": "style",
+        "detail_content": {
+          "en": "This approach iterates fast for small components. For larger systems, combine it with tokens/variants for consistency.",
+          "tr": "Bu yaklaşım küçük component'lerde hızlı iterasyon sağlar. Büyük sistemlerde token/variant yaklaşımıyla desteklenebilir."
+        },
+        "created_at": "2026-01-10T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "snip_microservice_contract",
+    "project_id": "demo",
+    "title": { "en": "orders.contract.ts", "tr": "orders.contract.ts" },
+    "description": {
+      "en": "Event contract + runtime validation (microservices).",
+      "tr": "Event contract + runtime validation (microservices)."
+    },
+    "code": "export type OrderCreatedV1 = {\\n  type: 'order.created';\\n  version: 1;\\n  id: string;\\n  userId: string;\\n  totalCents: number;\\n  createdAt: string;\\n};\\n\\nexport function isOrderCreatedV1(x: any): x is OrderCreatedV1 {\\n  return (\\n    x &&\\n    x.type === 'order.created' &&\\n    x.version === 1 &&\\n    typeof x.id === 'string' &&\\n    typeof x.userId === 'string' &&\\n    typeof x.totalCents === 'number' &&\\n    typeof x.createdAt === 'string'\\n  );\\n}\\n",
+    "language": "typescript",
+    "order_index": 1,
+    "created_at": "2026-01-10T00:00:00.000Z",
+    "annotations": [
+      {
+        "id": "anno_contract_version",
+        "code_snippet_id": "snip_microservice_contract",
+        "line_number": 1,
+        "start_col": 0,
+        "end_col": 200,
+        "tooltip_title": { "en": "Versioned event", "tr": "Versiyonlu event" },
+        "tooltip_content": {
+          "en": "Versioning contracts is critical for backward compatibility.",
+          "tr": "Contract'ları versiyonlamak backward compatibility için kritik."
+        },
+        "detail_type": "note",
+        "detail_content": {
+          "en": "Versioned events make producer/consumer deploy order less risky, especially in async systems.",
+          "tr": "Event'leri versiyonlamak, producer/consumer deploy sırasını daha az riskli hale getirir (özellikle async sistemlerde)."
+        },
+        "created_at": "2026-01-10T00:00:00.000Z"
+      },
+      {
+        "id": "anno_contract_guard",
+        "code_snippet_id": "snip_microservice_contract",
+        "line_number": 11,
+        "start_col": 0,
+        "end_col": 240,
+        "tooltip_title": { "en": "Runtime validation", "tr": "Runtime validation" },
+        "tooltip_content": {
+          "en": "TypeScript types alone are not enough; add runtime guards.",
+          "tr": "TypeScript tipi tek başına yetmez; runtime guard gerekir."
+        },
+        "detail_type": "note",
+        "detail_content": {
+          "en": "Guards prevent bad payloads from silently flowing through and improve observability.",
+          "tr": "Guard kullanmak hatalı payload'ların sessizce ilerlemesini engeller ve observability'yi artırır."
+        },
+        "created_at": "2026-01-10T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "snip_markdown_embed",
+    "project_id": "demo",
+    "title": { "en": "richtext.embed.ts", "tr": "richtext.embed.ts" },
+    "description": {
+      "en": "Simple embed parser example (concept).",
+      "tr": "Basit bir embed parser örneği (concept)."
+    },
+    "code": "export function parseSnippetEmbed(line: string) {\\n  const match = line.match(/^@snippet\\\\(([^,\\\\)]+)(?:,\\\\s*([^\\\\)]+))?\\\\)$/);\\n  if (!match) return null;\\n  const id = match[1].trim();\\n  const caption = (match[2] || '').trim();\\n  return { id, caption };\\n}\\n",
+    "language": "typescript",
+    "order_index": 2,
+    "created_at": "2026-01-10T00:00:00.000Z",
+    "annotations": [
+      {
+        "id": "anno_embed_regex",
+        "code_snippet_id": "snip_markdown_embed",
+        "line_number": 2,
+        "start_col": 0,
+        "end_col": 260,
+        "tooltip_title": { "en": "Regex match", "tr": "Regex eşleştirme" },
+        "tooltip_content": {
+          "en": "The regex that matches a single `@snippet(...)` line.",
+          "tr": "Embed satırını yakalayan regex."
+        },
+        "detail_type": "note",
+        "detail_content": {
+          "en": "In real apps, prefer a safer parser (quotes/escapes) or a markdown AST integration.",
+          "tr": "Gerçek uygulamada daha sağlam parser (escape/quote destekli) yazmak veya markdown AST üzerinden ilerlemek daha güvenli olur."
+        },
+        "created_at": "2026-01-10T00:00:00.000Z"
+      }
+    ]
+  }
+]

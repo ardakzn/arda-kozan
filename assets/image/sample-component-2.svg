@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="100%" height="100%" fill="#071428"/>
+  <g transform="translate(60,60)" fill="#bfeaf6" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="36" font-size="28" font-weight="700">Component States — Demo</text>
+    <g transform="translate(0,60)">
+      <rect x="0" y="0" width="220" height="120" rx="12" fill="#08202a" stroke="#1b4b57" />
+      <text x="14" y="28" font-size="14">Default</text>
+      <rect x="240" y="0" width="220" height="120" rx="12" fill="#0b3440" stroke="#1b4b57" />
+      <text x="254" y="28" font-size="14">Hover</text>
+      <rect x="480" y="0" width="220" height="120" rx="12" fill="#0d4856" stroke="#1b4b57" />
+      <text x="494" y="28" font-size="14">Active</text>
+    </g>
+    <text x="0" y="220" font-size="13" fill="#9fbecb">Bu görsel, component durumlarını gösteren bir demo ekranıdır. Yer tutucu olarak kullanılabilir.</text>
+  </g>
+</svg>

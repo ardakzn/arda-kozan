@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/arda-kozan/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Arda Kozan - Portfolio</title>
+    <meta name="app-base" content="/arda-kozan/" />
+    <meta property="og:image" content="/arda-kozan/assets/sample-arch.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/arda-kozan/assets/sample-arch.svg" />
+    <script type="module" crossorigin src="/arda-kozan/assets/index-BpoZiyfz.js"></script>
+    <link rel="stylesheet" crossorigin href="/arda-kozan/assets/index-DBwY5Rye.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (!p) return;
+
+        var s = params.get('s') || '';
+        var h = params.get('h') || '';
+
+        var baseMeta = document.querySelector('meta[name="app-base"]');
+        var base = (baseMeta && baseMeta.getAttribute('content')) || '/';
+        if (!base.startsWith('/')) base = '/' + base;
+        if (!base.endsWith('/')) base = base + '/';
+
+        var next = base + p.replace(/^\//, '');
+        if (s) next += '?' + s;
+        if (h) next += '#' + h;
+        window.history.replaceState(null, '', next);
+      })();
+    </script>
+  </body>
+</html>

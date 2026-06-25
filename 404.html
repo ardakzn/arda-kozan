@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <script>
+      (function () {
+        var l = window.location;
+
+        // For GitHub project pages: /repo-adi/<client-route>
+        // Infer base as the first path segment (repo name).
+        var segments = l.pathname.split('/').filter(Boolean);
+        var base = segments.length ? '/' + segments[0] + '/' : '/';
+        var routePath = '/' + segments.slice(1).join('/');
+
+        var target =
+          l.origin +
+          base +
+          '?p=' +
+          encodeURIComponent(routePath) +
+          '&s=' +
+          encodeURIComponent(l.search ? l.search.slice(1) : '') +
+          '&h=' +
+          encodeURIComponent(l.hash ? l.hash.slice(1) : '');
+        l.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

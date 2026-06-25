@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" fill="none">
+  <rect width="100%" height="100%" fill="#071023"/>
+  <g transform="translate(40,40)" fill="#9ed6e8" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="36" font-size="28" font-weight="700">Interactive Component Library — Demo</text>
+    <rect x="0" y="60" width="440" height="220" rx="12" fill="#061621" stroke="#133642" />
+    <text x="16" y="96" font-size="14">Button</text>
+    <rect x="16" y="108" width="120" height="40" rx="8" fill="#134b57" />
+
+    <rect x="480" y="60" width="440" height="220" rx="12" fill="#061621" stroke="#133642" />
+    <text x="496" y="96" font-size="14">Card</text>
+    <rect x="496" y="108" width="360" height="96" rx="8" fill="#08242f" />
+
+    <text x="0" y="320" font-size="13" fill="#9fbecb">Bu görsel, interaktif component'ların bir demo görüntüsüdür. Yer tutucu olarak kullanabilirsiniz.</text>
+  </g>
+</svg>

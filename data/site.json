@@ -1,0 +1,140 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "label": "EN"
+    },
+    {
+      "code": "tr",
+      "label": "TR"
+    }
+  ],
+  "default_language": "en",
+  "navbar": {
+    "brand": {
+      "en": "Arda Kozan",
+      "tr": "Arda Kozan"
+    },
+    "nav_home": {
+      "en": "Home",
+      "tr": "Ana Sayfa"
+    },
+    "nav_projects": {
+      "en": "Projects",
+      "tr": "Projeler"
+    }
+  },
+  "links": {
+    "email": "arda.kzn@gmail.com",
+    "github_url": "https://github.com/ardakzn",
+    "linkedin_url": "https://www.linkedin.com/in/arda-kozan-b638141a6/",
+    "cv_pdf_url": "/assets/CV.pdf",
+    "goatcounter_code": "https://ardakozan.goatcounter.com/count"
+  },
+  "home": {
+    "badge": {
+      "en": "Computer Engineer",
+      "tr": "Bilgisayar Mühendisi"
+    },
+    "headline": {
+      "en": "Arda Kozan",
+      "tr": "Arda Kozan"
+    },
+    "headline_accent": {
+      "en": "minimal",
+      "tr": "az renkli"
+    },
+    "headline_tail": {
+      "en": "portfolio",
+      "tr": "minimal portfolyo"
+    },
+    "lead": {
+      "en": "I am a computer engineer who has been working on game development for 5 years. I have built projects and tools with Unreal Engine and Unity/C#, focusing on gameplay systems, multiplayer flows, AI behavior, VR prototypes, UI integration, and reusable engine tools.",
+      "tr": "5 yıldır game development ile ilgilenen bir bilgisayar mühendisiyim. Unreal Engine ve Unity/C# ile projeler ve araçlar geliştirdim; gameplay sistemleri, multiplayer akışları, AI davranışları, VR prototipleri, UI entegrasyonu ve yeniden kullanılabilir engine araçları üzerine çalışıyorum."
+    },
+    "cta_projects": {
+      "en": "Browse Projects",
+      "tr": "Projeleri incele"
+    },
+    "cta_cv": {
+      "en": "View CV",
+      "tr": "CV'yi incele"
+    },
+    "cta_email": {
+      "en": "Email",
+      "tr": "E-posta"
+    },
+    "about_card_title": {
+      "en": "Quick Summary",
+      "tr": "Kısa Özet"
+    },
+    "about_card_lines": {
+      "en": "I have been working on game development for 5 years across Unreal Engine and Unity/C# projects.\nWorked on 2 Steam-released multiplayer games and published tools for both Unreal Engine and Unity.\nFocused on gameplay architecture, multiplayer, AI behavior, VR, UI-state integration, and reusable engine tooling.",
+      "tr": "5 yıldır Unreal Engine ve Unity/C# projeleri üzerinden game development ile ilgileniyorum.\nSteam'de yayınlanmış 2 multiplayer oyunda çalıştım; Unreal Engine ve Unity için yayınlanmış araçlar geliştirdim.\nOdak alanlarım: gameplay architecture, multiplayer, AI behavior, VR, UI-state integration ve reusable engine tooling."
+    },
+    "cv_modal_kicker": {
+      "en": "CV Preview",
+      "tr": "CV Önizleme"
+    },
+    "cv_modal_title": {
+      "en": "You can preview and download the PDF here",
+      "tr": "PDF'i buradan inceleyebilir ve indirebilirsin"
+    },
+    "cv_modal_download": {
+      "en": "Download PDF",
+      "tr": "PDF'i indir"
+    },
+    "cv_modal_or": {
+      "en": "or",
+      "tr": "veya"
+    },
+    "cv_modal_open_new_tab": {
+      "en": "Open in New Tab",
+      "tr": "Yeni sekmede aç"
+    },
+    "cv_modal_loading": {
+      "en": "Loading PDF...",
+      "tr": "PDF yükleniyor..."
+    },
+    "cv_modal_pdf_fallback": {
+      "en": "Your browser does not support PDF preview.",
+      "tr": "Tarayıcın PDF önizlemeyi desteklemiyor."
+    },
+    "cv_modal_unavailable": {
+      "en": "Preview is currently unavailable, but you can still download the PDF above.",
+      "tr": "PDF şu anda önizlenemiyor, ancak yukarıdan indirebilirsin."
+    }
+  },
+  "projects_page": {
+    "kicker": {
+      "en": "Case Studies",
+      "tr": "Case Studies"
+    },
+    "title": {
+      "en": "Projects and Technical Work",
+      "tr": "Projeler ve Teknik Çalışmalar"
+    },
+    "lead": {
+      "en": "Selected work across Unreal Engine, Unity, multiplayer gameplay, AI behavior, VR prototypes, and reusable engine tools. Each project explains the problem, my solution, and the technical details behind the work.",
+      "tr": "Unreal Engine, Unity, multiplayer gameplay, AI behavior, VR prototipleri ve yeniden kullanılabilir engine araçları üzerine seçilmiş çalışmalar. Her projede problem, çözümüm ve teknik detaylar yer alıyor."
+    },
+    "empty_title": {
+      "en": "No projects yet",
+      "tr": "Henüz proje eklenmemiş"
+    },
+    "empty_lead": {
+      "en": "Data lives under public/data. Update projects.json or use the admin panel to generate a new file.",
+      "tr": "Veriler public/data altında. projects.json dosyasını güncelle veya admin panelden yeni dosya üret."
+    },
+    "view_details": {
+      "en": "View Details",
+      "tr": "Detayları gör"
+    }
+  },
+  "footer": {
+    "text": {
+      "en": "© 2026 Arda Kozan. Gameplay systems, Unity/Unreal tooling, and technical development.",
+      "tr": "© 2026 Arda Kozan. Gameplay sistemleri, Unity/Unreal tooling ve teknik geliştirme."
+    }
+  }
+}
